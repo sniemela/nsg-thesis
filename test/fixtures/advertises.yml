@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  client_id: 1
+  resource_url: MyString
+  price: 9.99
+  start_time: 2011-08-13 16:22:35
+  end_time: 2011-08-13 16:22:35
+
+two:
+  client_id: 1
+  resource_url: MyString
+  price: 9.99
+  start_time: 2011-08-13 16:22:35
+  end_time: 2011-08-13 16:22:35
