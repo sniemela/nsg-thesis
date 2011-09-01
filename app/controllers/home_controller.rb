@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    # Event feed
+    @events = Event.all
   end
 end

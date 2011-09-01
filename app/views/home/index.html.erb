@@ -1,5 +1,11 @@
 <h1>Hello from home#index</h1>
 
 <div id="events">
-  
+  <%- for event in @events -%>
+  <div id="event-<%= event.id %>">
+    <p id="event-name-<%= event.id %>"><%= event.name %></p>
+    <p id="event-description-<%= event.id %>"><%= event.description %></p>
+  </div>
+  <hr />
+  <%- end -%>
 </div>
