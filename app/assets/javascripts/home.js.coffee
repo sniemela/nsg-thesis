@@ -13,7 +13,7 @@ eventFeed.on 'remove', (event) ->
   removeEventFromDom event
 
 addEventToList = (event) ->
-  
+  console.log 'added'
 
 updateEventDom = (event) ->
   
