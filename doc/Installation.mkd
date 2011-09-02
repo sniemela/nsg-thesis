@@ -1,0 +1,116 @@
+# Installation
+
+This is an installation guide for Ubuntu (11.04).
+
+1. Install RVM
+
+See [http://beginrescueend.com/rvm/install/](http://beginrescueend.com/rvm/install/).
+
+If you have it already, then update it:
+
+    rvm get latest
+    rvm reload
+
+2. Install Ruby dependencies
+
+Skip this section if you have installed the dependencies(iconv, zlib, readline, openssl).
+
+    sudo apt-get install libreadline5-dev
+    rvm pkg install readline
+    rvm pkg install zlib
+    rvm pkg install iconv
+    rvm pkg install openssl
+
+3. Install Ruby
+
+We prefer Ruby 1.9.2.
+
+    rvm remove 1.9.2
+    rvm install 1.9.2 --with-readline-dir=$rvm_path/usr
+    rvm use 1.9.2 --default
+
+4. Install SQLite3
+
+    sudo apt-get install sqlite3 libsqlite3-dev
+
+5. Install or update Bundler
+
+Install:
+
+    gem install bundler
+
+Update:
+
+    gem update bundler
+
+6. Install Rails
+
+Skip this section if you want to use the bundled rails (_bundle exec rails s_ instead of _rails s_).
+
+    gem install rails --version=3.1.0 --no-ri --no-rdoc
+
+7. Install Rake
+
+Skip this section if you want to use the bundled rake (_bundle exec rake_ instead of _rake_).
+
+Rails 3.1.0 requires rake 0.9.2:
+
+    gem install rake --version=0.9.2
+
+8. Install Node.js
+
+Install dependecies:
+
+    sudo apt-get install git-core python g++ curl libssl-dev apache2-utils
+
+Install Node:
+
+    cd $HOME
+    git clone git://github.com/joyent/node.git
+    cd node
+    git checkout v0.4.11
+    mkdir ~/local
+    ./configure --prefix=$HOME/local/node
+    make
+    make install
+    echo 'export PATH=$HOME/local/node/bin:$PATH' >> ~/.profile
+    echo 'export NODE_PATH=$HOME/local/node:$HOME/local/node/lib/node_modules' >> ~/.profile
+    source ~/.profile
+
+9. Install NPM and Coffee-Script (Node Package Manager)
+
+    curl http://npmjs.org/install.sh | sh
+    npm install -g coffee-script
+
+10. Install gems
+
+    bundle install
+
+## Setup application
+
+    rake db:migrate
+    rake db:seed
+
+## Starting application
+
+Start rails server in a new tab.
+
+    rails s
+
+Start node.js application in a new tab.
+
+    node lib/nodejs/app.js
+
+Open browser and go to [http://localhost:3000](http://localhost:3000)
+
+## Troubleshoot
+
+### no such file to load -- readline (LoadError)
+
+Try to manually recompile readline and make sure you have libreadline5-dev installed.
+
+    sudo apt-get install libreadline5-dev
+    rvm pkg install readline
+    cd $HOME/.rvm/src/ruby-1.9.2-p290/ext/readline
+    ruby extconf.rb
+    make install
