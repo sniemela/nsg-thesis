@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
+  belongs_to :submitter, :polymorphic => true
+
   after_create :notify_created
   after_update :notify_updated
 
