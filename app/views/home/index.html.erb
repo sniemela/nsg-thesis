@@ -1,11 +1,13 @@
-<h1>Hello from home#index</h1>
+<header>
+  <h1>Latest events</h1>
+</header>
 
-<div id="events">
-  <%- for event in @events -%>
-  <div id="event-<%= event.id %>">
-    <p id="event-name-<%= event.id %>"><%= event.name %></p>
+<%- for event in @events -%>
+<article id="event-<%= event.id %>" class="event">
+  <header>
+    <h1 id="event-name-<%= event.id %>"><%= event.name %></h1>
     <p id="event-description-<%= event.id %>"><%= event.description %></p>
-  </div>
-  <hr />
-  <%- end -%>
-</div>
+  </header>
+</article>
+<hr />
+<%- end -%>

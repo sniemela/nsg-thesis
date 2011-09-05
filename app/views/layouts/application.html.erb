@@ -9,7 +9,21 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="wrapper">
+  <header id="page_header">
+    <h1>NSG Thesis - Dummy layout</h1>
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Events", events_path %></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="content">
+    <%= yield %>
+  </section>
+</div>
 
 </body>
 </html>
