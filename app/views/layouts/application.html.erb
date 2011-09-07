@@ -10,8 +10,26 @@
 <body>
 
 <div id="wrapper">
+  <section id="user">
+    <nav>
+      <ul>
+        <% if user_signed_in? %>
+        <span><%= current_user.email %></span>
+        <li><%= link_to "Settings", services_path %>
+        <li><%= link_to "Sign out", signout_services_path %></li>
+        <% else %>
+        <span>Sign in with:</span>
+        <li><%= link_to "Facebook", "/auth/facebook" %></li>
+        <li><%= link_to "Twitter", "/auth/twitter" %></li>
+        <li><%= link_to "Google", "/auth/google" %></li>
+        <li><%= link_to "Other", signin_services_path %>
+        <% end %>
+      </ul>
+    </nav>
+  </section>
+
   <header id="page_header">
-    <h1>NSG Thesis - Dummy layout</h1>
+    <h1>Happen.</h1>
     <nav>
       <ul>
         <li><%= link_to "Home", root_path %></li>
@@ -21,6 +39,12 @@
   </header>
 
   <section id="content">
+    <section id="flash">
+      <% flash.each do |key, value| %>
+          <div class="flash <%= key %> round"><%= value %></div>
+      <% end %>
+    </section>
+
     <%= yield %>
   </section>
 </div>
