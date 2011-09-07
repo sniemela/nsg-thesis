@@ -7,7 +7,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
    # load certificates
    require "openid/fetchers"
    OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
-   
+    
    # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
    provider :facebook, '271203636242426', '905e634d11cd90585c1d030a5fc82693'
    provider :twitter, 'DDDzeF7wRvnXSfVDaCX7gg', 'O7Qg2p5WTJlwhgPfr6tm2rVMDNbfqkjDawlRJ2R8zYI'
