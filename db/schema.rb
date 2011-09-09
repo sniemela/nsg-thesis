@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907064233) do
+ActiveRecord::Schema.define(:version => 20110909072539) do
 
   create_table "advertises", :force => true do |t|
     t.integer  "client_id",                     :null => false
@@ -48,16 +48,18 @@ ActiveRecord::Schema.define(:version => 20110907064233) do
   end
 
   create_table "events", :force => true do |t|
-    t.string   "name",                             :null => false
+    t.string   "name",                                 :null => false
     t.text     "description"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "active_time_start"
     t.datetime "active_time_end"
     t.string   "city"
-    t.string   "country",                          :null => false
+    t.string   "country",                              :null => false
     t.string   "address"
     t.integer  "times_watched",     :default => 0
+    t.integer  "liked_count",       :default => 0
+    t.boolean  "approved",          :default => false
     t.integer  "submitter_id"
     t.string   "submitter_type"
     t.datetime "created_at"
@@ -92,6 +94,8 @@ ActiveRecord::Schema.define(:version => 20110907064233) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
 end
