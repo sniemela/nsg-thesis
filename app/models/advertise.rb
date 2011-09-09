@@ -19,4 +19,12 @@ class Advertise < ActiveRecord::Base
   def duration_in_days
     (end_time - start_time) / 24 / 60 / 60
   end
+
+  def self.find_by_tag_ids(tag_ids)
+    Advertise.joins(:tags).where(['tags.id in (?)', tag_ids]).select('distinct advertises.*')
+  end
+
+  def self.find_by_tags(tags)
+    find_by_tag_ids(tags.map { |tag| tag.id })
+  end
 end
