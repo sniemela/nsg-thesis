@@ -10,22 +10,17 @@
 <body>
 
 <div id="wrapper">
-  <section id="user">
-    <nav>
-      <ul>
-        <% if user_signed_in? %>
-        <span><%= current_user.email %></span>
-        <li><%= link_to "Settings", services_path %>
-        <li><%= link_to "Sign out", signout_services_path %></li>
-        <% else %>
-        <span>Sign in with:</span>
-        <li><%= link_to "Facebook", "/auth/facebook" %></li>
-        <li><%= link_to "Twitter", "/auth/twitter" %></li>
-        <li><%= link_to "Google", "/auth/google" %></li>
-        <li><%= link_to "Other", signin_services_path %>
-        <% end %>
-      </ul>
-    </nav>
+  <section id="user_nav">
+    <% if current_user %>
+      Welcome <%= current_user.name %>!
+      <%= link_to "Sign Out", signout_path %>
+    <% else %>
+      Sign in with:
+      <%= render "providers_list" %>
+      <p>
+      Don't have any of these accounts? Get your <%= link_to "MyOpenID", "http://www.myopenid.com/" %> or <%= link_to "GoogleID", "http://mail.google.com/mail/signup" %> now! If you want to learn more about OpenID or find more OpenID providers, you can get more information at <%= link_to "openid.net", "http://openid.net" %>
+      </p>
+    <% end %>
   </section>
 
   <header id="page_header">
@@ -40,8 +35,8 @@
 
   <section id="content">
     <section id="flash">
-      <% flash.each do |key, value| %>
-          <div class="flash <%= key %> round"><%= value %></div>
+      <% flash.each do |name, msg| %>
+          <%= msg %>
       <% end %>
     </section>
 
