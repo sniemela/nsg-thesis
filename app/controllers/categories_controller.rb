@@ -5,30 +5,20 @@ class CategoriesController < ApplicationController
   
   def new
     @category = Category.new
-    
-    respond_to do |format|
-      format.html
-    end
   end
   
   def create
     @category = Category.new(params[:category])
     
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to(categories_url, :notice => 'Category added.') }
-      else
-        format.html { render :action => "new" }
-      end
+    if @category.save
+      redirect_to categories_url, :notice => 'Category added.'
+    else
+      render :new
     end
   end
   
   def show
     @category = Category.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-    end
   end
   
   def edit
@@ -38,12 +28,10 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     
-    respond_to do |format|
-      if @category.update_attributes(params[:category])
-        format.html { redirect_to(categories_url, :notice => 'Category updated.') }
-      else
-        format.html { render :action => "edit" }
-      end
+    if @category.update_attributes(params[:category])
+      redirect_to categories_url, :notice => 'Category updated.'
+    else
+      render :edit
     end
   end
   
@@ -51,8 +39,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
     
-    respond_to do |format|
-      format.html { redirect_to(categories_url) }
-    end
+    redirect_to categories_url
   end
 end
