@@ -13,13 +13,9 @@
   <section id="user_nav">
     <% if current_user %>
       Welcome <%= current_user.name %>!
-      <%= link_to "Sign Out", signout_path %>
+      <%= link_to "Sign out", signout_path %>
     <% else %>
-      Sign in with:
-      <%= render "providers_list" %>
-      <p>
-      Don't have any of these accounts? Get your <%= link_to "MyOpenID", "http://www.myopenid.com/" %> or <%= link_to "GoogleID", "http://mail.google.com/mail/signup" %> now! If you want to learn more about OpenID or find more OpenID providers, you can get more information at <%= link_to "openid.net", "http://openid.net" %>
-      </p>
+      <%= link_to "Sign in", signin_path, :id => "signin" %>
     <% end %>
   </section>
 
