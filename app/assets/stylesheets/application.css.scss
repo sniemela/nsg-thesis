@@ -13,6 +13,90 @@ a { color: $link-color; }
 a:hover { color: $link-hover-color; }
 
 ul, li { margin: 0; padding: 0; }
+aside ul { list-style: none; }
+aside a { text-decoration: none; }
+aside h2 { font-size: 15px; }
+
+#providers_list { list-style: none; padding: 0; }
+
+#content_wrapper { float: left; width: $content-width; }
+#wrapper { width: $wrapper-width; margin: 0 auto; }
+#wrapper aside { float: left; width: $aside-width; margin-left: -$aside-width; }
+#content { margin-right: $aside-width + 50; }
+#user_nav ul li { display: inline; }
 
 #signin li { display: inline; }
-#providers_list { list-style: none; padding: 0; }
+#signin { padding: 3px 3px; font-size: 9px; color: $header-signin-color; background-color: $header-signin-backcolor; }
+#signout { @extend #signin; color: $header-signout-color; background-color: $header-signout-backcolor; }
+
+#mylinks a { font-size: $aside-link-font-size; }
+#requests a { font-size: $aside-link-font-size; }
+
+.request_count { 
+  padding: 2px;
+  background-color: $aside-requestcount-backcolor;
+  color: $aside-requestcount-color;
+  font-size: $aside-requestcount-font-size;
+}
+
+#page_header {
+  color: $header-font-color;
+  background-color: $header-background-color;
+  width: 100%;
+  overflow: auto;
+}
+
+#page_header .top_group {
+  width: $wrapper-width;
+  overflow: auto;
+}
+
+#page_header .bottom_group {
+  overflow: auto;
+  background-color: $header-bottomgroup-backcolor;
+}
+
+#page_header h1 {
+  margin-left: 25px;
+  float: left;
+}
+
+.recent_events {
+  float: left;
+  margin: 30px 0 0 60px;
+}
+
+#user_nav {
+  margin: 10px 10px 0 0;
+  float: right;
+}
+
+#user_nav a {
+  color: $header-usernav-link-color;
+  text-decoration: none;
+}
+
+#user_nav a:hover {
+  color: $header-usernav-link-hover-color;
+  text-decoration: none;
+}
+
+#page_header nav ul {
+  list-style: none;
+}
+
+#page_nav ul li a {
+  color: $header-pagenav-link-color;
+  display: block;
+  float: left;
+  text-decoration: none;
+  padding: 8px 25px;
+}
+
+#page_nav ul li a:hover {
+  color: $header-pagenav-link-color;
+}
+
+#content {
+  padding-left: 25px;
+}

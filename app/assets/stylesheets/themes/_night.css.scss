@@ -6,8 +6,8 @@ $content-width: 100%;
 /* Colors */
 $body-backcolor: #DADADA;
 $font-color: #000;
-$link-color: #E09731;
-$link-hover-color: #000;
+$link-color: #0584AB;
+$link-hover-color: #009CCC;
 
 $header-background-color: #000;
 $header-font-color: #fff;
@@ -16,7 +16,16 @@ $header-usernav-link-color: #fff;
 $header-usernav-link-hover-color: #fff;
 $header-pagenav-link-color: #fff;
 $header-pagenav-link-hover-color: #fff;
+$header-signout-backcolor: #C53104;
+$header-signout-color: #fff;
+$header-signin-backcolor: #56A501;
+$header-signin-color: #fff;
+
+$aside-requestcount-color: #fff;
+$aside-requestcount-backcolor: #C53104;
 
 /* Fonts */
 $font-family: "Lucida Grande", "Ubuntu", Verdana;
 $font-size: 14px;
+$aside-link-font-size: 12px;
+$aside-requestcount-font-size: 8px;
