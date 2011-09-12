@@ -13,6 +13,9 @@ a { color: $link-color; }
 a:hover { color: $link-hover-color; }
 
 ul, li { margin: 0; padding: 0; }
+aside ul { list-style: none; }
+aside a { text-decoration: none; }
+aside h2 { font-size: 15px; }
 
 #providers_list { list-style: none; padding: 0; }
 
@@ -25,6 +28,16 @@ ul, li { margin: 0; padding: 0; }
 #signin li { display: inline; }
 #signin { padding: 3px 3px; font-size: 9px; color: $header-signin-color; background-color: $header-signin-backcolor; }
 #signout { @extend #signin; color: $header-signout-color; background-color: $header-signout-backcolor; }
+
+#mylinks a { font-size: $aside-link-font-size; }
+#requests a { font-size: $aside-link-font-size; }
+
+.request_count { 
+  padding: 2px;
+  background-color: $aside-requestcount-backcolor;
+  color: $aside-requestcount-color;
+  font-size: $aside-requestcount-font-size;
+}
 
 #page_header {
   color: $header-font-color;
