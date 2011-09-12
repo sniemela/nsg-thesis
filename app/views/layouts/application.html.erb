@@ -22,7 +22,7 @@
       <nav id="user_nav">
         <% if current_user %>
           Welcome <%= current_user.name %>!
-          <%= link_to "Sign out", signout_path %>
+          <%= link_to "Sign out", signout_path, :id => "signout" %>
         <% else %>
           <%= link_to "Sign in", signin_path, :id => "signin" %>
         <% end %>
