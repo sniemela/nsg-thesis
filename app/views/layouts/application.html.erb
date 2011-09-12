@@ -20,24 +20,55 @@
   </section>
 
   <header id="page_header">
-    <h1>Happen.</h1>
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Events", events_path %></li>
-      </ul>
-    </nav>
+    <div class="top_group">
+      <h1>Happen.</h1>
+
+      <div class="recent_events">
+        <span>Event name</span>
+      </div>
+
+      <nav id="user_nav">
+        <ul>
+          <li><a href="#">Log in</a></li>
+          <li><a href="#">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="bottom_group">
+      <nav id="page_nav">
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Events", events_path %></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="content">
-    <section id="flash">
-      <% flash.each do |name, msg| %>
-          <%= msg %>
-      <% end %>
+  <div id="content_wrapper">
+    <section id="content">
+      <section id="flash">
+        <% flash.each do |name, msg| %>
+            <%= msg %>
+        <% end %>
+      </section>
+
+      <%= yield %>
+    </section>
+  </div>
+
+  <aside>
+    <section class="tagcloud">
+      <header>
+        <h1>Tags</h1>
+      </header>
+      <span>tags</span> <span>tags</span> <span>tags</span> <span>tags</span> <span>tags</span>
     </section>
 
-    <%= yield %>
-  </section>
+    <div class="advertises">
+      <p>mainokset</p>
+    </div>
+  </aside>
 </div>
 
 </body>
