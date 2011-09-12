@@ -4,6 +4,8 @@ class CreateClients < ActiveRecord::Migration
       t.string :name,             :null => false
       t.integer :client_type_id,  :null => false
       t.text :description
+      t.string :address
+      t.string :country
 
       t.timestamps
     end
