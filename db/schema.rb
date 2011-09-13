@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20110909072539) do
   create_table "clients", :force => true do |t|
     t.string   "name",           :null => false
     t.integer  "client_type_id", :null => false
+    t.integer  "user_id"
     t.text     "description"
     t.string   "address"
     t.string   "country"

@@ -14,6 +14,8 @@ Tag.create(tags.map { |t| {:name => t} })
 client_type_names = %w(Company Organization Institute)
 client_types = ClientType.create(client_type_names.map { |ct| { :name => ct } })
 
+
+
 clients_info = [{
   :name => 'Kino City (Vaasa)',
   :description => 'Cinema',
