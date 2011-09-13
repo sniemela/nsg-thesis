@@ -9,6 +9,6 @@
 //= require_tree .
 //= require fancybox
 
-$(document).ready(function() {
-  $("a#signin").fancybox();
+jQuery(document).ready(function() {
+  jQuery("a#signin").fancybox();
 });

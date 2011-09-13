@@ -14,8 +14,6 @@ Tag.create(tags.map { |t| {:name => t} })
 client_type_names = %w(Company Organization Institute)
 client_types = ClientType.create(client_type_names.map { |ct| { :name => ct } })
 
-
-
 clients_info = [{
   :name => 'Kino City (Vaasa)',
   :description => 'Cinema',
@@ -52,3 +50,21 @@ events = [{
 }]
 
 Event.create(events)
+
+users = [{
+  :name => 'Niklas Grano',
+  :email => 'niklas@happen.com',
+  :admin => true
+},
+{ 
+  :name => 'Simo Niemela',
+  :email => 'simo@happen.com',
+  :admin => true
+},
+{
+  :name => 'Olli Salmu',
+  :email => 'olli@happen.com',
+  :admin => true
+}]
+
+User.create(users)
