@@ -53,21 +53,31 @@
   </div>
 
   <aside>
-    <h2>Requests</h2>
-    <nav id="requests">
-      <ul>
-        <li><a href="#">Events</a> <span class="request_count"><%= Event.unapproved.count %></span></li>
-      </ul>
-    </nav>
+    <% if current_user %>
+      <h2>Requests</h2>
+      <nav id="requests">
+        <ul>
+          <li><a href="#">Events</a> <span class="request_count"><%= Event.unapproved.count %></span></li>
+        </ul>
+      </nav>
 
-    <br />
+      <br />
 
-    <h2>My links</h2>
-    <nav id="mylinks">
-      <ul>
-        <li><%= link_to "Clients", clients_path %></li>
-      </ul>
-    </nav>
+      <h2>My links</h2>
+      <nav id="mylinks">
+        <ul>
+          <%- if is_admin? -%>
+          <li><%= link_to "Clients", clients_path %></li>
+          <% end %>
+
+          <%- if current_user.client.nil? -%>
+          <li><%= link_to "New client", new_client_path %></li>
+          <% else %>
+          <li><%= link_to "My client", current_user.client %></li>
+          <% end %>
+        </ul>
+      </nav>
+    <% end %>
 
     <br />
 

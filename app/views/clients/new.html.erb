@@ -1,0 +1,27 @@
+<header>
+  <h1>New client</h1>
+</header>
+
+<%= form_for @client do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.country_select :country %>
+  </p>
+  <p>
+    <%= f.submit I18n.t('save') %>
+  </p>
+
+<% end %>
