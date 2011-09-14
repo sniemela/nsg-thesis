@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class User < ActiveRecord::Base
   def self.create_with_omniauth(auth)
     create! do |user|
