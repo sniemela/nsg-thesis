@@ -70,10 +70,10 @@
           <li><%= link_to "Clients", clients_path %></li>
           <% end %>
 
-          <%- if current_user.client.nil? -%>
-          <li><%= link_to "New client", new_client_path %></li>
-          <% else %>
+          <%- unless current_user.client_id.nil? -%>
           <li><%= link_to "My client", current_user.client %></li>
+          <% else %>
+          <li><%= link_to "New client", new_client_path %></li>
           <% end %>
         </ul>
       </nav>

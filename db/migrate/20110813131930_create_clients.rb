@@ -7,6 +7,7 @@ class CreateClients < ActiveRecord::Migration
       t.text :description
       t.string :address
       t.string :country
+      t.boolean :confirmed,        :default => false
 
       t.timestamps
     end

@@ -10,8 +10,14 @@ class ClientsController < ApplicationController
     @client = Client.new
   end
 
+  def show
+    @client = Client.find(params[:id], :joins => :user, :select => 'clients.*, users.id as user_id')
+  end
+
   def create
     @client = Client.new(params[:client])
+    @client.client_type_id = params[:client][:client_type_id].to_i
+    @client.user = current_user
 
     if @client.save
       redirect_to @client

@@ -15,10 +15,10 @@ rescue LoadError
 end
 
 categories = %w(Festival Conference Movie Concert Expo Party Nightlife)
-Category.create(categories.map { |c| {:name => c} })
+Category.create!(categories.map { |c| {:name => c} })
 
 tags = %w(Computers Music Metal Trance Programming Cars)
-Tag.create(tags.map { |t| {:name => t} })
+Tag.create!(tags.map { |t| {:name => t} })
 
 client_type_names = %w(Company Organization Institute)
 client_types = ClientType.create(client_type_names.map { |ct| { :name => ct } })
@@ -26,10 +26,14 @@ client_types = ClientType.create(client_type_names.map { |ct| { :name => ct } })
 clients_info = [{
   :name => 'Kino City (Vaasa)',
   :description => 'Cinema',
-  :client_type_id => client_types[0].id
+  :client_type_id => client_types[0].id,
+  :country => 'Finland',
+  :address => 'Hovioikeudepuistikko 16',
+  :user_id => User.first.id,
+  :confirmed => false
 }]
 
-clients = Client.create(clients_info)
+clients = Client.create!(clients_info, :without_protection => true)
 
 events = [{
   :name => 'Hangover Part II',
@@ -58,4 +62,4 @@ events = [{
   :submitter_type => 'Client'
 }]
 
-Event.create(events)
+Event.create!(events)
