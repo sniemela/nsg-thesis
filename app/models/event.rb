@@ -17,6 +17,7 @@ class Event < ActiveRecord::Base
   scope :recent, where('created_at >= ?', Time.now - 1.week)
   scope :between, lambda { |from, to| where('created_at between ? and ?', from, to) }
   scope :approved, where(:approved => true)
+  scope :unapproved, where(:approved => false)
 
   private
     def notify_updated

@@ -56,7 +56,7 @@
     <h2>Requests</h2>
     <nav id="requests">
       <ul>
-        <li><a href="#">Events</a> <span class="request_count">4</span></li>
+        <li><a href="#">Events</a> <span class="request_count"><%= Event.unapproved.count %></span></li>
       </ul>
     </nav>
 
