@@ -27,12 +27,12 @@
     <%= f.text_field :end_time, :id => "event_end_time" %>
   </div>
   <div class="field">
-    <%= f.label :active_time_start %><br />
-    <%= f.text_field :active_time_start %>
+    <%= f.label "Visible from" %><br />
+    <%= f.text_field :active_time_start, :id => "event_active_time_start" %>
   </div>
   <div class="field">
-    <%= f.label :active_time_end %><br />
-    <%= f.text_field :active_time_end %>
+    <%= f.label "Visible until" %><br />
+    <%= f.text_field :active_time_end, :id => "event_active_time_end" %>
   </div>  
   <div class="field">
     <%= f.label :city %><br />
