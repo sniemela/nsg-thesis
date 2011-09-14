@@ -55,10 +55,11 @@
 
   <aside>
     <% if current_user %>
-      <h2>Requests</h2>
+      <h2>Confirmation</h2>
       <nav id="requests">
         <ul>
           <li><a href="#">Events</a> <span class="request_count"><%= Event.unapproved.count %></span></li>
+          <li><a href="#">Clients</a> <span class="request_count"><%= Client.unconfirmed.count %></span></li>
         </ul>
       </nav>
 

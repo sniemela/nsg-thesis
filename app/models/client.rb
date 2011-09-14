@@ -7,4 +7,12 @@ class Client < ActiveRecord::Base
 
   attr_accessible :name, :description, :address, :country
   validates :name, :description, :address, :country, :presence => true
+
+  scope :unconfirmed, where(:confirmed => false)
+
+  before_create :autoconfim
+
+  def autoconfirm
+    self[:confirmed] = true if user.admin?
+  end
 end
