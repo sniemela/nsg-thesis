@@ -54,17 +54,23 @@ Event.create(events)
 users = [{
   :name => 'Niklas Grano',
   :email => 'niklas@happen.com',
-  :admin => true
+  :admin => true,
+  :provider => '',
+  :uid => ''
 },
 { 
   :name => 'Simo Niemela',
   :email => 'simo@happen.com',
-  :admin => true
+  :admin => true,
+  :provider => '',
+  :uid => ''
 },
 {
   :name => 'Olli Salmu',
   :email => 'olli@happen.com',
-  :admin => true
+  :admin => true,
+  :provider => '',
+  :uid => ''
 }]
 
 User.create(users)
