@@ -1,0 +1,9 @@
+users = [{
+  :name => 'Your name',
+  :email => 'your email,
+  :admin => true,
+  :provider => 'login provider', # google, facebook
+  :uid => 'login uid'
+}]
+
+User.create(users)

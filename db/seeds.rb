@@ -5,6 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+begin
+  require File.join(File.dirname(__FILE__), 'user_seeds')
+rescue LoadError
+  puts "Please copy and rename user_seeds.rb.bak to user_seeds.rb and write down your login information."
+  raise
+end
+
 categories = %w(Festival Conference Movie Concert Expo Party Nightlife)
 Category.create(categories.map { |c| {:name => c} })
 
@@ -50,21 +57,3 @@ events = [{
 }]
 
 Event.create(events)
-
-users = [{
-  :name => 'Niklas Grano',
-  :email => 'niklas@happen.com',
-  :admin => true
-},
-{ 
-  :name => 'Simo Niemela',
-  :email => 'simo@happen.com',
-  :admin => true
-},
-{
-  :name => 'Olli Salmu',
-  :email => 'olli@happen.com',
-  :admin => true
-}]
-
-User.create(users)
