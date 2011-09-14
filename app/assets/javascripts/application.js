@@ -5,9 +5,11 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui-1.8.16.custom.min
 //= require jquery_ujs
-//= require_tree .
 //= require fancybox
+//= require jquery-ui-timepicker-addon
+//= require_tree .
 
 jQuery(document).ready(function() {
   jQuery("a#signin").fancybox();

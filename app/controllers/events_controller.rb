@@ -12,6 +12,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     
+    @event.submitter = current_user
+    
     if @event.save
       redirect_to events_url, :notice => 'Event added.'
     else
@@ -42,5 +44,9 @@ class EventsController < ApplicationController
     @event.destroy
     
     redirect_to events_url
+  end
+  
+  def my_events
+    
   end
 end
