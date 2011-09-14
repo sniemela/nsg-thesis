@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def login_required
+    unless current_user
+      redirect_to root_path, :alert => 'You must log in to complete this action'
+      false
+    end
+  end
+
   private
 
   def current_user

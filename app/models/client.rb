@@ -4,4 +4,7 @@ class Client < ActiveRecord::Base
 
   belongs_to :client_type
   belongs_to :user
+
+  attr_accessible :name, :description, :address, :country
+  validates :name, :description, :address, :country, :presence => true
 end
