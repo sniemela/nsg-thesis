@@ -7,7 +7,11 @@ NsgThesis::Application.routes.draw do
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  resources :events
+  resources :events do
+    get 'unapproved', :on => :collection
+    get 'approve', :on => :member
+  end
+
   resources :categories
   resources :clients
 

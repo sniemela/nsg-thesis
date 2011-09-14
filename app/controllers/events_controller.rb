@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
-  
+  before_filter :admin_required, :only => [:unapproved, :confirm]
+
   def index
-    @events = Event.all
+    @events = Event.approved
   end
   
   def new
@@ -44,6 +45,16 @@ class EventsController < ApplicationController
     @event.destroy
     
     redirect_to events_url
+  end
+
+  def unapproved
+    @events = Event.unapproved
+  end
+
+  def approve
+    @event = Event.find(params[:id])
+    @event.approve!
+    redirect_to unapproved_events_path, :notice => 'Event approved'
   end
   
   def my_events

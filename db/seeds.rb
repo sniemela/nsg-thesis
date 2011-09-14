@@ -46,7 +46,8 @@ events = [{
   :address => 'Hovioikeudenpuistikko 16',
   :country => 'Finland',
   :submitter_id => clients[0].id,
-  :submitter_type => 'Client'
+  :submitter_type => 'Client',
+  :approved => true
 },
 {
   :name => 'The Rise of The Planet Of The Apes',
@@ -59,7 +60,8 @@ events = [{
   :address => 'Hovioikeudenpuistikko 16',
   :country => 'Finland',
   :submitter_id => clients[0].id,
-  :submitter_type => 'Client'
+  :submitter_type => 'Client',
+  :approved => false
 }]
 
 Event.create!(events)
