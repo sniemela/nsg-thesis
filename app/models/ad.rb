@@ -1,4 +1,4 @@
-class Advertise < ActiveRecord::Base
+class Ad < ActiveRecord::Base
   belongs_to :client
 
   has_many :taggings, :as => :taggable
@@ -21,7 +21,7 @@ class Advertise < ActiveRecord::Base
   end
 
   def self.find_by_tag_ids(tag_ids)
-    Advertise.joins(:tags).where(['tags.id in (?)', tag_ids]).select('distinct advertises.*')
+    Advertise.joins(:tags).where(['tags.id in (?)', tag_ids]).select('distinct ads.*')
   end
 
   def self.find_by_tags(tags)

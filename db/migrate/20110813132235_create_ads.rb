@@ -1,6 +1,6 @@
-class CreateAdvertises < ActiveRecord::Migration
+class CreateAds < ActiveRecord::Migration
   def self.up
-    create_table :advertises do |t|
+    create_table :ads do |t|
       t.integer :client_id,   :null => false
       t.decimal :price,       :default => 0
       t.datetime :start_time

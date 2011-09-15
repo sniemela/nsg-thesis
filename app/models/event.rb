@@ -20,6 +20,11 @@ class Event < ActiveRecord::Base
   scope :approved, where(:approved => true)
   scope :unapproved, where(:approved => false)
 
+  def approve!
+    self[:approved] = true
+    save!
+  end
+
   private
     def notify_updated
       NodejsNotifier.notify('/event_updated', to_json)

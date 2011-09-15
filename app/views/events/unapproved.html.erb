@@ -1,0 +1,9 @@
+<header>
+  <h1>Unapproved events</h1>
+</header>
+
+<% for event in @events %>
+  <%= link_to 'Approve', approve_event_path(event) %><br />
+  <%= render event %>
+  <br />
+<% end %>
