@@ -26,8 +26,8 @@ clients_info = [{
   :client_type => Client::TYPE_COMPANY,
   :country => 'Finland',
   :address => 'Hovioikeudepuistikko 16',
-  :user_id => User.first.id,
-  :confirmed => false
+  :confirmed => false,
+  :user => User.first
 }]
 
 clients = Client.create!(clients_info, :without_protection => true)

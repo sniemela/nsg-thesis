@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class User < ActiveRecord::Base
-  has_one :client
+  belongs_to :client
   has_many :events, :as => :submitter
 
   def self.create_with_omniauth(auth)

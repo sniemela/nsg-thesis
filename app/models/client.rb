@@ -5,8 +5,7 @@ class Client < ActiveRecord::Base
 
   has_many :ads
   has_many :events, :as => :submitter
-
-  belongs_to :user
+  has_one :user
 
   attr_accessible :name, :description, :address, :country
   validates :name, :description, :address, :country, :presence => true

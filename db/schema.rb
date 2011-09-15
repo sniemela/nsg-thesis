@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
   create_table "clients", :force => true do |t|
     t.string   "name",                           :null => false
     t.integer  "client_type",                    :null => false
-    t.integer  "user_id",                        :null => false
     t.text     "description"
     t.string   "address"
     t.string   "country"
@@ -93,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.integer  "client_id"
     t.string   "email"
     t.boolean  "admin"
     t.datetime "created_at"
