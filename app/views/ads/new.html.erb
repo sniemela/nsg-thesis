@@ -1,0 +1,10 @@
+<header>
+  <h1>New ad</h1>
+</header>
+
+<%= form_for @ad do |f| %>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+<% end %>

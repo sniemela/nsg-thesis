@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  has_many :advertises
+  has_many :ads
   has_many :events, :as => :submitter
 
   belongs_to :client_type
@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
 
   scope :unconfirmed, where(:confirmed => false)
 
-  before_create :autoconfim
+  before_create :autoconfirm
 
   def autoconfirm
     self[:confirmed] = true if user.admin?

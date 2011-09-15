@@ -12,6 +12,7 @@ NsgThesis::Application.routes.draw do
     get 'approve', :on => :member
   end
 
+  resources :ads
   resources :categories
   resources :clients
 
