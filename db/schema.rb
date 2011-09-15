@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20110909072539) do
 
-  create_table "advertises", :force => true do |t|
+  create_table "ads", :force => true do |t|
     t.integer  "client_id",                           :null => false
     t.decimal  "price",              :default => 0.0
     t.datetime "start_time"
