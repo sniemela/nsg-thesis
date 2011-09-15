@@ -35,6 +35,7 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Events", events_path %></li>
           <li><%= link_to "Categories", categories_path %></li>
+          <li><%= link_to "Add Event", new_event_path %></li>
         </ul>
       </nav>
     </div>
@@ -67,6 +68,7 @@
       <nav id="mylinks">
         <ul>
           <%- if is_admin? -%>
+          <li><%= link_to "My events", myevents_path %></li>
           <li><%= link_to "Clients", clients_path %></li>
           <% end %>
 

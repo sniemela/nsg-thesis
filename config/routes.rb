@@ -3,6 +3,7 @@ NsgThesis::Application.routes.draw do
   match "/auth/:provider/callback" => "sessions#create"
   match "/signin" => "sessions#signin", :as => :signin
   match "/signout" => "sessions#destroy", :as => :signout
+  match "/myevents" => "events#my_events", :as => :myevents
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

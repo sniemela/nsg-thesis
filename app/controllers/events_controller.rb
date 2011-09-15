@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  #before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:index, :show]
   
   def index
     @events = Event.all
@@ -47,6 +47,6 @@ class EventsController < ApplicationController
   end
   
   def my_events
-    
+    @my_events = current_user.events
   end
 end
