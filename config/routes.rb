@@ -4,6 +4,7 @@ NsgThesis::Application.routes.draw do
   match "/signin" => "sessions#signin", :as => :signin
   match "/signout" => "sessions#destroy", :as => :signout
   match "/myevents" => "events#my_events", :as => :myevents
+  match "/events/:id/add_showtime" => "events#add_showtime", :as => :add_showtime
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

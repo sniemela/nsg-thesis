@@ -1,6 +1,7 @@
 require 'nodejs_notifier'
 
 class Event < ActiveRecord::Base
+  has_many :showtimes
   has_many :categorizations
   has_many :categories, :through => :categorizations
 

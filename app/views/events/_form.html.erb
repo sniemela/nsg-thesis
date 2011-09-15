@@ -21,19 +21,14 @@
   <div class="field">
     <%= f.label :start_time %><br />
     <%= f.text_field :start_time, :id => "event_start_time" %>
-  </div> 
+  </div>
   <div class="field">
     <%= f.label :end_time %><br />
     <%= f.text_field :end_time, :id => "event_end_time" %>
   </div>
-  <div class="field">
-    <%= f.label "Visible from" %><br />
-    <%= f.text_field :active_time_start, :id => "event_active_time_start" %>
+  <div class="add_showtime">
+    <%= link_to "Add showtime", '#', :class => 'showtime' %>
   </div>
-  <div class="field">
-    <%= f.label "Visible until" %><br />
-    <%= f.text_field :active_time_end, :id => "event_active_time_end" %>
-  </div>  
   <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city %>
@@ -46,6 +41,14 @@
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
+   <div class="field">
+    <%= f.label "Visible from" %><br />
+    <%= f.text_field :active_time_start, :id => "event_active_time_start" %>
+  </div>
+  <div class="field">
+    <%= f.label "Visible until" %><br />
+    <%= f.text_field :active_time_end, :id => "event_active_time_end" %>
+  </div>  
   <div class="actions">
     <%= f.submit %>
   </div>
