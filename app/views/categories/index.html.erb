@@ -2,6 +2,6 @@
 
 <ul id="categories">
   <% @categories.each do |category| %>
-    <li><%= link_to category.name, '#' %></li>
+    <li><%= link_to category.name, :controller => "categories", :action => "show", :id => category.id %></li>
   <% end %>
 </ul>
