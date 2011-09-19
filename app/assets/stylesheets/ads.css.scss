@@ -2,3 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .slider { width: 300px }
+
+.ad_media { float: left; }
+.ad_info { float: left; margin-left: 10px }
+
+.record_status { float: right; }
+
+.list_entry { padding: 10px; }
+.list_entry.even { background-color: #F5F5F5 }
+.list_entry.odd { background-color: #E6E6E6; }

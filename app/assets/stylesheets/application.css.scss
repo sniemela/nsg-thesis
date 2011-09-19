@@ -11,6 +11,15 @@
 
 @import "themes/night";
 
+@mixin small_button {
+  padding: 3px 3px; font-size: 9px;
+}
+
+.button_small_red {
+  @include small_button;
+  color: $header-signout-color; background-color: $header-signout-backcolor;
+}
+
 body { margin: 0; padding: 0; background-color: $body-backcolor; color: $font-color; font-family: $font-family; font-size: $font-size; }
 a { color: $link-color; }
 a:hover { color: $link-hover-color; }
@@ -19,6 +28,18 @@ ul, li { margin: 0; padding: 0; }
 aside ul { list-style: none; }
 aside a { text-decoration: none; }
 aside h2 { font-size: 15px; }
+
+/* new clearfix */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
 #providers_list { list-style: none; padding: 0; }
 
@@ -29,7 +50,7 @@ aside h2 { font-size: 15px; }
 #user_nav ul li { display: inline; }
 
 #signin li { display: inline; }
-#signin { padding: 3px 3px; font-size: 9px; color: $header-signin-color; background-color: $header-signin-backcolor; }
+#signin { @include small_button; color: $header-signin-color; background-color: $header-signin-backcolor; }
 #signout { @extend #signin; color: $header-signout-color; background-color: $header-signout-backcolor; }
 
 #mylinks a { font-size: $aside-link-font-size; }
