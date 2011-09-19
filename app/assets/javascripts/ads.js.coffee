@@ -30,7 +30,11 @@ $ ->
     create: (event, ui) -> handleSlide(1)
   })
 
-  $('input.datetimepicker').timepicker()
+  $('input.datetimepicker').datetimepicker({
+    timeFormat: 'hh:mm:ss',
+    dateFormat: 'yy-mm-dd'
+  })
+
   $('input#tags').keydown ->
     setTimeout((-> updatePrice()), 50)
 
