@@ -9,6 +9,7 @@ class CreateAds < ActiveRecord::Migration
       t.string :media_content_type
       t.integer :media_file_size
       t.datetime :media_updated_at
+      t.boolean :confirmed,   :default => false
 
       t.timestamps
     end

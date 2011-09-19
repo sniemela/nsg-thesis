@@ -60,6 +60,7 @@
         <ul>
           <li><%= link_to 'Events', unapproved_events_path %> <span class="request_count"><%= Event.unapproved.count %></span></li>
           <li><a href="#">Clients</a> <span class="request_count"><%= Client.unconfirmed.count %></span></li>
+          <li><a href="#">Ads</a> <span class="request_count"><%= Ad.unconfirmed.count %></span></li>
         </ul>
       </nav>
 

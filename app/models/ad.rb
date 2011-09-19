@@ -4,6 +4,8 @@ class Ad < ActiveRecord::Base
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
+  scope :unconfirmed, where(:confirmed => false)
+
   has_attached_file :media
 
   before_save :set_price
