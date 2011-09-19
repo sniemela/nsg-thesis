@@ -3,7 +3,4 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('#event_start_time').datetimepicker()
-  $('#event_end_time').datetimepicker()
-  $('#event_active_time_start').datetimepicker()
-  $('#event_active_time_end').datetimepicker()
+  $('.datepicker').datetimepicker()

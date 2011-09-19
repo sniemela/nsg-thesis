@@ -1,0 +1,13 @@
+<div class="showtime_fields">
+  <p class="start_time">
+    <%= f.label :start_time, "Start time" %><br />
+    <%= f.text_field :start_time, :class => "datepicker" %><span class="to-until">-</span>
+  </p>
+  <p class="end_time">
+    <%= f.label :end_time, "End time" %><br />
+    <%= f.text_field :end_time, :class => "datepicker" %>
+  </p>
+  <p class="remove_showtime">
+    <%= link_to_remove_fields "remove", f %>
+  </p>
+</div>

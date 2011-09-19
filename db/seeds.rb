@@ -38,8 +38,6 @@ clients = Client.create!(clients_info, :without_protection => true)
 events = [{
   :name => 'Hangover Part II',
   :description => 'Hangover movie',
-  :start_time => Time.now + 1.day,
-  :end_time => Time.now + 1.week,
   :active_time_start => Time.now - 5.days,
   :active_time_end => Time.now + 1.week,
   :city => 'Vaasa',
@@ -52,8 +50,6 @@ events = [{
 {
   :name => 'The Rise of The Planet Of The Apes',
   :description => 'Ape movie',
-  :start_time => Time.now + 2.days,
-  :end_time => Time.now + 2.days + 2.hours,
   :active_time_start => Time.now - 4.days,
   :active_time_end => Time.now + 2.weeks,
   :city => 'Vaasa',
@@ -65,3 +61,31 @@ events = [{
 }]
 
 Event.create!(events)
+
+showtimes = [{
+  :start_time => Time.now + 2.day,
+  :end_time => Time.now + 2.week,
+  :event_id => 1
+},
+{
+  :start_time => Time.now + 1.day,
+  :end_time => Time.now + 1.week,
+  :event_id => 1
+},
+{
+  :start_time => Time.now + 3.days,
+  :end_time => Time.now + 3.days + 3.hours,
+  :event_id => 2
+},
+{
+  :start_time => Time.now + 4.days,
+  :end_time => Time.now + 4.days + 4.hours,
+  :event_id => 2
+},
+{
+  :start_time => Time.now + 2.days,
+  :end_time => Time.now + 2.days + 2.hours,
+  :event_id => 2
+}]
+
+Showtime.create!(showtimes)

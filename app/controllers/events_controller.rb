@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
+    @event.showtimes.build
   end
   
   def create
@@ -59,10 +60,5 @@ class EventsController < ApplicationController
   
   def my_events
     @my_events = current_user.events
-  end
-  
-  def add_showtime
-    event = Event.find(params[:id])
-    @showtime = event.Showtime.new
   end
 end

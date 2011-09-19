@@ -1,55 +1,47 @@
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-    <ul>
-    <% @event.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
+<%= form_for @event do |f| %>
+  <% f.error_messages %>
 
-  <div class="field">
+  <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
+  </p>
+  
+  <div id="showtimes">   
+    <%= f.fields_for :showtimes do |builder| %>
+      <%= render 'showtime_fields', :f => builder %>
+    <% end %>    
+    <%= link_to_add_fields "Add showtime", f, :showtimes %>
   </div>
-  <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.text_field :start_time, :id => "event_start_time" %>
+  
+  <div id="location">
+    <p id="city">
+      <%= f.label :city %><br />
+      <%= f.text_field :city %>
+    </p>
+    <p id="country">
+      <%= f.label :country %><br />
+      <%= f.text_field :country %>
+    </p>
+    <p id="address">
+      <%= f.label :address %><br />
+      <%= f.text_field :address %>
+    </p>
   </div>
-  <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.text_field :end_time, :id => "event_end_time" %>
+  
+  <div id="publishing-time">
+    <p class="start_time">
+      <%= f.label "Visible from" %><br />
+      <%= f.text_field :active_time_start, :class => "datepicker" %><span class="to-until">-</span>
+    </p>
+    <p class="end_time">
+      <%= f.label "Visible until" %><br />
+      <%= f.text_field :active_time_end, :class => "datepicker" %>
+    </p>
   </div>
-  <div class="add_showtime">
-    <%= link_to "Add showtime", '#', :class => 'showtime' %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-   <div class="field">
-    <%= f.label "Visible from" %><br />
-    <%= f.text_field :active_time_start, :id => "event_active_time_start" %>
-  </div>
-  <div class="field">
-    <%= f.label "Visible until" %><br />
-    <%= f.text_field :active_time_end, :id => "event_active_time_end" %>
-  </div>  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <p><%= f.submit %></p>
 <% end %>
