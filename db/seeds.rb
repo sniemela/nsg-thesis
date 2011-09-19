@@ -14,8 +14,51 @@ rescue LoadError
   raise
 end
 
-categories = %w(Festival Conference Movie Concert Expo Party Nightlife)
-Category.create!(categories.map { |c| {:name => c} })
+categories = [{
+  :name => 'Festivals',
+  :description => 'Latest festival information.'
+},
+{
+  :name => 'Conferences',
+  :description => 'Latest conference and convention information.'
+},
+{
+  :name => 'Movies',
+  :description => 'Latest movie times, trailers and reviews.'
+},
+{
+  :name => 'Concerts',
+  :description => 'Latest concert information and tour dates.'
+},
+{
+  :name => 'Nightlife',
+  :description => 'Latest nightlife and dating events.'
+},
+{
+  :name => 'Sports',
+  :description => 'Latest recreational and sporting events.'
+},
+{
+  :name => 'Education',
+  :description => 'Latest educational events, classes, adn workshops.'
+}]
+
+Category.create!(categories)
+
+categorizations = [{
+  :event_id => 1,
+  :category_id => 3
+},
+{
+  :event_id => 2,
+  :category_id => 3
+},
+{
+  :event_id => 3,
+  :category_id => 6
+}]
+
+Categorization.create!(categorizations)
 
 tags = %w(Computers Music Metal Trance Programming Cars)
 Tag.create!(tags.map { |t| {:name => t} })
@@ -55,6 +98,18 @@ events = [{
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
   :approved => false
+},
+{
+  :name => 'Los Angeles Kings vs Anaheim Ducks',
+  :description => 'Hockey game',
+  :active_time_start => Time.now,
+  :active_time_end => Time.now + 2.hours,
+  :city => 'Los Angeles',
+  :address => '1111 S. Figueroa Street',
+  :country => 'USA',
+  :submitter_id => clients[0].id,
+  :submitter_type => 'Client',
+  :approved => true
 }]
 
 Event.create!(events)
