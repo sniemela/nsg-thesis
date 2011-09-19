@@ -42,18 +42,13 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
     t.integer "category_id", :null => false
   end
 
-  create_table "client_types", :force => true do |t|
-    t.string "name"
-  end
-
   create_table "clients", :force => true do |t|
-    t.string   "name",                              :null => false
-    t.integer  "client_type_id",                    :null => false
-    t.integer  "user_id"
+    t.string   "name",                           :null => false
+    t.integer  "client_type",                    :null => false
     t.text     "description"
     t.string   "address"
     t.string   "country"
-    t.boolean  "confirmed",      :default => false
+    t.boolean  "confirmed",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -97,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.integer  "client_id"
     t.string   "email"
     t.boolean  "admin"
     t.datetime "created_at"

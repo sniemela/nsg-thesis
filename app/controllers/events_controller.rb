@@ -59,6 +59,6 @@ class EventsController < ApplicationController
   end
   
   def my_events
-    @my_events = current_user.events
+    @my_events = current_user.all_events
   end
 end

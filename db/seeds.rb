@@ -20,17 +20,14 @@ Category.create!(categories.map { |c| {:name => c} })
 tags = %w(Computers Music Metal Trance Programming Cars)
 Tag.create!(tags.map { |t| {:name => t} })
 
-client_type_names = %w(Company Organization Institute)
-client_types = ClientType.create(client_type_names.map { |ct| { :name => ct } })
-
 clients_info = [{
   :name => 'Kino City (Vaasa)',
   :description => 'Cinema',
-  :client_type_id => client_types[0].id,
+  :client_type => Client::TYPE_COMPANY,
   :country => 'Finland',
   :address => 'Hovioikeudepuistikko 16',
-  :user_id => User.first.id,
-  :confirmed => false
+  :confirmed => false,
+  :user => User.first
 }]
 
 clients = Client.create!(clients_info, :without_protection => true)

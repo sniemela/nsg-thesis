@@ -1,9 +1,11 @@
 class Client < ActiveRecord::Base
+  TYPE_COMPANY = 1
+  TYPE_ORGANIZATION = 2
+  TYPE_INSTITUTE = 3
+
   has_many :ads
   has_many :events, :as => :submitter
-
-  belongs_to :client_type
-  belongs_to :user
+  has_one :user
 
   attr_accessible :name, :description, :address, :country
   validates :name, :description, :address, :country, :presence => true
