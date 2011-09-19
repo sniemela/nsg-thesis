@@ -2,6 +2,7 @@
   <h1><%= @category.name %></h1>
 </header>
 
+<p><%= image_tag @category.image_file_name, :class => "category_image" %></p>
 <p><%= @category.description %></p>
 
 <h1>Events in <%= @category.name %></h1>

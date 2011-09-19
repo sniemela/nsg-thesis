@@ -1,24 +1,19 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-    <ul>
-    <% @category.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
-
-  <div class="field">
+<%= form_for @category do |f| %>
+  <% f.error_messages %>
+  
+  <p id="category_name">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
+  </p>
+  <p id="category_description">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
-  </div>
-  <div class="actions">
+  </p>
+  <p>
+    <%= f.label "Category image" %><br />
+    <%= f.file_field :image_file_name %>
+  </p>
+  <p>
     <%= f.submit %>
-  </div>
+  </p>
 <% end %>

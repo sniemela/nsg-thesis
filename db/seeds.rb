@@ -16,31 +16,38 @@ end
 
 categories = [{
   :name => 'Festivals',
-  :description => 'Latest festival information.'
+  :description => 'Latest festival information.',
+  :image_file_name => 'festival.jpg'
 },
 {
   :name => 'Conferences',
-  :description => 'Latest conference and convention information.'
+  :description => 'Latest conference and convention information.',
+  :image_file_name => 'festival.jpg'
 },
 {
   :name => 'Movies',
-  :description => 'Latest movie times, trailers and reviews.'
+  :description => 'Latest movie times, trailers and reviews.',
+  :image_file_name => 'festival.jpg'
 },
 {
   :name => 'Concerts',
-  :description => 'Latest concert information and tour dates.'
+  :description => 'Latest concert information and tour dates.',
+  :image_file_name => 'festival.jpg'
 },
 {
   :name => 'Nightlife',
-  :description => 'Latest nightlife and dating events.'
+  :description => 'Latest nightlife and dating events.',
+  :image_file_name => 'festival.jpg'
 },
 {
   :name => 'Sports',
-  :description => 'Latest recreational and sporting events.'
+  :description => 'Latest recreational and sporting events.',
+  :image_file_name => 'festival.jpg'
 },
 {
   :name => 'Education',
-  :description => 'Latest educational events, classes, adn workshops.'
+  :description => 'Latest educational events, classes, and workshops.',
+  :image_file_name => 'festival.jpg'
 }]
 
 Category.create!(categories)
