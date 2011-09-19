@@ -8,6 +8,13 @@ class Ad < ActiveRecord::Base
 
   before_save :set_price
 
+  def tags=(tagstr)
+    tag_names = tagstr.scan(/[A-Za-z0-9]+/)
+    tag_names = (tag_names || []).uniq
+    tag_objects = tag_names.map { |name| Tag.find_or_initialize_by_name(name.downcase) }
+    tags << tag_objects
+  end
+
   def set_price
     self[:price] = calculate_price
   end

@@ -4,8 +4,8 @@
 
 <p>Price <span class="ad_price">0</span>€</p>
 
-<%= form_for @ad do |f| %>
-  <input type="hidden" id="ad_days" name="ad_days" />
+<%= form_for @ad, :multipart => true do |f| %>
+  <input type="hidden" id="ad_days" name="ad[ad_days]" />
 
   <p>
     <label>Select days</label><br />
@@ -13,7 +13,7 @@
   </p>
   <p>
     <%= label_tag :tags %><br />
-    <%= text_field_tag :tags %>
+    <%= text_field_tag 'ad[tags]', nil, :id => 'tags' %>
   </p>
   <p>
     <%= f.label :start_time %><br />

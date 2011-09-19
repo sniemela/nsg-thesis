@@ -3,4 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/
 db/user_seeds.rb
+public/system
 *~

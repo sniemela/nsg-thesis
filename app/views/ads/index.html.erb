@@ -1,0 +1,18 @@
+<header>
+  <h1>My ads</h1>
+</header>
+
+<% for ad in @ads %>
+  <article id="ad-<%= ad.id %>" class="list_entry <%= cycle('even', 'odd') %> clearfix">
+    <div class="ad_media"><%= element_for_media(ad.media.to_s) %></div>
+    <div class="ad_info">
+      <p>
+        Start time: <%= ad.start_time %><br />
+        End time: <%= ad.end_time %><br />
+        Days: <%= ((ad.end_time - ad.start_time) / 24 / 60 / 60).round %><br />
+        Price: <%= ad.price %>€
+      </p>
+    </div>
+    <div class="record_status"><span class="button_small_red">Waiting for confirmation</span></div>
+  </article>
+<% end %>
