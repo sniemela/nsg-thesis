@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110915085309) do
+ActiveRecord::Schema.define(:version => 20110920055345) do
 
   create_table "ads", :force => true do |t|
     t.integer  "client_id",                             :null => false
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
     t.datetime "updated_at"
   end
 
+  add_index "ads", ["client_id"], :name => "index_ads_on_client_id"
+  add_index "ads", ["confirmed"], :name => "index_ads_on_confirmed"
+  add_index "ads", ["price"], :name => "index_ads_on_price"
+
   create_table "categories", :force => true do |t|
     t.string   "name",               :null => false
     t.text     "description"
@@ -38,10 +42,15 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
     t.datetime "updated_at"
   end
 
+  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
+
   create_table "categorizations", :force => true do |t|
     t.integer "event_id",    :null => false
     t.integer "category_id", :null => false
   end
+
+  add_index "categorizations", ["category_id"], :name => "index_categorizations_on_category_id"
+  add_index "categorizations", ["event_id", "category_id"], :name => "index_categorizations_on_event_id_and_category_id"
 
   create_table "clients", :force => true do |t|
     t.string   "name",                           :null => false
@@ -53,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "clients", ["confirmed"], :name => "index_clients_on_confirmed"
 
   create_table "events", :force => true do |t|
     t.string   "name",                                 :null => false
@@ -71,6 +82,9 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
     t.datetime "updated_at"
   end
 
+  add_index "events", ["approved"], :name => "index_events_on_approved"
+  add_index "events", ["submitter_id", "submitter_type"], :name => "index_events_on_submitter_id_and_submitter_type"
+
   create_table "showtimes", :force => true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
@@ -79,17 +93,24 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
     t.datetime "updated_at"
   end
 
+  add_index "showtimes", ["event_id"], :name => "index_showtimes_on_event_id"
+
   create_table "taggings", :force => true do |t|
     t.integer "tag_id"
     t.integer "taggable_id"
     t.string  "taggable_type"
   end
 
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
+
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -101,5 +122,8 @@ ActiveRecord::Schema.define(:version => 20110915085309) do
     t.string   "provider"
     t.string   "uid"
   end
+
+  add_index "users", ["admin"], :name => "index_users_on_admin"
+  add_index "users", ["client_id"], :name => "index_users_on_client_id"
 
 end
