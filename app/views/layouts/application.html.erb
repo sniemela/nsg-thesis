@@ -90,8 +90,10 @@
       <span>tags</span> <span>tags</span> <span>tags</span> <span>tags</span> <span>tags</span>
     </div>
 
+    <br />
+
     <div class="advertises">
-      <p>mainokset</p>
+      <%= content_for?(:ads) ? content_for(:ads) : elements_for_ads(Ad.confirmed) %>
     </div>
   </aside>
 </div>

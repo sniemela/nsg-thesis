@@ -1,10 +1,12 @@
 class Ad < ActiveRecord::Base
   belongs_to :client
+  default_scope order('ads.price desc')
 
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
   scope :unconfirmed, where(:confirmed => false)
+  scope :confirmed, where(:confirmed => true)
 
   has_attached_file :media
 
@@ -35,7 +37,9 @@ class Ad < ActiveRecord::Base
   end
 
   def self.find_by_tag_ids(tag_ids)
-    Advertise.joins(:tags).where(['tags.id in (?)', tag_ids]).select('distinct ads.*')
+    ads = Ad.joins(:tags).where(['tags.id in (?)', tag_ids]).select('distinct ads.*') || []
+    other_ads = Ad.joins(:tags).where(['tags.id not in (?)', tag_ids]).select('distinct ads.*')
+    ads + other_ads
   end
 
   def self.find_by_tags(tags)

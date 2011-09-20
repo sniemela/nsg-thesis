@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
   
   def show
     @category = Category.find(params[:id])
+    @ads = Ad.find_by_tag_ids(@category.tags.select('tags.id'))
   end
   
   def edit

@@ -17,4 +17,12 @@ module AdsHelper
       filename
     end
   end
+
+  def elements_for_ads(ads)
+    output = ""
+    for ad in ads
+      output += "<div class=\"ad\">" + element_for_media(ad.media.to_s) + "</div>"
+    end
+    output.html_safe
+  end
 end
