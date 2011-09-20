@@ -1,0 +1,9 @@
+<header>
+  <h1>Unconfirmed ads</h1>
+</header>
+
+<% for ad in @ads %>
+  <%= link_to 'Confirm', confirm_ad_path(ad) %><br />
+  <%= render ad %>
+  <br />
+<% end %>

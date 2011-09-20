@@ -1,6 +1,7 @@
 class AdsController < ApplicationController
   before_filter :login_required
   before_filter :client_required
+  before_filter :admin_required, :only => [:unconfirmed, :confirm]
 
   def index
     @ads = current_user.client.ads
@@ -8,6 +9,16 @@ class AdsController < ApplicationController
 
   def new
     @ad = Ad.new
+  end
+
+  def unconfirmed
+    @ads = Ad.unconfirmed
+  end
+
+  def confirm
+    @ad = Ad.find(params[:id])
+    @ad.confirm!
+    redirect_to unconfirmed_ads_path, :notice => 'Ad was successfully confirmed'
   end
 
   def create

@@ -10,6 +10,11 @@ class Ad < ActiveRecord::Base
 
   before_save :set_price
 
+  def confirm!
+    self[:confirmed] = true
+    save!
+  end
+
   def tags=(tagstr)
     tag_names = tagstr.scan(/[A-Za-z0-9]+/)
     tag_names = (tag_names || []).uniq
