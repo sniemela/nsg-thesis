@@ -14,4 +14,17 @@ module ApplicationHelper
       end
       link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
+
+  def tag_cloud(classes = [])
+    tags = Tag.for_cloud
+    max, min = 0, 0
+
+    tags.each do |tag|
+      max = tag.count.to_i if tag.count.to_i > max
+      min = tag.count.to_i if tag.count.to_i < min
+    end
+
+    divisor = ((max - min) / classes.size) + 1
+    tags.each { |t| yield t.id, t.name, classes[(t.count.to_i - min) / divisor] }
+  end
 end

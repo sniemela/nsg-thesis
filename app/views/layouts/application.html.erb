@@ -85,15 +85,17 @@
 
     <br />
 
-    <h2>Tags</h2>
-    <div class="tagcloud">
-      <span>tags</span> <span>tags</span> <span>tags</span> <span>tags</span> <span>tags</span>
+    <div class="advertises">
+      <%= content_for?(:ads) ? content_for(:ads) : elements_for_ads(Ad.confirmed) %>
     </div>
 
     <br />
 
-    <div class="advertises">
-      <%= content_for?(:ads) ? content_for(:ads) : elements_for_ads(Ad.confirmed) %>
+    <h2>Tags</h2>
+    <div class="tagcloud">
+      <% tag_cloud %w(nube1 nube2 nube3 nube4 nube5) do |id, name, klass| %>
+        <%= link_to name.downcase, '#', :class => klass %>
+      <%- end -%>
     </div>
   </aside>
 </div>
