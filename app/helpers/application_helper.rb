@@ -25,6 +25,9 @@ module ApplicationHelper
     end
 
     divisor = ((max - min) / classes.size) + 1
-    tags.each { |t| yield t.id, t.name, classes[(t.count.to_i - min) / divisor] }
+
+    tags.each do |t|
+      yield t.id, t.name, classes[(t.count.to_i - min) / divisor] if t
+    end
   end
 end
