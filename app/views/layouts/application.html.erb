@@ -68,7 +68,6 @@
       <nav id="mylinks">
         <ul>
           <%- if is_admin? -%>
-          <li><%= link_to "My events", myevents_path %></li>
           <li><%= link_to "Clients", clients_path %></li>
           <% end %>
 
@@ -77,6 +76,7 @@
           <% else %>
           <li><%= link_to "New client", new_client_path %></li>
           <% end %>
+          <li><%= link_to "My events", myevents_path %></li>
           <li><%= link_to "My ads", ads_path %></li>
           <li><%= link_to "New ad", new_ad_path %></li>
         </ul>
