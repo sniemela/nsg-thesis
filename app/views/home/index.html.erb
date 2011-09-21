@@ -5,10 +5,8 @@
 <%- for event in @events -%>
 <article id="event-<%= event.id %>" class="event">
   <header>
-    <h1 id="event-name-<%= event.id %>"><%= event.name %></h1>
-    <% for category in event.categories %>
-      <p><%= category.name %></p>
-    <% end %>
+    <h1 id="event-name-<%= event.id %>"><%= link_to event.name, event %></h1>
+    <p class="event-category_list"><%= category_list(event.categories) %></p>
     <p id="event-description-<%= event.id %>"><%= event.description %></p>
   </header>
 </article>

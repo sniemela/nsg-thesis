@@ -57,6 +57,10 @@ categorizations = [{
   :category_id => 3
 },
 {
+  :event_id => 1,
+  :category_id => 2
+},
+{
   :event_id => 2,
   :category_id => 3
 },
@@ -84,7 +88,7 @@ clients = Client.create!(clients_info, :without_protection => true)
 
 events = [{
   :name => 'Hangover Part II',
-  :description => 'Hangover movie',
+  :description => "Two years after the bachelor party in Las Vegas, Phil, Stu, Alan, and Doug jet to Thailand for Stu's wedding. Stu's plan for a subdued pre-wedding brunch, however, goes seriously awry.",
   :active_time_start => Time.now - 5.days,
   :active_time_end => Time.now + 1.week,
   :city => 'Vaasa',
@@ -96,7 +100,7 @@ events = [{
 },
 {
   :name => 'The Rise of The Planet Of The Apes',
-  :description => 'Ape movie',
+  :description => "During experiments to find a cure for Alzheimer's disease, a genetically-enhanced chimpanzee uses its greater intelligence to lead other apes to freedom.",
   :active_time_start => Time.now - 4.days,
   :active_time_end => Time.now + 2.weeks,
   :city => 'Vaasa',
