@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gallery_id: 1
+  resource_file_name: MyString
+  resource_content_type: MyString
+  resource_file_size: 1
+  resource_updated_at: 2011-09-21 11:30:55
+  name: MyString
+  description: MyText
+  times_watched: 1
+  liked_count: 1
+
+two:
+  gallery_id: 1
+  resource_file_name: MyString
+  resource_content_type: MyString
+  resource_file_size: 1
+  resource_updated_at: 2011-09-21 11:30:55
+  name: MyString
+  description: MyText
+  times_watched: 1
+  liked_count: 1

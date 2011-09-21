@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  event_id: 1
+  name: MyString
+  description: MyString
+  times_watched: 1
+  liked_count: 1
+
+two:
+  event_id: 1
+  name: MyString
+  description: MyString
+  times_watched: 1
+  liked_count: 1
