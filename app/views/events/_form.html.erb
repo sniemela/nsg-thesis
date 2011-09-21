@@ -34,11 +34,11 @@
   
   <div id="publishing-time">
     <p class="start_time">
-      <%= f.label "Visible from" %><br />
+      <%= f.label :active_time_start %><br />
       <%= f.text_field :active_time_start, :class => "datepicker" %><span class="to-until">-</span>
     </p>
     <p class="end_time">
-      <%= f.label "Visible until" %><br />
+      <%= f.label :active_time_end %><br />
       <%= f.text_field :active_time_end, :class => "datepicker" %>
     </p>
   </div>

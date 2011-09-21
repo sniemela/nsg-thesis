@@ -3,11 +3,17 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
 
+  before_filter :set_locale
+
   def admin_required
     unless current_user && current_user.admin?
       redirect_to root_path, :alert => 'Unauthorized access'
       false
     end
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || :en
   end
 
   def login_required

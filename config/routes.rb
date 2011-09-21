@@ -16,8 +16,13 @@ NsgThesis::Application.routes.draw do
     get 'unconfirmed', :on => :collection
     get 'confirm', :on => :member
   end
+
   resources :categories
-  resources :clients
+
+  resources :clients do
+    get 'unconfirmed', :on => :collection
+    get 'confirm', :on => :member
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

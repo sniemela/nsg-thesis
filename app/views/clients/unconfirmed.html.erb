@@ -1,0 +1,7 @@
+<header>
+  <h1>Unconfirmed clients</h1>
+</header>
+
+<% for client in @clients %>
+  <%= render client, :locals => { :confirm => true } %>
+<% end %>

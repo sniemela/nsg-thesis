@@ -53,32 +53,32 @@
 
   <aside>
     <% if current_user %>
-      <h2>Confirmation</h2>
+      <h2><%= t 'title.confirmation_requests' %></h2>
       <nav id="requests">
         <ul>
-          <li><%= link_to 'Events', unapproved_events_path %> <span class="request_count"><%= Event.unapproved.count %></span></li>
-          <li><a href="#">Clients</a> <span class="request_count"><%= Client.unconfirmed.count %></span></li>
-          <li><%= link_to 'Ads', unconfirmed_ads_path %> <span class="request_count"><%= Ad.unconfirmed.count %></span></li>
+          <li><%= link_to I18n.t('title.events'), unapproved_events_path %> <span class="request_count"><%= Event.unapproved.count %></span></li>
+          <li><%= link_to I18n.t('title.clients'), unconfirmed_clients_path %> <span class="request_count"><%= Client.unconfirmed.count %></span></li>
+          <li><%= link_to I18n.t('title.ads'), unconfirmed_ads_path %> <span class="request_count"><%= Ad.unconfirmed.count %></span></li>
         </ul>
       </nav>
 
       <br />
 
-      <h2>My links</h2>
+      <h2><%= t 'title.my_links' %></h2>
       <nav id="mylinks">
         <ul>
           <%- if is_admin? -%>
-          <li><%= link_to "Clients", clients_path %></li>
+          <li><%= link_to I18n.t('title.clients'), clients_path %></li>
           <% end %>
 
           <%- unless current_user.client_id.nil? -%>
-          <li><%= link_to "My client", current_user.client %></li>
+          <li><%= link_to t('my_links.my_client'), current_user.client %></li>
           <% else %>
-          <li><%= link_to "New client", new_client_path %></li>
+          <li><%= link_to t('my_links.new_client'), new_client_path %></li>
           <% end %>
-          <li><%= link_to "My events", myevents_path %></li>
-          <li><%= link_to "My ads", ads_path %></li>
-          <li><%= link_to "New ad", new_ad_path %></li>
+          <li><%= link_to t('my_links.my_events'), myevents_path %></li>
+          <li><%= link_to t('my_links.my_ads'), ads_path %></li>
+          <li><%= link_to t('my_links.new_ad'), new_ad_path %></li>
         </ul>
       </nav>
     <% end %>

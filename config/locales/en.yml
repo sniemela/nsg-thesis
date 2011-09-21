@@ -2,4 +2,26 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      create: Create
+      update: Update
+  
+  my_links:
+    all_clients: All clients
+    my_events: My events
+    my_client: My client
+    new_client: New client
+    my_ads: My ads
+    new_ad: New ad
+  
+  title:
+    my_links: My links
+    confirmation_requests: Confirmation
+    clients: Clients
+    events: Events
+    ads: Ads
+    categories: Categories
+    showtimes: Showtimes
+    tags: Tags
+    users: Users

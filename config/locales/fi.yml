@@ -1,0 +1,58 @@
+fi:
+  helpers:
+    submit:
+      create: Tallenna
+      update: Päivitä
+  
+  attributes: # default model attrs
+    name: Nimi
+    description: Kuvaus
+    address: Osoite
+    city: Kaupunki
+    confirmed: Vahvistettu
+    country: Maa
+    times_watched: Katsottu
+    liked_count: Tykätty
+    created_at: Luotu
+    updated_at: Päivitetty
+
+  my_links:
+    all_clients: Kaikki asiakkaat
+    my_events: Omat tapahtumat
+    my_client: Oma asiakkuus
+    new_client: Uusi asiakkuus
+    my_ads: Omat mainokset
+    new_ad: Uusi mainos
+
+  title:
+    my_links: Omat linkit
+    confirmation_requests: Vahvistuspyynnöt
+    clients: Asiakkaat
+    events: Tapahtumat
+    ads: Mainokset
+    categories: Kategoriat
+    showtimes: Näytösajat
+    tags: Tagit
+    users: Käyttäjät
+  activerecord:
+    models:
+      client: Asiakas
+      event: Tapahtuma
+      ad: Mainos
+      category: Kategoria
+      showtime: Näytösaika
+      tag: Tagi
+      user: Käyttäjä
+    attributes:
+      client:
+        client_type: Asiakastyyppi
+      event:
+        active_time_start: Julkaisuaika
+        active_time_end: Piilotusaika
+        approved: Hyväksytty
+      showtime:
+        start_time: Alkamisaika
+        end_time: Päättymisaika
+      
+        
+        

@@ -1,0 +1,16 @@
+<article id="client-<%= client.id %>" class="list_entry <%= cycle('even', 'odd') %>">
+  <% if is_admin? %>
+    <%= link_to t('confirm'), confirm_client_path(client) %>
+  <% end %>
+
+  <header>
+    <h1><%= client.name %></h1>
+    <p><%= client.description %></p>
+  </header>
+  <p>
+    <%= Client.human_attribute_name 'address' %>: <%= client.address %><br />
+    <%= Client.human_attribute_name 'country' %>: <%= client.country %><br />
+    <%= Client.human_attribute_name 'client_type' %>: <%= client.client_type %><br />
+    <%= Client.human_attribute_name 'created_at' %>: <%= l client.created_at %>
+  </p>
+</article>

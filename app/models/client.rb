@@ -17,4 +17,9 @@ class Client < ActiveRecord::Base
   def autoconfirm
     self[:confirmed] = true if user.admin?
   end
+
+  def confirm!
+    self[:confirmed] = true
+    save!
+  end
 end
