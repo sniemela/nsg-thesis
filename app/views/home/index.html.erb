@@ -6,6 +6,9 @@
 <article id="event-<%= event.id %>" class="event">
   <header>
     <h1 id="event-name-<%= event.id %>"><%= event.name %></h1>
+    <% for category in event.categories %>
+      <p><%= category.name %></p>
+    <% end %>
     <p id="event-description-<%= event.id %>"><%= event.description %></p>
   </header>
 </article>

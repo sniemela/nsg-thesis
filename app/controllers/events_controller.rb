@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_filter :admin_required, :only => [:unapproved, :confirm]
 
   def index
-    @events = Event.approved
+    @events = Event.approved.includes(:categories)
   end
   
   def new

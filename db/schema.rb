@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110920055345) do
+ActiveRecord::Schema.define(:version => 20110921083055) do
 
   create_table "ads", :force => true do |t|
     t.integer  "client_id",                             :null => false
@@ -84,6 +84,34 @@ ActiveRecord::Schema.define(:version => 20110920055345) do
 
   add_index "events", ["approved"], :name => "index_events_on_approved"
   add_index "events", ["submitter_id", "submitter_type"], :name => "index_events_on_submitter_id_and_submitter_type"
+
+  create_table "galleries", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "times_watched"
+    t.integer  "liked_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "galleries", ["event_id"], :name => "index_galleries_on_event_id"
+
+  create_table "gallery_resources", :force => true do |t|
+    t.integer  "gallery_id"
+    t.string   "resource_file_name"
+    t.string   "resource_content_type"
+    t.integer  "resource_file_size"
+    t.datetime "resource_updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "times_watched"
+    t.integer  "liked_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gallery_resources", ["gallery_id"], :name => "index_gallery_resources_on_gallery_id"
 
   create_table "showtimes", :force => true do |t|
     t.datetime "start_time"
