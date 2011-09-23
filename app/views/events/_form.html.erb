@@ -17,6 +17,15 @@
     <%= link_to_add_fields "Add showtime", f, :showtimes %>
   </div>
   
+  <div id="event-image">
+    <%= f.fields_for :galleries do |gallery_form| %>
+      <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
+        <%= resource_form.label :event_image %><br />
+        <%= resource_form.file_field :resource %>
+      <% end %>
+    <% end %>
+  </div>
+  
   <div id="location">
     <p id="city">
       <%= f.label :city %><br />

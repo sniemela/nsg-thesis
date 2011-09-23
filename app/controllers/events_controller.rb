@@ -7,8 +7,12 @@ class EventsController < ApplicationController
   end
   
   def new
-    @event = Event.new
-    @event.showtimes.build
+    @event = Event.new 
+    
+    @event.categories.build    
+    @event.showtimes.build      
+    @event.galleries.build
+    @event.galleries[0].gallery_resources.build
   end
   
   def create
@@ -29,6 +33,11 @@ class EventsController < ApplicationController
   
   def edit
     @event = Event.find(params[:id])
+    
+    if @event.galleries.blank?
+      @event.galleries.build
+      @event.galleries[0].gallery_resources.build
+    end
   end
   
   def update

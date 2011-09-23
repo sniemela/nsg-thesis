@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
   after_create :notify_created
   after_update :notify_updated
   
-  accepts_nested_attributes_for :showtimes, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :showtimes, :galleries, :reject_if => :all_blank, :allow_destroy => true
 
   scope :most_watched, where('times_watched > ?', 0).order('times_watched desc').limit(50)
   scope :popular, where('liked_count > ?', 0).order('liked_count desc').limit(50)

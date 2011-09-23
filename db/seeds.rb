@@ -111,13 +111,13 @@ events = [{
   :approved => false
 },
 {
-  :name => 'Los Angeles Kings vs Anaheim Ducks',
-  :description => 'Hockey game',
+  :name => 'Provinssirock',
+  :description => 'Ihmisten Juhla, Provinssirock, tuo Suomen kesään niin kansainväliset kuin kotimaisetkin kärkinimet, musiikkimaailman uudempia tuttavuuksia ja sykäyttävän tunnelman. Festivaalia on järjestetty jo vuodesta 1979 kulttuurihistoriallisella Törnävänsaaren puistoalueella.',
   :active_time_start => Time.now,
   :active_time_end => Time.now + 2.hours,
-  :city => 'Los Angeles',
-  :address => '1111 S. Figueroa Street',
-  :country => 'USA',
+  :city => 'Seinäjoki',
+  :address => 'Vaasantie 11',
+  :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
   :approved => true
@@ -149,6 +149,24 @@ showtimes = [{
   :start_time => Time.now + 2.days,
   :end_time => Time.now + 2.days + 2.hours,
   :event_id => 2
+},
+{
+  :start_time => Time.now + 2.days,
+  :end_time => Time.now + 2.days + 2.hours,
+  :event_id => 3
 }]
 
 Showtime.create!(showtimes)
+
+galleries = [{
+  :event_id => 1
+}]
+
+Gallery.create!(galleries)
+
+gallery_resources = [{
+  :gallery_id => 1,
+  :resource_file_name => 'hangover2.jpg'
+}]
+
+GalleryResource.create!(gallery_resources)

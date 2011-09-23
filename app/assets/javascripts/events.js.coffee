@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('.datepicker').datetimepicker()
+  $('.datepicker').datetimepicker({
+    dateFormat: "yy-mm-dd"
+  })
