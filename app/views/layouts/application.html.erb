@@ -11,13 +11,10 @@
 
   <header id="page_header">
     <div class="top_group">
-      <h1>Happen.</h1>
-
-      <div class="recent_events">
-        <span>Event name</span>
-      </div>
-
-      <nav id="user_nav">
+     <div id="logo">
+       <a href="#"><img src="#" title="click me!" /></a>
+     </div> 
+     <nav id="user_nav">
         <% if current_user %>
           Welcome <%= current_user.name %>!
           <%= link_to "Sign out", signout_path, :id => "signout" %>
@@ -26,7 +23,9 @@
         <% end %>
       </nav>
     </div>
-
+    <div class="recent_events">
+        <span>Event name</span>
+      </div>
     <div class="bottom_group">
       <nav id="page_nav">
         <ul>
