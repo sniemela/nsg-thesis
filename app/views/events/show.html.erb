@@ -1,10 +1,16 @@
-<h1><%= @event.name %></h1>
-<p class="event-category_list"><%= category_list(@event.categories) %></p>
-<p class="event-image">
-  <% for gallery in @event.galleries %>
-    <% for resource in gallery.gallery_resources %>
-      <%= image_tag resource.resource_file_name %>
+<ul class="idTabs"> 
+  <li><a href="#event-info">Info</a></li> 
+  <li><a href="#event-comments">Comments</a></li> 
+</ul> 
+<div id="event-info">
+  <h1><%= @event.name %></h1>
+  <p class="event-category_list"><%= category_list(@event.categories) %></p>
+  <p class="event-image">
+    <% for gallery in @event.galleries %>
+      <% for resource in gallery.gallery_resources %>
+        <%= image_tag resource.resource_file_name %>
+      <% end %>
     <% end %>
-  <% end %>
-</p>
-<p><%= @event.description %></p>
+  </p>
+  <p><%= @event.description %></p></div> 
+<div id="event-comments">idTabs is only a simple ...</div>

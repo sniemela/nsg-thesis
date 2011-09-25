@@ -211,7 +211,7 @@ aside h2 { font-size: 15px; }
   display: inline;
   padding: 5px;
 }
-.event-categories { display: inline; font-style: italic; }
+.event-category_list { display: inline; font-style: italic; font-size: 8pt; }
 .showtime_fields { display: inline; }
 .start_time {}
 .end_time { margin-left: 250px; margin-top: -53px ;}
@@ -219,6 +219,7 @@ aside h2 { font-size: 15px; }
 .to-until { padding-left: 8px; }
 #location { margin-top: 30px; }
 #publishing-time { margin-top: 30px; }
+.idTabs li { display: inline; list-style: none; padding-right: 10px;}
 
 .category_image { width: 320px; }
 /* helpers */
