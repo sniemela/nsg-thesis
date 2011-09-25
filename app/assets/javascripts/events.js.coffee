@@ -10,6 +10,9 @@ applyUpdates = ->
   eventDataBuffer.reset()
 
 showUpdatesAvailableMessage = (data) ->
+  event = data.param
+  return if not event.approved
+  
   $('.available_updates').show();
   $('.update_content_link').attr('id', 'update_event_content')
   $('#update_event_content').click ->
@@ -18,23 +21,43 @@ showUpdatesAvailableMessage = (data) ->
     $('.available_updates').hide()
 
 
+incrementUnconfirmedEvents = (data) ->
+  action = data.action
+  event = data.param
+  wrapper = $('#unapproved_events_count')
+  count = parseInt(wrapper.html())
+  
+  if action == 'remove'
+    if not event.approved
+      count -= 1
+  if action == 'add'
+    if not event.approved
+      count += 1
+
+  wrapper.html(count)
+
+
 eventDataBuffer.onData(showUpdatesAvailableMessage)
+eventDataBuffer.onData(incrementUnconfirmedEvents)
 
 
 eventFeed.on 'add', (event) ->
   eventDataBuffer.push
+    action: 'add',
     method: addEventToList,
     param: event
 
 
 eventFeed.on 'update', (event) ->
   eventDataBuffer.push
+    action: 'update',
     method: updateEventDom,
     param: event
 
 
 eventFeed.on 'remove', (event) ->
   eventDataBuffer.push
+    action: 'remove',
     method: removeEventFromDom,
     param: event
 
