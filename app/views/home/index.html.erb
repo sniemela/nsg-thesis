@@ -5,7 +5,7 @@
 <%- for event in @events -%>
 <article id="event-<%= event.id %>" class="event">
   <header>
-    <h1 id="event-name-<%= event.id %>"><%= link_to event.name, event %></h1>
+    <h1><%= link_to event.name, event, :id => "event-name-#{event.id}" %></h1>
     <p class="event-category_list"><%= category_list(event.categories) %></p>
     <p class="event-image">
     <% for gallery in event.galleries %>

@@ -1,18 +1,45 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-eventFeed = io.connect 'http://localhost:1337/events'
+#= require databuffer
+
+eventFeed = io.connect 'http://' + node_app_host + ':1337/events'
+eventDataBuffer = new $.DataBuffer
+
+applyUpdates = ->
+  for data in eventDataBuffer.getBuffer()
+    callback = data.method
+    callback(data.param)
+  eventDataBuffer.reset()
+
+showUpdatesAvailableMessage = (data) ->
+  $('.available_updates').show();
+  $('.update_content_link').attr('id', 'update_event_content')
+  $('#update_event_content').click ->
+    applyUpdates()
+    $('.update_content_link').attr('id', '')
+    $('.available_updates').hide()
+
+
+eventDataBuffer.onData(showUpdatesAvailableMessage)
+
 
 eventFeed.on 'add', (event) ->
-  addEventToList event
+  eventDataBuffer.push
+    method: addEventToList,
+    param: event
 
 
 eventFeed.on 'update', (event) ->
-  updateEventDom event
+  eventDataBuffer.push
+    method: updateEventDom,
+    param: event
 
 
 eventFeed.on 'remove', (event) ->
-  removeEventFromDom event
+  eventDataBuffer.push
+    method: removeEventFromDom,
+    param: event
 
 
 addEventToList = (event) ->
@@ -28,4 +55,5 @@ updateEventDom = (event) ->
 
 
 removeEventFromDom = (event) ->
-  
+  eventDiv = $('#event-' + event.id)
+  eventDiv.hide() if eventDiv

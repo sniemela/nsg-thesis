@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
 
   after_create :notify_created
   after_update :notify_updated
+  after_destroy :notify_removed
   
   accepts_nested_attributes_for :showtimes, :galleries, :reject_if => :all_blank, :allow_destroy => true
 
@@ -36,5 +37,9 @@ class Event < ActiveRecord::Base
 
     def notify_created
       NodejsNotifier.notify('/event_added', to_json)
+    end
+  
+    def notify_removed
+      NodejsNotifier.notify('/event_removed', to_json)
     end
 end
