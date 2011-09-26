@@ -1,28 +1,28 @@
 NsgThesis::Application.routes.draw do
+  scope "(:locale)", :locale => /en|fi/ do
+    match "/auth/:provider/callback" => "sessions#create"
+    match "/signin" => "sessions#signin", :as => :signin
+    match "/signout" => "sessions#destroy", :as => :signout
+    match "/myevents" => "events#my_events", :as => :myevents
   
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/signin" => "sessions#signin", :as => :signin
-  match "/signout" => "sessions#destroy", :as => :signout
-  match "/myevents" => "events#my_events", :as => :myevents
-  
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-  resources :events do
-    get 'unapproved', :on => :collection
-    get 'approve', :on => :member
-  end
+    # The priority is based upon order of creation:
+    # first created -> highest priority.
+    resources :events do
+      get 'unapproved', :on => :collection
+      get 'approve', :on => :member
+    end
 
-  resources :ads do
-    get 'unconfirmed', :on => :collection
-    get 'confirm', :on => :member
-  end
+    resources :ads do
+      get 'unconfirmed', :on => :collection
+      get 'confirm', :on => :member
+    end
 
-  resources :categories
+    resources :categories
 
-  resources :clients do
-    get 'unconfirmed', :on => :collection
-    get 'confirm', :on => :member
-  end
+    resources :clients do
+      get 'unconfirmed', :on => :collection
+      get 'confirm', :on => :member
+    end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -70,7 +70,8 @@ NsgThesis::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+    root :to => 'home#index'
+  end
 
   # See how all your routes lay out with "rake routes"
 

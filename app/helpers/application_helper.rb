@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module ApplicationHelper
   def is_admin?
     current_user && current_user.admin?
@@ -29,5 +31,18 @@ module ApplicationHelper
     tags.each do |t|
       yield t.id, t.name, classes[(t.count.to_i - min) / divisor] if t && t.name && t.id
     end
+  end
+
+  def link_to_locales
+    locales = {
+      :fi => 'Suomeksi',
+      # :sv => 'På svenska',
+      :en => 'In english',
+    }
+
+    locales.delete(I18n.locale.to_sym)
+
+    links = locales.map { |k, v| link_to image_tag(k.to_s + '.png'), {:locale => k}, :title => v }
+    links.join(' ').html_safe
   end
 end
