@@ -44,9 +44,9 @@ aside h2 { font-size: 15px; }
 #providers_list { list-style: none; padding: 0; }
 
 #content_wrapper {  
-  width: 940px;
-  position: absolute;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid #FFFFFF;
+    position: absolute;
+    width: 1040px;
 }
 #wrapper { 
   width: $wrapper-width; 
@@ -54,22 +54,24 @@ aside h2 { font-size: 15px; }
   position: relative; 
 }
 #wrapper aside { 
-  border-left: 1px solid #A5A5A5;
-  display: block;
-  float: right;
+  border-left: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    display: block;
+    float: right;
     padding: 0 20px;
     position: relative;
-    width: 300px;
+    width: 200px;
     z-index: 160;
 }
 #content { 
-  border-right: 1px solid #FFFFFF;
+ border-right: 1px solid #A5A5A5;
     display: block;
     float: left;
     margin-top: -2px;
+    min-height: 300px;
     padding-left: 180px;
     position: relative;
-    width: 760px;
+    width: 858px;
     z-index: 160;
 }
 #user_nav ul li { display: inline; }
