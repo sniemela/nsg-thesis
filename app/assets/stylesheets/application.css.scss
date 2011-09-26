@@ -46,6 +46,7 @@ aside h2 { font-size: 15px; }
 #content_wrapper {  
   width: $content-width; 
   position: absolute;
+  border-top: 1px solid #ffffff;
 }
 #wrapper { 
   width: $wrapper-width; 
@@ -83,17 +84,20 @@ aside h2 { font-size: 15px; }
 
 #page_header {
   color: $header-font-color;
-  background-color: $header-background-color;
   width: 100%;
   overflow: auto;
   position: relative;
+  height: 108px;
+  border-bottom: 1px solid #a5a5a5;
+  display: block;
 }
 
 #page_header .top_group {
   width: $wrapper-width;
   overflow: auto;
   background: url("/assets/header_bg.png");
-  height: 109px;
+  background-repeat: repeat-x;
+  height: 108px;
   position: relative;
 }
 
@@ -125,6 +129,7 @@ aside h2 { font-size: 15px; }
 #logo img {
     border: none;
     position: relative;
+    width: 59px;
 }
 #user_nav {
   margin: 6px 10px 0 0;
@@ -168,7 +173,6 @@ aside h2 { font-size: 15px; }
 #page_nav ul li a:hover {
   color: $header-pagenav-link-color;
 }
-
 #categories li {
   list-style: none;
   display: inline;
