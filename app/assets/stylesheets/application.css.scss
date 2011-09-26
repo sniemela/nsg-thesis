@@ -43,14 +43,27 @@ aside h2 { font-size: 15px; }
 
 #providers_list { list-style: none; padding: 0; }
 
-#content_wrapper { float: left; width: $content-width; }
-#wrapper { width: $wrapper-width; margin: 0 auto; }
-#wrapper aside { float: left; width: $aside-width; margin-left: -$aside-width; }
+#content_wrapper {  
+  width: $content-width; 
+  position: absolute;
+}
+#wrapper { 
+  width: $wrapper-width; 
+  margin: 0 auto;
+  position: relative; 
+}
+#wrapper aside { 
+  float: right; 
+  width: $aside-width; 
+  margin-left: -$aside-width; 
+}
 #content { 
-margin-right: $aside-width + 50;
-display: block;
-margin-left: 180px;
-width: 660px;
+  margin-right: $aside-width + 50;
+  display: block;
+  margin-left: 180px;
+  width: 660px;
+  float: left;
+  margin-top: 15px;
 }
 #user_nav ul li { display: inline; }
 
@@ -73,6 +86,7 @@ width: 660px;
   background-color: $header-background-color;
   width: 100%;
   overflow: auto;
+  position: relative;
 }
 
 #page_header .top_group {
@@ -80,11 +94,13 @@ width: 660px;
   overflow: auto;
   background: url("/assets/header_bg.png");
   height: 109px;
+  position: relative;
 }
 
 #page_header .bottom_group {
   overflow: auto;
   background-color: $header-bottomgroup-backcolor;
+  position: relative;
 }
 
 #page_header h1 {
@@ -103,12 +119,15 @@ width: 660px;
     height: 32px;
     margin: 0 0 0 0;
     padding: 0 0 0 20px;
+    position: relative;
+    z-index: 100;
 }
 #logo img {
     border: none;
+    position: relative;
 }
 #user_nav {
-  margin: 10px 10px 0 0;
+  margin: 6px 10px 0 0;
   float: right;
 }
 
@@ -127,14 +146,18 @@ width: 660px;
   width: 150px;
 }
 #page_nav {
-    -webkit-border-radius: 0 6px 6px 0;
-    -moz-border-radius: 0 6px 6px 0;
-    border-radius: 0 6px 6px 0;
-    background: none repeat scroll 0 0 #000;
-    display: none;
-    width: 120px;
-    margin-top: -70px;
-    }
+  -webkit-border-radius: 0 6px 6px 0;
+  -moz-border-radius: 0 6px 6px 0;
+  border-radius: 0 6px 6px 0;
+  background: none repeat scroll 0 0 #000;
+  display: none;
+  width: 120px;
+  margin-top: -70px;
+  padding: 20px 8px 20px 0;
+  position: relative;
+  z-index: 99;
+  float: left;
+}
 #page_nav ul li a {
   color: $header-pagenav-link-color;
   display: block;
