@@ -13,8 +13,8 @@
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label :client_type_id, %><br />
-    <%= f.select :client_type_id, ClientType.all.map { |c| [c.name, c.id] } %>
+    <%= f.label :client_type, %><br />
+    <%= f.select :client_type, [[t('client_type.company'), Client::TYPE_COMPANY], [t('client_type.organization'), Client::TYPE_ORGANIZATION], [t('client_type.institute'), Client::TYPE_INSTITUTE]] %>
   </p>
   <p>
     <%= f.label :address %><br />
@@ -25,7 +25,7 @@
     <%= f.country_select :country, ['Finland'] %>
   </p>
   <p>
-    <%= f.submit I18n.t('save') %>
+    <%= f.submit %>
   </p>
 
 <% end %>

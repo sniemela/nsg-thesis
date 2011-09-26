@@ -16,6 +16,11 @@ fi:
     created_at: Luotu
     updated_at: Päivitetty
 
+  client_type:
+    company: Yritys
+    organization: Organisaatio
+    institute: Instituutti
+
   my_links:
     all_clients: Kaikki asiakkaat
     my_events: Omat tapahtumat
