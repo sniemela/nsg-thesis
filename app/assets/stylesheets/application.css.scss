@@ -54,17 +54,23 @@ aside h2 { font-size: 15px; }
   position: relative; 
 }
 #wrapper aside { 
-  float: right; 
-  width: $aside-width; 
-  margin-left: -$aside-width; 
+  border-left: 1px solid #A5A5A5;
+  display: block;
+  float: right;
+    padding: 0 20px;
+    position: relative;
+    width: 300px;
+    z-index: 160;
 }
 #content { 
-  margin-right: $aside-width + 50;
-  display: block;
-  margin-left: 180px;
-  width: 660px;
-  float: left;
-  margin-top: 15px;
+  border-right: 1px solid #FFFFFF;
+    display: block;
+    float: left;
+    margin-top: -2px;
+    padding-left: 180px;
+    position: relative;
+    width: 760px;
+    z-index: 160;
 }
 #user_nav ul li { display: inline; }
 
