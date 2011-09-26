@@ -42,7 +42,12 @@ module ApplicationHelper
 
     locales.delete(I18n.locale.to_sym)
 
-    links = locales.map { |k, v| link_to image_tag(k.to_s + '.png'), {:locale => k}, :title => v }
+    links = locales.map do |code, title|
+      locale = code
+      locale = nil if code.to_s == I18n.default_locale.to_s
+      link_to image_tag(code.to_s + '.png'), {:locale => locale}, :title => title
+    end
+
     links.join(' ').html_safe
   end
 end
