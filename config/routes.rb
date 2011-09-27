@@ -20,6 +20,7 @@ NsgThesis::Application.routes.draw do
   resources :ads do
     get 'unconfirmed', :on => :collection
     get 'confirm', :on => :member
+    get 'my', :on => :collection
   end
   
   resources :clients do
