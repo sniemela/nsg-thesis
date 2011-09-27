@@ -3,6 +3,8 @@ app = express.createServer()
 io = require('socket.io').listen(app)
 feed = require('./feed')
 
+io.set 'log level', 1
+
 app.use express.bodyParser()
 app.listen 1337
 
