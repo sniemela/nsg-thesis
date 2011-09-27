@@ -1,9 +1,9 @@
 <header>
-  <h1>Unapproved events</h1>
+  <h1><%= t 'title.unapproved_events' %></h1>
 </header>
 
 <% for event in @events %>
-  <%= link_to 'Approve', approve_event_path(event) %><br />
+  <%= link_to t('misc.approve'), approve_event_path(event) %><br />
   <%= render event %>
   <br />
 <% end %>

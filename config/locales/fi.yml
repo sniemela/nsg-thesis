@@ -4,6 +4,9 @@ fi:
       create: Tallenna
       update: Päivitä
   
+  content_has_been_updated: Uusia sisältöpäivityksiä on saatavilla
+  show_updates: Päivitä sisältö nyt
+  
   attributes: # default model attrs
     name: Nimi
     description: Kuvaus
@@ -15,6 +18,7 @@ fi:
     liked_count: Tykätty
     created_at: Luotu
     updated_at: Päivitetty
+    start_time: Alkamisaika
 
   client_type:
     company: Yritys
@@ -28,17 +32,37 @@ fi:
     new_client: Uusi asiakkuus
     my_ads: Omat mainokset
     new_ad: Uusi mainos
+  
+  help:
+    select_sign_in_account: Valitse tili jolla haluat kirjautua sisään
+    dont_have_sign_in_account: Etkö omista yhtään tiliä? Hanki omasi nyt osoitteesta %{myopenid} tai %{googleid}
+
+  misc:
+    price: Hinta
+    confirm: Vahvista
+    approve: Hyväksy
+    cancel: Peruuta
+    select_days: Valitse päivät
 
   title:
+    home: Etusivu
     my_links: Omat linkit
     confirmation_requests: Vahvistuspyynnöt
     clients: Asiakkaat
     events: Tapahtumat
+    latest_events: Uusimmat tapahtumat
     ads: Mainokset
     categories: Kategoriat
     showtimes: Näytösajat
     tags: Tagit
+    sign_in: Kirjaudu sisään
+    sign_out: Kirjaudu ulos
     users: Käyttäjät
+    add_event: Lisää tapahtuma
+    unconfirmed_ads: Mainosten vahvistus
+    unconfirmed_clients: Asiakkaiden vahvistus
+    unapproved_events: Hyväksy tapahtumia
+
   activerecord:
     models:
       client: Asiakas
@@ -56,8 +80,4 @@ fi:
         active_time_end: Piilotusaika
         approved: Hyväksytty
       showtime:
-        start_time: Alkamisaika
         end_time: Päättymisaika
-      
-        
-        
