@@ -47,6 +47,7 @@ fi:
   title:
     home: Etusivu
     my_links: Omat linkit
+    admin_links: Ylläpitäjän linkit
     confirmation_requests: Vahvistuspyynnöt
     clients: Asiakkaat
     events: Tapahtumat

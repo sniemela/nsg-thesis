@@ -69,22 +69,28 @@
         </ul>
       </nav>
 
+      <%- if is_admin? -%>
       <br />
+      <h2><%= t 'title.admin_links' %></h2>
+      <nav id="adminlinks">
+        <ul>
+          <li><%= link_to I18n.t('title.clients'), clients_path %></li>
+          <li><%= link_to t('title.ads'), ads_path %></li>
+        </ul>
+      </nav>
+      <%- end -%>
 
+      <br />
       <h2><%= t 'title.my_links' %></h2>
       <nav id="mylinks">
         <ul>
-          <%- if is_admin? -%>
-          <li><%= link_to I18n.t('title.clients'), clients_path %></li>
-          <% end %>
-
           <%- unless current_user.client_id.nil? -%>
           <li><%= link_to t('my_links.my_client'), current_user.client %></li>
           <% else %>
           <li><%= link_to t('my_links.new_client'), new_client_path %></li>
           <% end %>
           <li><%= link_to t('my_links.my_events'), myevents_path %></li>
-          <li><%= link_to t('my_links.my_ads'), ads_path %></li>
+          <li><%= link_to t('my_links.my_ads'), my_ads_path %></li>
           <li><%= link_to t('my_links.new_ad'), new_ad_path %></li>
         </ul>
       </nav>

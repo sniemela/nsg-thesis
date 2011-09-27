@@ -21,6 +21,7 @@ en:
   
   title:
     my_links: My links
+    admin_links: Admin links
     confirmation_requests: Confirmation
     clients: Clients
     events: Events

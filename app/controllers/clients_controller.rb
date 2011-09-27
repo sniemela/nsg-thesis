@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   before_filter :login_required
-  before_filter :admin_required, :only => :index
-  before_filter :client_not_required, :only => [:new, :create]
+  before_filter :admin_required, :only => [:index, :confirm, :unconfirmed]
+  before_filter :client_not_allowed, :only => [:new, :create]
 
   def index
     @clients = Client.all
@@ -38,7 +38,7 @@ class ClientsController < ApplicationController
   end
 
   private
-    def client_not_required
+    def client_not_allowed
       unless current_user.client_id.nil?
         redirect_to client_path(current_user.client_id)
         false
