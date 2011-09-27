@@ -6,11 +6,11 @@
 <article id="event-<%= event.id %>" class="event">
   <header>
     <h1><%= link_to event.name, event, :id => "event-name-#{event.id}" %></h1>
-    <p class="event-category_list"><%= category_list(event.categories) %></p>
-    <p class="event-image">
+    <p class="event-category_list-index"><%= category_list(event.categories) %></p>
+    <p class="event-image-index">
     <% for gallery in event.galleries %>
-      <% for resource in gallery.gallery_resources %>
-        <%= image_tag resource.resource_file_name %>
+      <% for resource_file in gallery.gallery_resources %>
+        <%= image_tag resource_file.resource(:thumb) %>
       <% end %>
     <% end %>
     </p>

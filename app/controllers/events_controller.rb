@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new 
     
-    @event.categories.build    
+    @event.categories.build
     @event.showtimes.build      
     @event.galleries.build
     @event.galleries[0].gallery_resources.build
@@ -19,6 +19,8 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     
     @event.submitter = current_user
+    selected_category = params[category][id]
+    @event.categories = selected_category
     
     if @event.save
       redirect_to events_url, :notice => 'Event added.'

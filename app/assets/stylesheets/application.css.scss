@@ -211,6 +211,7 @@ aside h2 { font-size: 15px; }
   display: inline;
   padding: 5px;
 }
+#event-info h1 { margin: 0; padding: 20px 0 0;}
 .event-category_list { display: inline; font-style: italic; font-size: 8pt; }
 .showtime_fields { display: inline; }
 .start_time {}
@@ -220,6 +221,10 @@ aside h2 { font-size: 15px; }
 #location { margin-top: 30px; }
 #publishing-time { margin-top: 30px; }
 .idTabs li { display: inline; list-style: none; padding-right: 10px;}
+.event { margin: 0; padding: 0; }
+.event-category_list { margin: 0; padding: 0; margin-top: -30px; }
+.event-image {  }
+.event-description {  }
 
 .category_image { width: 320px; }
 /* helpers */

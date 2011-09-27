@@ -2,6 +2,8 @@ require 'nodejs_notifier'
 
 class Event < ActiveRecord::Base
   has_many :showtimes, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  
   has_many :categorizations
   has_many :categories, :through => :categorizations
   
@@ -16,7 +18,7 @@ class Event < ActiveRecord::Base
   after_update :notify_updated
   after_destroy :notify_removed
   
-  accepts_nested_attributes_for :showtimes, :galleries, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :showtimes, :galleries, :categories, :reject_if => :all_blank, :allow_destroy => true
 
   scope :most_watched, where('times_watched > ?', 0).order('times_watched desc').limit(50)
   scope :popular, where('liked_count > ?', 0).order('liked_count desc').limit(50)

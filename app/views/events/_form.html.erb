@@ -10,6 +10,13 @@
     <%= f.text_area :description %>
   </p>
   
+  <div id="categories">
+    <%= f.fields_for :categories do |category| %>
+      <%= category.label :category %><br />
+      <%= category.collection_select(:id, Category.all, :id, :name, options = {:prompt => "Select a category"}) %>
+    <% end %>
+  </div>
+  
   <div id="showtimes">   
     <%= f.fields_for :showtimes do |builder| %>
       <%= render 'showtime_fields', :f => builder %>

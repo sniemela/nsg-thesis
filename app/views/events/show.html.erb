@@ -4,13 +4,27 @@
 </ul> 
 <div id="event-info">
   <h1><%= @event.name %></h1>
-  <p class="event-category_list"><%= category_list(@event.categories) %></p>
+  <p class="event-category_list">
+    <%= category_list(@event.categories) %>
+  </p>
   <p class="event-image">
     <% for gallery in @event.galleries %>
-      <% for resource in gallery.gallery_resources %>
-        <%= image_tag resource.resource_file_name %>
+      <% for resource_file in gallery.gallery_resources %>
+        <%= image_tag resource_file.resource(:medium) %>
       <% end %>
     <% end %>
   </p>
-  <p><%= @event.description %></p></div> 
-<div id="event-comments">idTabs is only a simple ...</div>
+  <p class="event-description">
+    <%= @event.description %>
+  </p>
+</div> 
+<div id="event-comments">
+  <% if current_user %>
+    <h2>Add a comment</h2>
+    <%= render "comments/form" %>
+  <% else %>
+    <p>You have to sign in before you can add a comment.</p>
+  <% end %>
+  <h1>Comments</h1>
+  <%= render @event.comments %>
+</div>
