@@ -5,25 +5,27 @@ NsgThesis::Application.routes.draw do
     match "/signout" => "sessions#destroy", :as => :signout
     match "/myevents" => "events#my_events", :as => :myevents
   
-    # The priority is based upon order of creation:
-    # first created -> highest priority.
-    resources :events do
-      get 'unapproved', :on => :collection
-      get 'approve', :on => :member
-    end
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+  resources :events do
+    resources :comments
+    get 'unapproved', :on => :collection
+    get 'approve', :on => :member
+  end
+  
+  resources :categories
+  resources :showtimes
+  resources :galleries
 
-    resources :ads do
-      get 'unconfirmed', :on => :collection
-      get 'confirm', :on => :member
-      get 'my', :on => :collection
-    end
-
-    resources :categories
-
-    resources :clients do
-      get 'unconfirmed', :on => :collection
-      get 'confirm', :on => :member
-    end
+  resources :ads do
+    get 'unconfirmed', :on => :collection
+    get 'confirm', :on => :member
+  end
+  
+  resources :clients do
+    get 'unconfirmed', :on => :collection
+    get 'confirm', :on => :member
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

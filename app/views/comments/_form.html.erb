@@ -1,0 +1,5 @@
+<%= form_for [@event, @event.comments.build] do |f| %>
+  <%= f.label :your_comment %><br />
+  <%= f.text_area :body, :rows => 5 %>
+  <p><%= f.submit 'Comment' %></p>
+<% end %>

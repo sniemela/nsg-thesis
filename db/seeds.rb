@@ -157,16 +157,3 @@ showtimes = [{
 }]
 
 Showtime.create!(showtimes)
-
-galleries = [{
-  :event_id => 1
-}]
-
-Gallery.create!(galleries)
-
-gallery_resources = [{
-  :gallery_id => 1,
-  :resource_file_name => 'hangover2.jpg'
-}]
-
-GalleryResource.create!(gallery_resources)
