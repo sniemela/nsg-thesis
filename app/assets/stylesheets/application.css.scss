@@ -77,8 +77,7 @@ aside h2 { font-size: 15px; }
 #signin { @include small_button; color: $header-signin-color; background-color: $header-signin-backcolor; }
 #signout { @extend #signin; color: $header-signout-color; background-color: $header-signout-backcolor; }
 
-#mylinks a { font-size: $aside-link-font-size; }
-#requests a { font-size: $aside-link-font-size; }
+#mylinks a, #requests a, #adminlinks a { font-size: $aside-link-font-size; }
 
 .request_count { 
   padding: 2px;

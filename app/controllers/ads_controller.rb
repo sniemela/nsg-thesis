@@ -1,10 +1,14 @@
 class AdsController < ApplicationController
   before_filter :login_required
-  before_filter :client_required
-  before_filter :admin_required, :only => [:unconfirmed, :confirm]
+  before_filter :client_required, :except => [:unconfirmed, :confirm, :index]
+  before_filter :admin_required, :only => [:unconfirmed, :confirm, :index]
 
   def index
-    @ads = current_user.client.ads
+    @ads = Ad.unscoped.order('created_at desc')
+  end
+
+  def my
+    @ads = current_user.client.ads.unscoped.order('created_at desc')
   end
 
   def new

@@ -15,8 +15,13 @@ en:
     my_ads: My ads
     new_ad: New ad
   
+  help:
+    select_sign_in_account: Select one of these accounts to sign in
+    dont_have_sign_in_account: Don't have any of these accounts? Get your from %{myopenid} or %{googleid}
+  
   title:
     my_links: My links
+    admin_links: Admin links
     confirmation_requests: Confirmation
     clients: Clients
     events: Events
@@ -25,3 +30,5 @@ en:
     showtimes: Showtimes
     tags: Tags
     users: Users
+    sign_in: Sign in
+    sign_out: Sign out

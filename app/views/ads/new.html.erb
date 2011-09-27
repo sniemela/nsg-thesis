@@ -1,18 +1,18 @@
 <header>
-  <h1>New ad</h1>
+  <h1><%= t 'my_links.new_ad' %></h1>
 </header>
 
-<p>Price <span class="ad_price">0</span>€</p>
+<p><%= t 'misc.price' %> <span class="ad_price">0</span>€</p>
 
 <%= form_for @ad, :multipart => true do |f| %>
   <input type="hidden" id="ad_days" name="ad[ad_days]" />
 
   <p>
-    <label>Select days</label><br />
+    <label><%= t 'misc.select_days' %></label><br />
     <div id="select_ad_days" class="slider"></div><span id="days"></span>
   </p>
   <p>
-    <%= label_tag :tags %><br />
+    <%= label_tag :tags, t('title.tags') %><br />
     <%= text_field_tag 'ad[tags]', nil, :id => 'tags' %>
   </p>
   <p>
@@ -24,6 +24,6 @@
     <%= f.file_field :media %>
   </p>
   <p>
-    <%= f.submit I18n.t('save') %>
+    <%= f.submit %>
   </p>
 <% end %>

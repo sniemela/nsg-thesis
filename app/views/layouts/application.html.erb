@@ -17,9 +17,9 @@
      <nav id="user_nav">
         <% if current_user %>
           Welcome <%= current_user.name %>!
-          <%= link_to "Sign out", signout_path, :id => "signout" %>
+          <%= link_to t('title.sign_out'), signout_path, :id => "signout" %>
         <% else %>
-          <%= link_to "Sign in", signin_path, :id => "signin" %>
+          <%= link_to t('title.sign_in'), signin_path, :id => "signin" %>
         <% end %>
 
         <%= link_to_locales %>
@@ -36,10 +36,10 @@
     </div>
       <nav id="page_nav">
         <ul>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Events", events_path %></li>
-          <li><%= link_to "Categories", categories_path %></li>
-          <li><%= link_to "Add Event", new_event_path %></li>
+          <li><%= link_to t('title.home'), root_path %></li>
+          <li><%= link_to t('title.events'), events_path %></li>
+          <li><%= link_to t('title.categories'), categories_path %></li>
+          <li><%= link_to t('title.add_event'), new_event_path %></li>
         </ul>
       </nav>
   </header>
@@ -48,7 +48,7 @@
     <section id="content">
       <div class="available_updates" style="display: none">
         <p>
-          <%= t 'content_has_been_updated' %>
+          <%= t 'content_has_been_updated' %>, 
           <a href="#" class="update_content_link"><%= t('show_updates') %></a>
         </p>
       </div>
@@ -71,24 +71,30 @@
           <li><%= link_to I18n.t('title.clients'), unconfirmed_clients_path %> <span id="unconfirmed_clients_count" class="request_count"><%= Client.unconfirmed.count %></span></li>
           <li><%= link_to I18n.t('title.ads'), unconfirmed_ads_path %> <span id="unconfirmed_ads_count" class="request_count"><%= Ad.unconfirmed.count %></span></li>
         </ul>
-      </nav>11:23
+      </nav>
+
+      <%- if is_admin? -%>
+      <br />
+      <h2><%= t 'title.admin_links' %></h2>
+      <nav id="adminlinks">
+        <ul>
+          <li><%= link_to I18n.t('title.clients'), clients_path %></li>
+          <li><%= link_to t('title.ads'), ads_path %></li>
+        </ul>
+      </nav>
+      <%- end -%>
 
       <br />
-
       <h2><%= t 'title.my_links' %></h2>
       <nav id="mylinks">
         <ul>
-          <%- if is_admin? -%>
-          <li><%= link_to I18n.t('title.clients'), clients_path %></li>
-          <% end %>
-
           <%- unless current_user.client_id.nil? -%>
           <li><%= link_to t('my_links.my_client'), current_user.client %></li>
           <% else %>
           <li><%= link_to t('my_links.new_client'), new_client_path %></li>
           <% end %>
           <li><%= link_to t('my_links.my_events'), myevents_path %></li>
-          <li><%= link_to t('my_links.my_ads'), ads_path %></li>
+          <li><%= link_to t('my_links.my_ads'), my_ads_path %></li>
           <li><%= link_to t('my_links.new_ad'), new_ad_path %></li>
         </ul>
       </nav>
@@ -102,7 +108,7 @@
 
     <br />
 
-    <h2>Tags</h2>
+    <h2><%= t 'title.tags' %></h2>
     <div class="tagcloud">
       <% tag_cloud %w(nube1 nube2 nube3 nube4 nube5) do |id, name, klass| %>
         <%= link_to name.downcase, '#', :class => klass %>
