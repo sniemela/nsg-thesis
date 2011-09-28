@@ -56,7 +56,10 @@ body {
 #wrapper aside { 
   float: right;
   width: $aside-width;
+  position: fixed;
+  margin-left: $wrapper-width - $aside-width;
 }
+
 #content {
   float: left;
   margin-right: $content-margin;
