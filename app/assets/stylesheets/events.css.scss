@@ -6,3 +6,7 @@
 .start_time {}
 .end_time {}
 .remove_showtime {}
+
+.event_list_entry { padding: 10px; }
+.event_list_entry.even { background-color: #F5F5F5 }
+.event_list_entry.odd { background-color: #E6E6E6; }

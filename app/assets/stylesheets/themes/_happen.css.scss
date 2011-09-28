@@ -1,7 +1,8 @@
 /* Layout */
-$wrapper-width: 100%; /* 960px */
+$wrapper-width: 960px; /* 960px */
 $aside-width: 200px;
-$content-width: 100%;
+$content-margin: 25px;
+$content-width: $wrapper-width - $aside-width - $content-margin;
 
 /* Colors */
 $body-backcolor: #ececec;

@@ -20,7 +20,8 @@
   color: $header-signout-color; background-color: $header-signout-backcolor;
 }
 
-body { margin: 0; padding: 0; background-color: $body-backcolor; color: $font-color; font-family: $font-family; font-size: $font-size; }
+body { margin: 0; padding: 98px 0 0 0; color: $font-color; font-family: $font-family; font-size: $font-size; }
+
 a { color: $link-color; }
 a:hover { color: $link-hover-color; }
 
@@ -28,6 +29,10 @@ ul, li { margin: 0; padding: 0; }
 aside ul { list-style: none; }
 aside a { text-decoration: none; }
 aside h2 { font-size: 15px; }
+
+body {
+  background-color: $body-backcolor;
+}
 
 /* new clearfix */
 .clearfix:after {
@@ -43,34 +48,25 @@ aside h2 { font-size: 15px; }
 
 #providers_list { list-style: none; padding: 0; }
 
-#content_wrapper {  
-  border-top: 1px solid #FFFFFF;
-    position: relative;
-}
 #wrapper { 
   width: $wrapper-width; 
   margin: 0 auto;
-  position: relative; 
 }
+
 #wrapper aside { 
-  border-left: 1px solid #A5A5A5;
-    display: block;
-    float: right;
-    padding: 0 25px 0 50px;
-    position: relative;
-    width: 200px;
-    z-index: 250;
+  float: right;
+  width: $aside-width;
 }
-#content { 
-    display: block;
-    float: left;
-    margin-top: -2px;
-    min-height: 300px;
-    padding-left: 180px;
-    position: relative;
-    width: 800px;
-    z-index: 160;
+#content {
+  float: left;
+  margin-right: $content-margin;
+  width: $content-width;
 }
+
+#page_footer {
+  clear: both;
+}
+
 #user_nav ul li { display: inline; }
 
 #signin li { display: inline; }
@@ -79,23 +75,27 @@ aside h2 { font-size: 15px; }
 
 #mylinks a, #requests a, #adminlinks a { font-size: $aside-link-font-size; }
 
-.request_count { 
+.request_count {
   padding: 2px;
   background-color: $aside-requestcount-backcolor;
   color: $aside-requestcount-color;
   font-size: $aside-requestcount-font-size;
 }
 
-#page_header {
-  background: url("/assets/header_bg.png");
-  background-repeat: repeat-x;
-  color: $header-font-color;
+#header_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  float:left;
-  position: relative;
-  height: 108px;
-  border-bottom: 1px solid #a5a5a5;
-  display: block;
+  background: url(/assets/header_bg2.png) top left repeat-x;
+  height: 98px;
+  position: fixed;
+}
+
+#page_header {
+  color: $header-font-color;
+  width: $wrapper-width;
+  margin: 0 auto;
 }
 
 #page_header .top_group {
@@ -117,8 +117,8 @@ aside h2 { font-size: 15px; }
 }
 #search-box {
   float: right;
-  margin: 55px 0 0 200px;
-  width: 250px;
+  margin: 28px 0 0 236px;
+  width: 223px;
 }
 #search-box .search-box {
     -webkit-border-radius: 5px 5px 5px 5px;
@@ -140,14 +140,16 @@ aside h2 { font-size: 15px; }
   margin-top: 4px;
 }
 .submit {
-  background: url(/assets/search.png) no-repeat;
+  background: url(/assets/search.png) 0 0 no-repeat;
   border: medium none;
   margin-left: -25px;
   margin-top: 4px;
+  height: 19px;
+  width: 15px;
 }
 .recent_events {
   float: left;
-  margin: 63px 0 0 200px;
+  margin: 55px 0 0 150px;
   color: $font-color;
 }
 #logo {
@@ -155,7 +157,6 @@ aside h2 { font-size: 15px; }
     float: left;
     height: 32px;
     margin: 0 0 0 0;
-    padding: 0 0 0 20px;
     position: relative;
     z-index: 100;
 }

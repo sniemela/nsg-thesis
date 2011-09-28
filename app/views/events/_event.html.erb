@@ -1,4 +1,14 @@
-<article id="event-<%= event.id %>" class="event">
-  <h1 id="event-name-<%= event.id %>"><%= event.name %></h1>
-  <p id="event-description-<%= event.id %>"><%= event.description %></p>
+<article id="event-<%= event.id %>" class="event_list_entry <%= cycle('even', 'odd') %>">
+  <header>
+    <h1><%= link_to event.name, event, :id => "event-name-#{event.id}" %></h1>
+    <p id="event-<%= event.id %>-category-list"><%= category_list(event.categories) %></p>
+    <p class="event-image-index">
+    <% for gallery in event.galleries %>
+      <% for resource_file in gallery.gallery_resources %>
+        <%= image_tag resource_file.resource(:thumb) %>
+      <% end %>
+    <% end %>
+    </p>
+    <p id="event-description-<%= event.id %>"><%= event.description %></p>    
+  </header>
 </article>
