@@ -2,9 +2,7 @@
   <h1><%= t 'my_links.my_events' %></h1>
 </header>
 
-<% for event in @my_events %>
-<div>
-  <%= event.name %>
-</div>
-<br />
-<% end %>
+<%- for event in @my_events -%>
+<%= render event %>
+<hr />
+<%- end -%>
