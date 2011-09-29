@@ -56,7 +56,8 @@ body {
 #wrapper aside { 
   float: right;
   width: $aside-width;
-  position: relative;
+  position: fixed;
+  margin-left: $wrapper-width - $aside-width;
 }
 
 #content {
@@ -92,7 +93,6 @@ body {
   background: url(/assets/header_bg2.png) top left repeat-x;
   height: 98px;
   position: fixed;
-  z-index: 200;
 }
 
 #page_header {
