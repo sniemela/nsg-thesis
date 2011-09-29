@@ -26,7 +26,8 @@ a { color: $link-color; }
 a:hover { color: $link-hover-color; }
 
 ul, li { margin: 0; padding: 0; }
-aside ul { list-style: none; }
+aside ul { list-style: none; margin-left: 10px }
+aside ul li { margin-bottom: 3px; }
 aside a { text-decoration: none; }
 aside h2 { font-size: 15px; }
 
@@ -121,9 +122,12 @@ body {
 }
 #search-box {
   float: right;
-  margin: 28px 0 0 236px;
   width: 223px;
+  position: absolute;
+  top: 50px;
+  right: 0;
 }
+
 #search-box .search-box {
     -webkit-border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
