@@ -1,6 +1,7 @@
 .bundle
 db/*.sqlite3
 log/*.log
+log/*.pid
 tmp/
 db/user_seeds.rb
 public/system

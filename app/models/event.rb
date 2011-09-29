@@ -27,6 +27,16 @@ class Event < ActiveRecord::Base
   scope :approved, where(:approved => true)
   scope :unapproved, where(:approved => false)
 
+  define_index do
+    indexes :name
+    indexes description
+    indexes comments.body, :as => :comment_body
+    indexes tags(:name), :as => :tag_name
+    indexes submitter(:name), :as => :submitter_name
+
+    where sanitize_sql(['approved', true])
+  end
+
   def approve!
     self[:approved] = true
     save!

@@ -49,6 +49,7 @@ fi:
     select_days: Valitse päivät
 
   title:
+    search_results: Hakutulokset sanalle
     home: Etusivu
     my_links: Omat linkit
     admin_links: Ylläpitäjän linkit

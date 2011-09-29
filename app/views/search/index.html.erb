@@ -1,0 +1,8 @@
+<header>
+  <h1><%= t 'title.search_results' %> <%= params[:q] %></h1>
+</header>
+
+<% for event in @events %>
+  <%= render event %>
+<% end %>
+

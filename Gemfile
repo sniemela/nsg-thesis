@@ -14,6 +14,8 @@ gem 'paperclip', '~> 2.4'
 gem 'dynamic_form'
 gem 'thin'
 gem 'foreman'
+gem 'thinking-sphinx', '2.0.7'
+gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.

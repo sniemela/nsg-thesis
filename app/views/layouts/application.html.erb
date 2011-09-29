@@ -26,8 +26,10 @@
         <span class="italic">07.09.11 - Event happening now!</span>
     </div>
     <div id="search-box">
-        <input class="search-box" onfocus="this.value=''" type="text" value="Search .." > 
-        <input type="submit" class="submit" value="">
+      <form action="<%= search_index_path %>" method="get">
+        <input class="search-box" type="text" name="q" placeholder="Search" />
+        <input type="submit" class="submit" value="" />
+      </form>
     </div>
     </div>
     <div class="bottom_group">

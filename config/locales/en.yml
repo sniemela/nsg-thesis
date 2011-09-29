@@ -20,6 +20,7 @@ en:
     dont_have_sign_in_account: Don't have any of these accounts? Get your from %{myopenid} or %{googleid}
   
   title:
+    search_results: Search results for
     my_links: My links
     admin_links: Admin links
     confirmation_requests: Confirmation

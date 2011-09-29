@@ -14,7 +14,8 @@ NsgThesis::Application.routes.draw do
     get 'approve', :on => :member
   end
 
-  resources :categories 
+  resources :categories
+  resources :search
 
   resources :ads do
     get 'unconfirmed', :on => :collection
