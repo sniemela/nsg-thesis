@@ -1,4 +1,8 @@
 fi:
+  time:
+    formats:
+      comments: "%d.%A.%Y"
+      
   helpers:
     submit:
       create: Tallenna

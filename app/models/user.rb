@@ -3,7 +3,6 @@
 class User < ActiveRecord::Base
   belongs_to :client
   has_many :events, :as => :submitter
-  has_many :comments
 
   def all_events
     Event.where(["(events.submitter_id = ? and events.submitter_type = 'Client') or (events.submitter_id = ? and events.submitter_type = 'User')", client_id, id]).select('distinct events.*')
