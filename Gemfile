@@ -14,7 +14,8 @@ gem 'paperclip', '~> 2.4'
 gem 'dynamic_form'
 gem 'thin'
 gem 'foreman'
-gem 'thinking-sphinx', '2.0.7'
+gem 'riddle', :git => 'git://github.com/freelancing-god/riddle.git'
+gem 'thinking-sphinx', :git => 'git://github.com/freelancing-god/thinking-sphinx.git', :branch => 'rails3'
 gem 'mysql2'
 
 # Gems used only for assets and not required
