@@ -62,6 +62,8 @@
 
   <aside>
     <% if current_user %>
+
+      <%- if is_admin? -%>
       <h2><%= t 'title.confirmation_requests' %></h2>
       <nav id="requests">
         <ul>
@@ -70,8 +72,9 @@
           <li><span id="unconfirmed_ads_count" class="request_count"> <%= Ad.unconfirmed.count %></span> <%= link_to I18n.t('title.ads'), unconfirmed_ads_path %></li>
         </ul>
       </nav>
+      <%- end -%>
 
-      <%- if is_admin? -%>
+      <% if is_admin? %>
       <br />
       <h2><%= t 'title.admin_links' %></h2>
       <nav id="adminlinks">
@@ -80,7 +83,7 @@
           <li><%= link_to t('title.ads'), ads_path %></li>
         </ul>
       </nav>
-      <%- end -%>
+      <% end %>
 
       <br />
       <h2><%= t 'title.my_links' %></h2>

@@ -20,7 +20,7 @@
   color: $header-signout-color; background-color: $header-signout-backcolor;
 }
 
-body { margin: 0; padding: 98px 0 0 0; color: $font-color; font-family: $font-family; font-size: $font-size; }
+body { margin: 0; padding: 0; color: $font-color; font-family: $font-family; font-size: $font-size; }
 
 a { color: $link-color; }
 a:hover { color: $link-hover-color; }
@@ -57,8 +57,6 @@ body {
 #wrapper aside { 
   float: right;
   width: $aside-width;
-  position: fixed;
-  margin-left: $wrapper-width - $aside-width;
 }
 
 #content {
@@ -87,16 +85,18 @@ body {
 }
 
 #header_wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
+  min-width: $wrapper-width;
   background: url(/assets/header_bg2.png) top left repeat-x;
+  z-index: 200;
+}
+
+#header_wrapper, #page_header {
   height: 98px;
-  position: fixed;
 }
 
 #page_header {
+  height: 95px;
   color: $header-font-color;
   width: $wrapper-width;
   margin: 0 auto;
