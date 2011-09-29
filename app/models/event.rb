@@ -2,7 +2,7 @@ require 'nodejs_notifier'
 
 class Event < ActiveRecord::Base
   has_many :showtimes, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
+  has_many :comments, :as => :commentable, :dependent => :destroy
   
   has_many :categorizations
   has_many :categories, :through => :categorizations

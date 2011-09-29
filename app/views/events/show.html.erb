@@ -26,5 +26,5 @@
     <p>You have to sign in before you can add a comment.</p>
   <% end %>
   <h1>Comments</h1>
-  <%= render @event.comments %>
+  <%= render @event.comments, :locals => { :commentable => @event } %>
 </div>

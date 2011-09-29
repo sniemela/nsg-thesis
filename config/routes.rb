@@ -9,13 +9,12 @@ NsgThesis::Application.routes.draw do
   # first created -> highest priority.
   resources :events do
     resources :comments
+    resources :galleries
     get 'unapproved', :on => :collection
     get 'approve', :on => :member
   end
-  
-  resources :categories
-  resources :showtimes
-  resources :galleries
+
+  resources :categories 
 
   resources :ads do
     get 'unconfirmed', :on => :collection
