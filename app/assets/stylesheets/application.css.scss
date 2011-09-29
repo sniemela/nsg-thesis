@@ -121,9 +121,12 @@ body {
 }
 #search-box {
   float: right;
-  margin: 28px 0 0 236px;
   width: 223px;
+  position: absolute;
+  top: 50px;
+  right: 0;
 }
+
 #search-box .search-box {
     -webkit-border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
