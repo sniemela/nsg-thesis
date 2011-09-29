@@ -7,3 +7,6 @@ db/user_seeds.rb
 public/system
 lib/nodejs/node_modules
 *~
+config/*.sphinx.conf
+db/sphinx
+
