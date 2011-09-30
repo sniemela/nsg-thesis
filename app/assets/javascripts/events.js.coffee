@@ -82,3 +82,6 @@ $ ->
   $('.datepicker').live 'mouseover', ->
     $(this).datetimepicker
       dateFormat: "yy-mm-dd"
+      
+settings = { start:1, change:false }
+$("#event-nav ul").idTabs(settings,true)

@@ -1,30 +1,33 @@
-<ul class="idTabs"> 
-  <li><a href="#event-info">Info</a></li> 
-  <li><a href="#event-comments">Comments</a></li> 
-</ul> 
-<div id="event-info">
-  <h1><%= @event.name %></h1>
-  <p class="event-category_list">
-    <%= category_list(@event.categories) %>
-  </p>
-  <p class="event-image">
-    <% for gallery in @event.galleries %>
-      <% for resource_file in gallery.gallery_resources %>
-        <%= image_tag resource_file.resource(:medium) %>
+<div id="event-nav" class="eventTab">
+  <ul> 
+    <li><a class="selected" href="#event-info"><%= t 'title.event_info' %></a></li> 
+    <li><a href="#event-comments"><%= t 'title.comments' %></a></li> 
+  </ul>
+
+  <div id="event-info">
+    <h1><%= @event.name %></h1>
+    <p class="event-category_list">
+      <%= category_list(@event.categories) %>
+    </p>
+    <p class="event-image">
+      <% for gallery in @event.galleries %>
+        <% for resource_file in gallery.gallery_resources %>
+          <%= image_tag resource_file.resource(:medium) %>
+        <% end %>
       <% end %>
+    </p>
+    <p class="event-description">
+      <%= @event.description %>
+    </p>
+  </div> 
+  <div id="event-comments">
+    <% if current_user %>
+      <h2><%= t "title.comment" %></h2>
+      <%= render "comments/form" %>
+    <% else %>
+      <p><%= t('help.not_logged_in_for_commenting') %></p>
     <% end %>
-  </p>
-  <p class="event-description">
-    <%= @event.description %>
-  </p>
-</div> 
-<div id="event-comments">
-  <% if current_user %>
-    <h2>Add a comment</h2>
-    <%= render "comments/form" %>
-  <% else %>
-    <p>You have to sign in before you can add a comment.</p>
-  <% end %>
-  <h1>Comments</h1>
-  <%= render @event.comments, :locals => { :commentable => @event } %>
+    <h1><%= t "title.comments" %></h1>
+    <%= render @event.comments, :locals => { :commentable => @event } %>
+  </div>
 </div>
