@@ -1,7 +1,9 @@
-<h1>Categories</h1>
+<h1><%= t 'title.categories' %></h1>
 
 <ul id="categories">
   <% @categories.each do |category| %>
     <li><%= link_to category.name, :controller => "categories", :action => "show", :id => category.id %></li>
   <% end %>
 </ul>
+
+<p><%= link_to t("title.add_category"), new_category_path %></p>

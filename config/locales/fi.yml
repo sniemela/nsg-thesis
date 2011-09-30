@@ -1,7 +1,7 @@
 fi:
   time:
     formats:
-      comments: "%d.%A.%Y"
+      long: "%d.%m.%Y %H:%M"
       
   helpers:
     submit:
@@ -23,6 +23,7 @@ fi:
     created_at: Luotu
     updated_at: Päivitetty
     start_time: Alkamisaika
+    comment: Kommentisi
 
   client_type:
     company: Yritys
@@ -40,6 +41,7 @@ fi:
   help:
     select_sign_in_account: Valitse tili jolla haluat kirjautua sisään
     dont_have_sign_in_account: Etkö omista yhtään tiliä? Hanki omasi nyt osoitteesta %{myopenid} tai %{googleid}
+    not_logged_in_for_commenting: Sinun tulee olla kirjautuneena jotta voisit kommentoida
 
   misc:
     price: Hinta
@@ -68,7 +70,12 @@ fi:
     unconfirmed_ads: Mainosten vahvistus
     unconfirmed_clients: Asiakkaiden vahvistus
     unapproved_events: Hyväksy tapahtumia
-
+    add_category: Lisää kategoria
+    welcome: Tervetuloa
+    comment: Kommentoi
+    comments: Kommentit
+    event_info: Tietoa
+    
   activerecord:
     models:
       client: Asiakas
