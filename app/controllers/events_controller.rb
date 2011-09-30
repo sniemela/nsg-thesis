@@ -19,8 +19,6 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     
     @event.submitter = current_user
-    selected_category = params[category][id]
-    @event.categories = selected_category
     
     if @event.save
       redirect_to events_url, :notice => 'Event added.'

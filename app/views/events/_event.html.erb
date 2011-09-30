@@ -5,7 +5,7 @@
     <p class="event-image-index">
     <% for gallery in event.galleries %>
       <% for resource_file in gallery.gallery_resources %>
-        <%= image_tag resource_file.resource(:thumb) %>
+        <%= image_tag resource_file.resource(:small) %>
       <% end %>
     <% end %>
     </p>

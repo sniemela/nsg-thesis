@@ -6,17 +6,12 @@
   <h1><%= @category.name %></h1>
 </header>
 
-<p><%= image_tag @category.image_file_name, :class => "category_image" %></p>
+<p><%= image_tag @category.image(:small) %></p>
+
 <p><%= @category.description %></p>
 
 <h1>Events in <%= @category.name %></h1>
 
-<%- for event in @category.events -%>
-<article id="event-<%= event.id %>" class="event">
-  <header>
-    <h1 id="event-name-<%= event.id %>"><%= event.name %></h1>
-    <p id="event-description-<%= event.id %>"><%= event.description %></p>
-  </header>
-</article>
-<hr />
-<%- end -%>
+  <%- for event in @category.events -%>
+    <%= render event %>
+  <%- end -%>

@@ -1,3 +1,8 @@
 <header>
   <h1><%= t 'title.events' %></h1>
 </header>
+
+<%- for event in @events -%>
+<%= render event %>
+<hr />
+<%- end -%>

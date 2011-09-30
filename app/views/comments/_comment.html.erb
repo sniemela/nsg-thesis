@@ -1,8 +1,4 @@
 <div id="comments">
-  <p class="commenter"><%= comment.user_id %></p>
   <p class="comment-updated_at"><%= comment.updated_at %>
   <p class="comment-body"><%= comment.body %></p>
-  <% if is_admin? %>
-    <%= link_to 'Delete', [@event, comment], :method => :destroy %>
-  <% end %>
 </div>
