@@ -69,6 +69,7 @@ fi:
     event_info: Tietoa
     new_event: Uusi tapahtuma
     event_image: Tapahtuman kuva
+    more_times: Lisää aikoja
 
   date:
       formats:
@@ -131,6 +132,7 @@ fi:
       default: "%A %e. %Bta %Y %H:%M:%S %z"
       short: "%e.%m. %H.%M"
       long: "%e. %Bta %Y %H.%M"
+      long2: "%e.%m.%Y %H.%M"
     am: "aamupäivä"
     pm: "iltapäivä"
 
