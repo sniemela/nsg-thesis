@@ -33,6 +33,7 @@ fi:
     select_sign_in_account: Valitse tili jolla haluat kirjautua sisään
     dont_have_sign_in_account: Etkö omista yhtään tiliä? Hanki omasi nyt osoitteesta %{myopenid} tai %{googleid}
     not_logged_in_for_commenting: Sinun tulee olla kirjautuneena jotta voisit kommentoida
+    search: Hae
 
   misc:
     price: Hinta
@@ -66,6 +67,8 @@ fi:
     comment: Kommentoi
     comments: Kommentit
     event_info: Tietoa
+    new_event: Uusi tapahtuma
+    event_image: Tapahtuman kuva
 
   date:
       formats:

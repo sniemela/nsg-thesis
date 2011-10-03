@@ -14,15 +14,15 @@
   <div id="event-image">
     <%= f.fields_for :galleries do |gallery_form| %>
       <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
-        <%= resource_form.label :event_image %>
+        <%= resource_form.label t('title.event_image') %>
         <%= resource_form.file_field :resource %>
       <% end %>
     <% end %>
   </div>
   <div id="categories">
     <%= f.fields_for :categories do |category| %>
-      <%= category.label :category %>
-      <%= category.collection_select(:id, Category.all, :id, :name, options = {:prompt => "Select a category"}) %>
+      <%= category.label Category.model_name.human %>
+      <%= category.collection_select(:id, Category.all, :id, :name, :prompt => true) %>
     <% end %>
   </div>
   
