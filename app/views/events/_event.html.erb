@@ -1,14 +1,28 @@
-<article id="event-<%= event.id %>" class="event_list_entry <%= cycle('even', 'odd') %>">
-  <header>
-    <h1><%= link_to event.name, event, :id => "event-name-#{event.id}" %></h1>
-    <p id="event-<%= event.id %>-category-list"><%= category_list(event.categories) %></p>
-    <p class="event-image-index">
-    <% for gallery in event.galleries %>
-      <% for resource_file in gallery.gallery_resources %>
-        <%= image_tag resource_file.resource(:small) %>
-      <% end %>
-    <% end %>
-    </p>
-    <p id="event-description-<%= event.id %>"><%= event.description %></p>    
-  </header>
+<article id="event-<%= event.id %>" class="event_list_entry <%= cycle('even', 'odd') %> clearfix">
+  <div class="event_image">
+  <% unless event.galleries.first.nil? %>
+    <%= image_tag event.galleries.first.gallery_resources.first.resource(:small) %>
+  <% end %>
+  </div>
+  <div class="event_info">
+    <header>
+      <h1><%= link_to event.name, event, :id => "event-name-#{event.id}" %></h1>
+      <span class="event_showtime">
+        <time datetime="<%= event.showtimes.first.start_time %>"><%= l event.showtimes.first.start_time, :format => :long %></time>
+
+        <% unless event.showtimes.first.end_time.nil? %>
+        -
+        <time><%= l event.showtimes.first.end_time, :format => :long %></time>
+        <% end %>
+
+        <% if event.showtimes.count > 1 %>
+          (<%= link_to(t('title.more_times'), event_path(event, :anchor => 'showtimes')) %>)
+        <% end %>
+      </span>
+      <p id="event-description-<%= event.id %>"><%= event.description %></p>
+    </header>
+
+    <p id="event-<%= event.id %>-category-list" class="event_category_list"><%= category_list(event.categories) %></p>
+  </div>
 </article>
+<br />

@@ -27,6 +27,8 @@ class Event < ActiveRecord::Base
   scope :approved, where(:approved => true)
   scope :unapproved, where(:approved => false)
 
+  validates :name, :presence => true
+
   define_index do
     indexes :name
     indexes description

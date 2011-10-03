@@ -12,6 +12,9 @@ class Ad < ActiveRecord::Base
 
   before_save :set_price
 
+  validates :media_file_name, :presence => true
+  validates :start_time, :presence => true
+
   def confirm!
     self[:confirmed] = true
     save!

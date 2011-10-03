@@ -1,5 +1,5 @@
 <%= form_for @event do |f| %>
-  <% f.error_messages %>
+  <%= f.error_messages %>
 
   <div id="event_main_info">
 		<p>
@@ -12,17 +12,26 @@
 		</p>
 	</div>
   <div id="event-image">
+<<<<<<< HEAD
 				<%= f.fields_for :galleries do |gallery_form| %>
 				  <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
 				    <%= resource_form.label :event_image %>
 				    <%= resource_form.file_field :resource %>
 				  <% end %>
 				<% end %>
+=======
+    <%= f.fields_for :galleries do |gallery_form| %>
+      <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
+        <%= resource_form.label t('title.event_image') %>
+        <%= resource_form.file_field :resource %>
+      <% end %>
+    <% end %>
+>>>>>>> a0ec5635d291c6f2b1e7bf28a17dca251a88f67a
   </div>
   <div id="categories">
     <%= f.fields_for :categories do |category| %>
-      <%= category.label :category %>
-      <%= category.collection_select(:id, Category.all, :id, :name, options = {:prompt => "Select a category"}) %>
+      <%= category.label Category.model_name.human %>
+      <%= category.collection_select(:id, Category.all, :id, :name, :prompt => true) %>
     <% end %>
   </div>
   

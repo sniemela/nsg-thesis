@@ -2,10 +2,12 @@
   <h1><%= t 'my_links.new_ad' %></h1>
 </header>
 
-<p><%= t 'misc.price' %> <span class="ad_price">0</span>€</p>
-
 <%= form_for @ad, :multipart => true do |f| %>
   <input type="hidden" id="ad_days" name="ad[ad_days]" />
+
+  <%= f.error_messages %>
+
+  <p><%= t 'misc.price' %> <span class="ad_price">0</span>€</p>
 
   <p>
     <label><%= t 'misc.select_days' %></label><br />
