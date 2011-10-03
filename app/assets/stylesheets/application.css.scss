@@ -155,23 +155,83 @@ body {
   height: 19px;
   width: 15px;
 }
-.recent_events {
-  float: left;
-  margin: 55px 0 0 150px;
-  color: $font-color;
+#new_event {
+	float: left;
+	width: 700px;
+}
+#categories, #showtimes, #location, #publishing-time, #event_submit {
+	float: left;
+	width: 700px;
+	margin: 5px 0;
+}
+#event_main_info {
+	float:left;
+	width: 450px;
+}
+	#event_main_info input, #event_main_info textarea {
+		float: left;
+		width: 300px !important;
+	}
+	#event_main_info input, #event_main_info label, #event_main_info textarea {
+		margin-bottom: 5px;
+	}
+#event-image {
+	float: right;
+	width: 220px;
+}
+#new_event label {
+	float: left;
+  margin: 3px 10px 0 0;
+  text-align: right;
+  width: 120px;
+}
+#new_event input {
+	float: left;
+	width: 160px;
+}
+#location p {
+	float: left;
+	width: 700px;
+	margin: 5px 0;
+}
+.start_time, .end_time {
+	float: left;
+	width: 300px;
+	margin: 5px 0;
+}
+.add_showtime {
+	float: left;
+  margin: 0 0 10px 130px;
+  width: 700px;
+}
+.remove_showtime {
+	float: left;
+  margin: 8px 0 0 10px;
+}
+.to-until {
+	margin: 0 30px;
+}
+#event_new_cancel {
+	float: left;
+  margin-left: 320px;
+  margin-top: -25px;
+}
+#event_submit {
+	margin-left: 130px;
+	float: left;
 }
 #logo {
-    border: medium none;
-    float: left;
-    height: 32px;
-    margin: 0 0 0 0;
-    position: relative;
-    z-index: 100;
+  border: medium none;
+  float: left;
+  height: 32px;
+  margin: 0 0 0 0;
+  position: relative;
+  z-index: 100;
 }
 #logo img {
-    border: none;
-    position: relative;
-    width: 59px;
+  border: none;
+  position: relative;
+  width: 59px;
 }
 #user_nav {
   margin: 6px 10px 0 0;
@@ -222,14 +282,7 @@ body {
 }
 #event-info h1 { margin: 0; padding: 20px 0 0;}
 .event-category_list { display: inline; font-style: italic; font-size: 8pt; }
-.showtime_fields { display: inline; }
-.end_time { margin-left: 250px; margin-top: -53px ;}
-.remove_showtime { margin-left: 500px; margin-top: -35px; }
-.to-until { padding-left: 8px; }
-#location { margin-top: 30px; }
-#publishing-time { margin-top: 30px; }
 .event { margin: 0; padding: 0; }
-.event-category_list { margin: 0; padding: 0; margin-top: -30px; }
 
 /* helpers */
 
