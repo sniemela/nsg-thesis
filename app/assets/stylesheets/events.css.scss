@@ -1,6 +1,7 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "themes/happen";
 
 .showtime_fields {}
 .start_time {}
@@ -16,3 +17,42 @@
 .event_info h1 { margin-top: 0; margin-bottom: 2px }
 .event_category_list { font-size: 10px; margin-bottom: 0; }
 .event_showtime { font-size: 9px; color: #757575 }
+
+.eventTab {
+  background: #F5F5F5;
+  color:#111;
+  margin:8px auto;
+}
+.eventTab li { list-style:none; float:left; }
+
+.eventTab ul {
+  background-color: $body-backcolor;
+}
+
+.eventTab ul a {
+  display:block;
+  padding:6px 10px;
+  text-decoration:none!important;
+  margin-left:0;
+  background-color: #E6E6E6;
+  color:#111;
+}
+.eventTab ul a.selected {
+  margin-bottom:0;
+  color:#000;
+  background-color: #F5F5F5;
+  cursor:default;
+  }
+
+.eventTab div a { color:#000; font-weight:bold; }
+
+.event_info_content {
+  padding:15px 20px;
+}
+
+.event_info_content div {
+  padding:10px 10px 8px 10px;
+  *padding-top:3px;
+  *margin-top:-15px;
+  clear:left;
+}
