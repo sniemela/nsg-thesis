@@ -1,3 +1,7 @@
+<header>
+  <h1><%= @event.name %></h1>
+</header>
+
 <div id="event-nav" class="eventTab">
   <ul> 
     <li><a class="selected" href="#event-info"><%= t 'title.event_info' %></a></li> 
@@ -5,7 +9,6 @@
   </ul>
 
   <div id="event-info">
-    <h1><%= @event.name %></h1>
     <p class="event-category_list">
       <%= category_list(@event.categories) %>
     </p>
@@ -20,7 +23,7 @@
       <%= @event.description %>
     </p>
   </div> 
-  <div id="event-comments">
+  <div id="event-comments" style="display: none">
     <% if current_user %>
       <h2><%= t "title.comment" %></h2>
       <%= render "comments/form" %>
