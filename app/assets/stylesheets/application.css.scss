@@ -295,3 +295,20 @@ body {
 .nube3 { font-size: 0.95em }
 .nube4 { font-size: 1.107em }
 .nube5 { font-size: 1.39em }
+
+.errorExplanation {
+  background: #FCD7D7;
+  color: #BB1818;
+  border: 1px solid #D87D7D;
+  padding: 0 15px;
+  font-size: 12px;
+}
+
+.errorExplanation ul {
+  margin-left: 20px;
+  padding-bottom: 15px;
+}
+
+.errorExplanation h2 {
+  font-size: 16px;
+}

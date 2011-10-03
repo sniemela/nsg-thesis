@@ -2,8 +2,8 @@
   <div class="ad_media"><%= element_for_media(ad.media.to_s) %></div>
   <div class="ad_info">
     <p>
-      Start time: <%= ad.start_time %><br />
-      End time: <%= ad.end_time %><br />
+      Start time: <%= l ad.start_time, :format => :long %><br />
+      End time: <%= l ad.end_time, :format => :long %><br />
       Days: <%= ((ad.end_time - ad.start_time) / 24 / 60 / 60).round %><br />
       Price: <%= ad.price %>€
     </p>
