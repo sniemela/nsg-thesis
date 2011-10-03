@@ -63,6 +63,7 @@ body {
   float: left;
   margin-right: $content-margin;
   width: $content-width;
+	min-height: 800px;
 }
 
 #page_footer {
@@ -121,13 +122,29 @@ body {
   float: left;
 }
 #search-box {
-  float: right;
-  width: 223px;
-  position: absolute;
-  top: 50px;
-  right: 0;
+ 		float: right;
+    margin-top: -22px;
+    width: 223px;
 }
-
+.recent_events {
+	color: #000;
+	margin: 55px 0 0 180px;
+	width: 300px;
+	float: left;
+}
+.add_event {
+		background: url("/assets/new_event.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: right;
+    margin: 55px 69px 0 0;
+    padding: 0 0 0 20px;
+    position: relative;
+}
+.add_event a {
+	font-size: 12px;
+	color: #333;
+	text-decoration: none;
+}
 #search-box .search-box {
     -webkit-border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
@@ -167,13 +184,14 @@ body {
 #event_main_info {
 	float:left;
 	width: 450px;
+	margin-top: 7px;
 }
 	#event_main_info input, #event_main_info textarea {
 		float: left;
 		width: 300px !important;
 	}
 	#event_main_info input, #event_main_info label, #event_main_info textarea {
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 	}
 #event-image {
 	float: right;
@@ -185,10 +203,23 @@ body {
   text-align: right;
   width: 120px;
 }
-#new_event input {
-	float: left;
-	width: 160px;
-}
+
+	#new_event input, #new_event textarea, #new_event type {
+		border: 1px solid #D9D9D8;
+		-webkit-border-radius: 4px 4px 4px 4px;
+		-moz-border-radius: 4px 4px 4px 4px;
+		border-radius: 4px 4px 4px 4px;
+		-webkit-box-shadow: 2px 2px 2px #CCC inset;
+		-moz-box-shadow: 2px 2px 2px #CCC inset;
+		box-shadow: 2px 2px 2px #CCC inset;
+		float: left;
+	}
+	#new_event input {
+		width: 160px;
+		height: 25px;
+		position: relative;
+	}
+	#new_event textarea {height: 263px;}
 #location p {
 	float: left;
 	width: 700px;
@@ -261,7 +292,7 @@ body {
   width: 120px;
   margin-top: -70px;
   padding: 20px 8px 20px 0;
-  position: relative;
+  position: absolute;
   z-index: 99;
   float: left;
 }
