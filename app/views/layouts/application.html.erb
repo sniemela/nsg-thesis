@@ -25,24 +25,22 @@
     <div class="recent_events">
         <span class="italic">07.09.11 - Event happening now!</span>
     </div>
-		<div class="add_event">
-				<a href="/events/new" title="<%= I18n.t('title.add_event') %>" alt="<%= t 'title.add_event' %>"><%= t 'title.add_event' %></a>		
-		</div>
     <div id="search-box">
       <form action="<%= search_index_path %>" method="get">
         <input class="search-box" type="text" name="q" placeholder="<%= I18n.t('help.search') %>" />
         <input type="submit" class="submit" value="" />
       </form>
     </div>
-    </div>
-    <div class="bottom_group">
+		<div class="add_event">
+				<a href="/events/new" title="<%= I18n.t('title.add_event') %>" alt="<%= t 'title.add_event' %>"><%= t 'title.add_event' %></a>		
+		</div>
     </div>
       <nav id="page_nav">
         <ul>
           <li><%= link_to t('title.home'), root_path %></li>
           <li><%= link_to t('title.events'), events_path %></li>
           <li><%= link_to t('title.categories'), categories_path %></li>
-          <li><%= link_to t('title.add_event'), new_event_path %></li>
+          <li><%= link_to t('title.add_event'), new_event_path, :class => 'page_nav_last_link' %></li>
         </ul>
       </nav>
   </header>

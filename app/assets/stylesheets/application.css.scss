@@ -15,6 +15,9 @@
   padding: 3px 3px; font-size: 9px;
 }
 
+input, textarea { font-size: 12px; padding: 0 4px }
+textarea { padding: 4px 4px; }
+
 .button_small_red {
   @include small_button;
   color: $header-signout-color; background-color: $header-signout-backcolor;
@@ -33,6 +36,14 @@ aside h2 { font-size: 15px; }
 
 body {
   background-color: $body-backcolor;
+}
+
+header h1 {
+  text-shadow: 0px 1px 1px #fff;
+}
+
+header h1 a {
+  text-decoration: none;
 }
 
 /* new clearfix */
@@ -123,20 +134,20 @@ body {
 }
 #search-box {
  		float: right;
-    margin-top: -22px;
+    margin-top: 20px;
     width: 223px;
 }
 .recent_events {
 	color: #000;
-	margin: 55px 0 0 180px;
-	width: 300px;
+	margin: 25px 0 0 125px;
+	width: 412px;
 	float: left;
 }
 .add_event {
 		background: url("/assets/new_event.png") no-repeat scroll 0 0 transparent;
     display: block;
     float: right;
-    margin: 55px 69px 0 0;
+    margin: 25px 50px 0 0;
     padding: 0 0 0 20px;
     position: relative;
 }
@@ -157,7 +168,7 @@ body {
     height: 24px;
     padding-left: 5px;
     vertical-align: top;
-    width: 210px
+    width: 207px
     }
 #search-box img {
   border: medium none;
@@ -267,6 +278,9 @@ body {
 #user_nav {
   margin: 6px 10px 0 0;
   float: right;
+  height: 26px;
+  width: 550px;
+  text-align: right;
 }
 
 #user_nav a {
@@ -281,31 +295,48 @@ body {
 
 #page_header nav ul {
   list-style: none;
-  width: 150px;
 }
 #page_nav {
-  -webkit-border-radius: 0 6px 6px 0;
-  -moz-border-radius: 0 6px 6px 0;
-  border-radius: 0 6px 6px 0;
+  opacity: 0.91;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px 6px;
+  border-radius: 0 6px 6px 6px;
   background: none repeat scroll 0 0 #000;
+  box-shadow: 0 0 8px #444;
+  -webkit-box-shadow: 0 0 8px #444;
+  -moz-box-shadow: 0 0 8px #444;
   display: none;
-  width: 120px;
   margin-top: -70px;
-  padding: 20px 8px 20px 0;
+  padding: 20px 0 0 0;
   position: absolute;
   z-index: 99;
   float: left;
 }
+
+#page_nav ul li {
+  display: block;
+}
+
 #page_nav ul li a {
   color: $header-pagenav-link-color;
   display: block;
   text-decoration: none;
-  padding: 8px 25px;
+  padding: 12px 40px 12px 25px;
 }
 
 #page_nav ul li a:hover {
   color: $header-pagenav-link-color;
+  background-color: $header-pagenav-link-hover-bgcolor;
+  cursor: hand;
 }
+
+#page_nav ul li a.page_nav_last_link { padding-bottom: 18px; }
+#page_nav ul li a.page_nav_last_link:hover {
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+
 #categories li {
   list-style: none;
   display: inline;
