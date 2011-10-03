@@ -12,7 +12,8 @@ class Ad < ActiveRecord::Base
 
   before_save :set_price
 
-  validates :start_time, :presence => true, :format => { :with => /\d{4}\-\d{2}\-\d{2}\s\d{2}\:\d{2}\:\d{2}/ }
+  validates :media_file_name, :presence => true
+  validates :start_time, :presence => true
 
   def confirm!
     self[:confirmed] = true

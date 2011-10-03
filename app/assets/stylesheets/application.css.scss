@@ -312,3 +312,7 @@ body {
 .errorExplanation h2 {
   font-size: 16px;
 }
+
+.field_with_errors input {
+  border: 2px solid #D87D7D;
+}

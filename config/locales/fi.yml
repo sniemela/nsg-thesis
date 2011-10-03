@@ -284,8 +284,12 @@ fi:
         active_time_start: Julkaisuaika
         active_time_end: Piilotusaika
         approved: Hyväksytty
+        showtimes:
+          start_time: Alkamisaika
       showtime:
         end_time: Päättymisaika
+      ad:
+        media_file_name: Mainosmedia
     errors:
       template:
         header:
