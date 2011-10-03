@@ -69,7 +69,7 @@ fi:
     event_info: Tietoa
     new_event: Uusi tapahtuma
     event_image: Tapahtuman kuva
-    more_times: Lisää aikoja
+    more_times: Useita aikoja
 
   date:
       formats:

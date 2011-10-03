@@ -23,6 +23,7 @@ en:
     select_sign_in_account: Select one of these accounts to sign in
     dont_have_sign_in_account: Don't have any of these accounts? Get your from %{myopenid} or %{googleid}
     not_logged_in_for_commenting: You have to sign in before you can add a comment
+    search: Search
   
   title:
     search_results: Search results for
@@ -42,3 +43,4 @@ en:
     welcome: Welcome
     comment: Comment
     event_info: Info
+    add_event: Add Event
