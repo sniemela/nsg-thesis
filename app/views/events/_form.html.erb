@@ -11,25 +11,13 @@
 		  <%= f.text_area :description %>
 		</p>
 	</div>
-	
-  <% if @event.new_record? %>
-    <div id="event-image">
-      <%= f.fields_for :galleries do |gallery_form| %>
-        <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
-          <%= resource_form.label :event_image %><br />
-          <%= resource_form.file_field :resource %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-  
+
   <div id="categories">
     <p><%= f.label :categories %></p>
+    <br />
     <% Category.all.each do |category| %>
-      <%= f.fields_for :categories, category do |category_fields| %>
-        <%= category_fields.check_box :id, {:checked => false} %>
-        <%= category_fields.label category.name %><br />
-      <% end %>
+      <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
+      <br />
     <% end %>
   </div>
   
@@ -42,6 +30,17 @@
 		</span>  
   </div>
   
+  <% if @event.new_record? %>
+    <div id="event-image">
+      <%= f.fields_for :galleries do |gallery_form| %>
+        <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
+          <%= resource_form.label t('title.event_image') %><br />
+          <%= resource_form.file_field :resource %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
   <div id="location">
     <p id="country">
       <%= f.label :country %>

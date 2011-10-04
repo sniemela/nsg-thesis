@@ -73,10 +73,11 @@ class EventsController < ApplicationController
   end
   
   def create
+    params[:event][:category_ids] ||= []
+
     @event = Event.new(params[:event])
-    
     @event.submitter = current_user
-    
+
     if @event.save
       if params[:event][:galleries_attributes].blank?
         redirect_to events_path, :notice => 'Event added.'
@@ -104,17 +105,18 @@ class EventsController < ApplicationController
   end
   
   def update
+    params[:event][:category_ids] ||= []
     @event = Event.find(params[:id])
-    
+
     if @event.update_attributes(params[:event])
-      unless params[:event][:galleries_attributes].blank?
+      if params[:event][:galleries_attributes].blank?
         redirect_to events_path, :notice => 'Event updated.'
       end
     else
       render :edit
     end
   end
-  
+
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
