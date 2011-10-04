@@ -19,6 +19,8 @@ class Event < ActiveRecord::Base
   after_destroy :notify_removed
   
   accepts_nested_attributes_for :showtimes, :galleries, :categories, :reject_if => :all_blank, :allow_destroy => true
+  
+  validates_presence_of :name, :description, :country, :address, :active_time_start, :active_time_end
 
   scope :most_watched, where('times_watched > ?', 0).order('times_watched desc').limit(50)
   scope :popular, where('liked_count > ?', 0).order('liked_count desc').limit(50)
@@ -27,8 +29,6 @@ class Event < ActiveRecord::Base
   scope :between, lambda { |from, to| where('created_at between ? and ?', from, to) }
   scope :approved, where(:approved => true)
   scope :unapproved, where(:approved => false)
-
-  validates :name, :presence => true
 
   define_index do
     indexes :name

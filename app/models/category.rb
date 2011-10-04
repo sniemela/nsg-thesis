@@ -7,7 +7,8 @@ class Category < ActiveRecord::Base
 
   has_attached_file :image, :styles => { :small => "100x100#", :medium => "320x240#" }
   
-  validates_presence_of :name, :description, :image
+  validates :name, :uniqueness => true
+  validates_presence_of :description, :image
 
   def to_param
     "#{name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
