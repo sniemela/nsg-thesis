@@ -6,7 +6,12 @@
   </div>
   <div class="event_info">
     <header>
-      <h1><%= link_to event.name, event, :id => "event-name-#{event.id}" %></h1>
+      <h1>
+        <%= link_to event.name, event, :id => "event-name-#{event.id}" %>
+        <% if current_user.has_event?(event) %>
+          <span style="font-size:10px;">(<%= link_to t('title.edit'), edit_event_path(event) %>)</span>
+        <% end %>
+      </h1>
       <span class="event_showtime">
         <time datetime="<%= event.showtimes.first.start_time %>"><%= l event.showtimes.first.start_time, :format => :long %></time>
 

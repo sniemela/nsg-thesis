@@ -78,6 +78,8 @@ fi:
     upcoming: Tulevat
     gallery: Galleria
     hotels: Hotellit
+    edit: Muokkaa
+    edit_event: Muokkaa tapahtumaa
 
   date:
       formats:

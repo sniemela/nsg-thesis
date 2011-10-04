@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
       user.email = auth["user_info"]["email"]
     end
   end
+
+  def has_event?(event)
+    return true if events.exists?(event)
+    return true if client && client.events.exists?(event)
+    return false
+  end
 end
