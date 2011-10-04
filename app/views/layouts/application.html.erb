@@ -103,9 +103,9 @@
           <li><%= link_to t('my_links.new_ad'), new_ad_path %></li>
         </ul>
       </nav>
-    <% end %>
 
-    <br />
+      <br />
+    <% end %>
 
     <div class="advertises">
       <%= content_for?(:ads) ? content_for(:ads) : elements_for_ads(Ad.confirmed) %>
