@@ -5,7 +5,9 @@
 <div id="event-nav" class="eventTab">
   <ul class="clearfix"> 
     <li><a class="selected" href="#event-info"><%= t 'title.event_info' %></a></li> 
-    <li><a href="#event-comments"><%= t 'title.comments' %></a></li> 
+    <li><a href="#event-comments"><%= t 'title.comments' %></a></li>
+    <li><a href="#event-gallery"><%= t 'title.gallery' %></a></li>
+    <li><a href="#event-hotels"><%= t 'title.hotels' %></a></li>
   </ul>
 
   <div class="event_info_content">
@@ -33,15 +35,26 @@
         <%= category_list(@event.categories) %>
       </p>
     </div> 
-    <div id="event-comments" style="display: none">
-      <% if current_user %>
-        <h2><%= t "title.comment" %></h2>
-        <%= render "comments/form" %>
-      <% else %>
-        <p><%= t('help.not_logged_in_for_commenting') %></p>
-      <% end %>
-      <h1><%= t "title.comments" %></h1>
-      <%= render @event.comments, :locals => { :commentable => @event } %>
-    </div>
   </div>
-</div>
+  
+  <div id="event-comments" style="display: none">
+    <% if current_user %>
+      <h2><%= t "title.comment" %></h2>
+      <%= render "comments/form" %>
+    <% else %>
+      <p><%= t('help.not_logged_in_for_commenting') %></p>
+    <% end %>
+    <% if @event.comments %>
+      <h1><%= t "title.comments" %></h1>
+      <%= render :partial => 'shared/comment', :collection => @event.comments, :locals => { :commentable => @commentable } %>
+    <% end %>
+  </div>
+  
+  <div id="event-gallery">
+    <p>Image-gallery</p>
+  </div>
+  
+  <div id="event-hotels">
+    <p>Show hotels in the current city</p>
+    <p><%= link_to "Hotels.com", "http://hotels.com" %></p>
+  </div>

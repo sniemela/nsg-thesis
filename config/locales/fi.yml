@@ -76,6 +76,8 @@ fi:
     most_watched: Katsotuimmat
     nearby: Lähimmät
     upcoming: Tulevat
+    gallery: Galleria
+    hotels: Hotellit
 
   date:
       formats:

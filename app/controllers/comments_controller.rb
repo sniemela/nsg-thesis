@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build(params[:comment])
-    @comment.user_id = current_user
+    @comment.user = current_user
     
     if @comment.save
       redirect_to @commentable, :notice => 'Thank you for your comment!'
