@@ -44,10 +44,12 @@
   cursor:default;
   }
 
-.eventTab div a { color:#000; font-weight:bold; }
-
 .event_info_content {
   padding:15px 20px;
+}
+
+.event_info_content h2 {
+  font-size: 17px;
 }
 
 .event_info_content div {

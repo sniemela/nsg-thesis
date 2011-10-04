@@ -25,4 +25,8 @@ function add_fields(link, association, content) {
 
 $(document).ready(function() {
   $("a#signin").fancybox();
+
+  $("a#inline").fancybox({
+    hideOnContentClick: true,
+  });
 });

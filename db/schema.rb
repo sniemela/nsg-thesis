@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(:version => 20110926072223) do
 
   create_table "ads", :force => true do |t|
-    t.integer  "client_id",                             :null => false
-    t.decimal  "price",              :default => 0.0
+    t.integer  "client_id",                                                            :null => false
+    t.decimal  "price",              :precision => 10, :scale => 0, :default => 0
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "media_file_name"
     t.string   "media_content_type"
     t.integer  "media_file_size"
     t.datetime "media_updated_at"
-    t.boolean  "confirmed",          :default => false
+    t.boolean  "confirmed",                                         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20110926072223) do
     t.text     "description"
     t.datetime "active_time_start"
     t.datetime "active_time_end"
-    t.string   "city"
     t.string   "country",                              :null => false
     t.string   "address"
     t.integer  "times_watched",     :default => 0
@@ -90,6 +89,8 @@ ActiveRecord::Schema.define(:version => 20110926072223) do
     t.boolean  "approved",          :default => false
     t.integer  "submitter_id"
     t.string   "submitter_type"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

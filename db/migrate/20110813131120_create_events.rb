@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration
       t.text :description
       t.datetime :active_time_start
       t.datetime :active_time_end
-      t.string :city
       t.string :country,            :null => false
       t.string :address
       t.integer :times_watched,     :default => 0
@@ -13,6 +12,8 @@ class CreateEvents < ActiveRecord::Migration
       t.boolean :approved,          :default => false
       t.integer :submitter_id
       t.string :submitter_type
+      t.float :longitude
+      t.float :latitude
 
       t.timestamps
     end

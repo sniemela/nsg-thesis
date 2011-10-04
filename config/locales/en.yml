@@ -24,6 +24,7 @@ en:
     dont_have_sign_in_account: Don't have any of these accounts? Get your from %{myopenid} or %{googleid}
     not_logged_in_for_commenting: You have to sign in before you can add a comment
     search: Search
+    show_map: Show map
   
   title:
     search_results: Search results for
@@ -46,3 +47,4 @@ en:
     add_event: Add Event
     event_image: Event image
     latest_events: Latest Events
+    where: Where

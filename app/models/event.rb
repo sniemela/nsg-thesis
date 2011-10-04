@@ -36,8 +36,14 @@ class Event < ActiveRecord::Base
     indexes tags(:name), :as => :tag_name
     indexes submitter(:name), :as => :submitter_name
 
+    has "RADIANS(longitude)", :as => :longitude, :type => :float
+    has "RADIANS(latitude)", :as => :latitude, :type => :float
+
     where sanitize_sql(['approved', true])
   end
+
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
   def approve!
     self[:approved] = true

@@ -10,9 +10,6 @@
 
   <div class="event_info_content">
     <div id="event-info">
-      <p class="event-category_list">
-        <%= category_list(@event.categories) %>
-      </p>
       <p class="event-image">
         <% for gallery in @event.galleries %>
           <% for resource_file in gallery.gallery_resources %>
@@ -22,6 +19,18 @@
       </p>
       <p class="event-description">
         <%= @event.description %>
+      </p>
+
+      <h2><%= t 'title.where' %></h2>
+      <p>
+        <%= @event.address %> <a id="inline" href="#map"><%= t('help.show_map') %></a><br />
+        <%= @event.country %>
+
+        <div style="display:none"><div id="map"><%= image_tag "http://maps.google.com/maps/api/staticmap?size=600x480&sensor=false&zoom=14&markers=#{@event.latitude}%2C#{@event.longitude}" %></div></div>
+      </p>
+
+      <p class="event-category_list">
+        <%= category_list(@event.categories) %>
       </p>
     </div> 
     <div id="event-comments" style="display: none">

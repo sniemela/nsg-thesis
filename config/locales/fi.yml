@@ -34,6 +34,7 @@ fi:
     dont_have_sign_in_account: Etkö omista yhtään tiliä? Hanki omasi nyt osoitteesta %{myopenid} tai %{googleid}
     not_logged_in_for_commenting: Sinun tulee olla kirjautuneena jotta voisit kommentoida
     search: Hae
+    show_map: Näytä kartalla
 
   misc:
     price: Hinta
@@ -70,6 +71,7 @@ fi:
     new_event: Uusi tapahtuma
     event_image: Tapahtuman kuva
     more_times: Useita aikoja
+    where: Missä
 
   date:
       formats:
