@@ -12,20 +12,22 @@
 		</p>
 	</div>
 	
-  <div id="event-image">
-    <%= f.fields_for :galleries do |gallery_form| %>
-      <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
-        <%= resource_form.label t('title.event_image') %>
-        <%= resource_form.file_field :resource %>
+  <% if @event.new_record? %>
+    <div id="event-image">
+      <%= f.fields_for :galleries do |gallery_form| %>
+        <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
+          <%= resource_form.label :event_image %><br />
+          <%= resource_form.file_field :resource %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   
   <div id="categories">
     <p><%= f.label :categories %></p>
     <% Category.all.each do |category| %>
       <%= f.fields_for :categories, category do |category_fields| %>
-        <%= category_fields.check_box :id %>
+        <%= category_fields.check_box :id, {:checked => false} %>
         <%= category_fields.label category.name %><br />
       <% end %>
     <% end %>
@@ -39,17 +41,6 @@
 			<%= link_to_add_fields "Add showtime", f, :showtimes %>
 		</span>  
   </div>
-  
-  <% if @event.new_record? %>
-    <div id="event-image">
-      <%= f.fields_for :galleries do |gallery_form| %>
-        <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
-          <%= resource_form.label :event_image %><br />
-          <%= resource_form.file_field :resource %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
   
   <div id="location">
     <p id="country">
