@@ -22,7 +22,8 @@ class Event < ActiveRecord::Base
 
   scope :most_watched, where('times_watched > ?', 0).order('times_watched desc').limit(50)
   scope :popular, where('liked_count > ?', 0).order('liked_count desc').limit(50)
-  scope :recent, where('created_at >= ?', Time.now - 1.week)
+  scope :recent, where('created_at >= ?', Time.zone.now - 1.week)
+  scope :upcoming, joins(:showtimes).where('showtimes.start_time >= ?', Time.zone.now - 2.days).select('distinct events.*').order('showtimes.start_time ASC')
   scope :between, lambda { |from, to| where('created_at between ? and ?', from, to) }
   scope :approved, where(:approved => true)
   scope :unapproved, where(:approved => false)

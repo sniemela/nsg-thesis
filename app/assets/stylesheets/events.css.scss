@@ -58,3 +58,15 @@
   *margin-top:-15px;
   clear:left;
 }
+
+#event_filter_nav ul {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-size: 11px;
+}
+
+#event_filter_nav ul li {
+  display: inline;
+  margin-right: 4px;
+}

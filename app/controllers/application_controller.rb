@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   before_filter :set_locale
+  before_filter :set_time_zone
 
   def admin_required
     unless current_user && current_user.admin?
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || :en
+  end
+
+  def set_time_zone
+    Time.zone = 'Helsinki' if I18n.locale == :fi
   end
 
   def login_required

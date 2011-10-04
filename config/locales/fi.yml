@@ -72,6 +72,10 @@ fi:
     event_image: Tapahtuman kuva
     more_times: Useita aikoja
     where: Missä
+    recent: Uusimmat
+    most_watched: Katsotuimmat
+    nearby: Lähimmät
+    upcoming: Tulevat
 
   date:
       formats:

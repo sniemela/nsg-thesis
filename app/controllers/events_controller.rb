@@ -1,9 +1,48 @@
 class EventsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show, :feed]
+  before_filter :login_required, :except => [:index, :show, :feed, :recent, :most_watched, :nearby]
   before_filter :admin_required, :only => [:unapproved, :approve]
 
   def index
-    @events = Event.approved.includes(:categories)
+    @events = Event.approved.recent
+  end
+
+  def recent
+    @events = Event.approved.recent
+
+    respond_to do |format|
+      format.html { render :template => 'events/index' }
+      format.js { render :template => 'events/filter_result' }
+    end
+  end
+
+  def most_watched
+    @events = Event.approved.most_watched
+
+    respond_to do |format|
+      format.html { render :template => 'events/index' }
+      format.js { render :template => 'events/filter_result'  }
+    end
+  end
+
+  def nearby
+    use_ip = !(params[:location].present? && params[:location].split(',').size == 2)
+    location = use_ip ? request.env['REMOTE_ADDR'] : params[:location].split(',').map { |l| l.to_f }
+
+    @events = Event.approved.near(location, 20, :units => :km)
+
+    respond_to do |format|
+      format.html { render :template => 'events/index' }
+      format.js { render :template => 'events/filter_result' }
+    end
+  end
+
+  def upcoming
+    @events = Event.approved.upcoming
+
+    respond_to do |format|
+      format.html { render :template => 'events/index' }
+      format.js { render :template => 'events/filter_result' }
+    end
   end
 
   def feed
@@ -34,9 +73,10 @@ class EventsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @event = Event.find(params[:id])
+    @event.increment!(:times_watched, 1)
     @comment = @event.comments.build
   end
   

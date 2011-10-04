@@ -1,0 +1,3 @@
+$('#events').hide();
+$("#events").html("<%= escape_javascript( render(:partial => 'event', :collection => @events) ) %>");
+$('#events').fadeIn('fast');

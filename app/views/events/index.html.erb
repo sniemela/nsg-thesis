@@ -1,7 +1,17 @@
 <header>
   <h1><%= t 'title.events' %></h1>
+  <nav id="event_filter_nav">
+    <ul>
+      <li><%= link_to t('title.recent'), recent_events_path, :remote => true %></li>
+      <li><%= link_to t('title.most_watched'), most_watched_events_path, :remote => true %></li>
+      <li><%= link_to t('title.nearby'), nearby_events_path, :"data-location" => true, :remote => true %></li>
+      <li><%= link_to t('title.upcoming'), upcoming_events_path, :remote => true %></li>
+    </ul>
+  </nav>
 </header>
 
+<div id="events">
 <%- for event in @events -%>
 <%= render event %>
 <%- end -%>
+</div>

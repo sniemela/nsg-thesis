@@ -13,6 +13,10 @@ NsgThesis::Application.routes.draw do
     get 'unapproved', :on => :collection
     get 'approve', :on => :member
     get 'feed', :on => :collection
+    get 'recent', :on => :collection
+    get 'most_watched', :on => :collection
+    get 'nearby', :on => :collection
+    get 'upcoming', :on => :collection
   end
 
   resources :categories
