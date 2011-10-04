@@ -17,6 +17,7 @@ NsgThesis::Application.routes.draw do
     get 'most_watched', :on => :collection
     get 'nearby', :on => :collection
     get 'upcoming', :on => :collection
+    get 'like', :on => :member
   end
 
   resources :categories

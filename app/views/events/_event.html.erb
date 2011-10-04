@@ -22,7 +22,26 @@
       <p id="event-description-<%= event.id %>"><%= event.description %></p>
     </header>
 
-    <p id="event-<%= event.id %>-category-list" class="event_category_list"><%= category_list(event.categories) %></p>
+    <ul class="event_additional_info">
+      <li>
+        <span id="event-<%= event.id %>-category-list" class="event_category_list">
+          <%= category_list(event.categories) %>
+        </span>
+      </li>
+      <li>
+        <div class="g-plusone" data-size="small" data-annotation="none" callback="incrementEventLikedCount" data-href="<%= event_path(event) %>"></div>
+      </li>
+    </ul>
   </div>
+
+  <script type="text/javascript">
+    window.___gcfg = {lang: '<%= I18n.locale.to_s %>'};
+
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
 </article>
 <br />

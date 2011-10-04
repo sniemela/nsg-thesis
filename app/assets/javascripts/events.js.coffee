@@ -3,6 +3,9 @@
 eventFeed = io.connect 'http://' + node_app_host + ':1337/events'
 eventDataBuffer = new $.DataBuffer
 
+window.incrementEventLikedCount = (plusone) ->
+  $.get(plusone.href + '/like')
+
 applyUpdates = ->
   for data in eventDataBuffer.getBuffer()
     callback = data.method

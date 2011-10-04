@@ -51,6 +51,10 @@ class Event < ActiveRecord::Base
     save!
   end
 
+  def to_param
+    "#{id}-#{name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
+  end
+
   private
     def notify_updated
       NodejsNotifier.notify('/event_updated', to_json)

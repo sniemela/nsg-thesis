@@ -12,6 +12,6 @@
 
 <h1>Events in <%= @category.name %></h1>
 
-  <%- for event in @category.events -%>
+  <%- for event in @category.events.approved -%>
     <%= render event %>
   <%- end -%>

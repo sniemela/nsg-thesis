@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show, :feed, :recent, :most_watched, :nearby, :upcoming]
+  before_filter :login_required, :except => [:index, :show, :feed, :recent, :most_watched, :nearby, :upcoming, :like]
   before_filter :admin_required, :only => [:unapproved, :approve]
 
   def index
@@ -52,7 +52,17 @@ class EventsController < ApplicationController
       wants.rss { render :layout => false }
     end
   end
-  
+
+  def like
+    @event = Event.find(params[:id])
+    @event.increment!(:liked_count, 1)
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render :status => :ok }
+    end
+  end
+
   def new
     @event = Event.new 
     

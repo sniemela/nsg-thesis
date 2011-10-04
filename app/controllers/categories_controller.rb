@@ -20,7 +20,8 @@ class CategoriesController < ApplicationController
   end
   
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find_by_name(params[:id])
+    raise ActiveRecord::RecordNotFound unless @category
     @ads = Ad.find_by_tag_ids(@category.tags.select('tags.id'))
   end
   
