@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show, :feed, :recent, :most_watched, :nearby]
+  before_filter :login_required, :except => [:index, :show, :feed, :recent, :most_watched, :nearby, :upcoming]
   before_filter :admin_required, :only => [:unapproved, :approve]
 
   def index
