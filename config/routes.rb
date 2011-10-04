@@ -12,6 +12,7 @@ NsgThesis::Application.routes.draw do
     resources :galleries
     get 'unapproved', :on => :collection
     get 'approve', :on => :member
+    get 'feed', :on => :collection
   end
 
   resources :categories

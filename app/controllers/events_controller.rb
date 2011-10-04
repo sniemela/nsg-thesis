@@ -1,9 +1,17 @@
 class EventsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:index, :show, :feed]
   before_filter :admin_required, :only => [:unapproved, :approve]
 
   def index
     @events = Event.approved.includes(:categories)
+  end
+
+  def feed
+    @events = Event.approved.includes(:categories).includes(:showtimes).limit(50).order('active_time_start DESC')
+
+    respond_to do |wants|
+      wants.rss { render :layout => false }
+    end
   end
   
   def new

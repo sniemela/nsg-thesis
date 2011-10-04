@@ -1,3 +1,7 @@
+<%= content_for :head do %>
+  <%= auto_discovery_link_tag :rss, feed_events_path %>
+<% end %>
+
 <header>
   <h1><%= t 'title.latest_events' %></h1>
 </header>
