@@ -10,6 +10,7 @@
 //= require fancybox
 //= require jquery-ui-timepicker-addon
 //= require jquery.idTabs.min
+//= require jquery.Jcrop.min
 //= require_tree .
 
 function remove_fields(link) {

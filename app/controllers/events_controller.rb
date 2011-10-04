@@ -68,7 +68,11 @@ class EventsController < ApplicationController
     @event.submitter = current_user
     
     if @event.save
-      redirect_to events_url, :notice => 'Event added.'
+      if params[:event][:galleries_attributes].blank?
+        redirect_to events_path, :notice => 'Event added.'
+      else
+        render :crop
+      end
     else
       render :new
     end
@@ -93,7 +97,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     
     if @event.update_attributes(params[:event])
-      redirect_to events_url, :notice => 'Event updated.'
+      unless params[:event][:galleries_attributes].blank?
+        redirect_to events_path, :notice => 'Event updated.'
+      end
     else
       render :edit
     end

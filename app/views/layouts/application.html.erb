@@ -130,5 +130,6 @@ var node_app_host = '<%= APP_HOST %>';
 </script>
 <script type="text/javascript" src="http://<%= APP_HOST %>:1337/socket.io/socket.io.js"></script>
 <%= javascript_include_tag "application" %>
+<%= yield(:head) %>
 </body>
 </html>
