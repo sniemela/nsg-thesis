@@ -1,4 +1,6 @@
 <%= form_for [@event, @comment] do |f| %>
+  <%= f.error_messages %>
+  
   <p>
     <%= f.label :comment %><br />
     <%= f.text_area :body, :rows => 5 %>
