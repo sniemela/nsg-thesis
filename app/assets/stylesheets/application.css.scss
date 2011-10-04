@@ -215,7 +215,7 @@ header h1 a {
   width: 120px;
 }
 
-	#new_event input, #new_event textarea, #new_event type {
+	input[type="text"], textarea {
 		border: 1px solid #D9D9D8;
 		-webkit-border-radius: 4px 4px 4px 4px;
 		-moz-border-radius: 4px 4px 4px 4px;
@@ -276,23 +276,31 @@ header h1 a {
   width: 59px;
 }
 #user_nav {
-  margin: 6px 10px 0 0;
   float: right;
-  height: 26px;
-  width: 550px;
+  height: 23px;
+  margin: 7px 10px 0 0;
   text-align: right;
+  width: 550px;
+	font-size: $user_nav_font-size;
 }
 
 #user_nav a {
   color: $header-usernav-link-color;
+  margin-left: 4px;
   text-decoration: none;
+  vertical-align: middle;
 }
 
 #user_nav a:hover {
   color: $header-usernav-link-hover-color;
   text-decoration: none;
 }
-
+#user_nav img {
+	display: block;
+  float: right;
+  margin: 3px 0 0 0;
+  position: relative;
+}
 #page_header nav ul {
   list-style: none;
 }
