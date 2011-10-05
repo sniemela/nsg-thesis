@@ -118,7 +118,6 @@ header h1 a {
 #page_header .top_group {
   width: $wrapper-width;
   overflow: auto;
-  height: 108px;
   position: relative;
   margin: 0 auto;
 }
@@ -140,7 +139,7 @@ header h1 a {
 }
 .recent_events {
 	color: #000;
-	margin: 25px 0 0 125px;
+	margin: 25px 0 0 95px;
 	width: 412px;
 	float: left;
 }
@@ -315,7 +314,7 @@ header h1 a {
   -webkit-box-shadow: 0 0 8px #444;
   -moz-box-shadow: 0 0 8px #444;
   display: none;
-  margin-top: -70px;
+  margin-top: -40px;
   padding: 20px 0 0 0;
   position: absolute;
   z-index: 99;
