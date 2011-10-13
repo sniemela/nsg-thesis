@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     
     if @category.save
-      redirect_to categories_url, :notice => 'Category added.'
+      redirect_to categories_url, :flash => { :success => 'Category added' }
     else
       render :new
     end
@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     
     if @category.update_attributes(params[:category])
-      redirect_to categories_url, :notice => 'Category updated.'
+      redirect_to categories_url, :flash => { :success => 'Category updated.' }
     else
       render :edit
     end

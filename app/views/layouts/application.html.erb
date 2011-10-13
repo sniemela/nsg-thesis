@@ -49,17 +49,15 @@
 
 <div id="wrapper">
   <section id="content">
-    <div class="available_updates" style="display: none">
-      <p>
+      <p class="notification notice available_updates" style="display: none">
         <%= t 'content_has_been_updated' %>, 
         <a href="#" class="update_content_link"><%= t('show_updates') %></a>
+        <a href="#" title="<%= I18n.t('help.close') %>" class="close"><%= image_tag 'cross-small-white.png' %></a>
       </p>
-    </div>
-    <section id="flash">
-      <% flash.each do |name, msg| %>
-          <%= msg %>
-      <% end %>
-    </section>
+
+    <% flash.each do |name, msg| %>
+        <p class="notification <%= name %>"><%= msg %> <a href="#" title="<%= I18n.t('help.close') %>" class="close_and_remove"><%= image_tag 'cross-small-white.png' %></a></p>
+    <% end %>
 
     <%= yield %>
   </section>

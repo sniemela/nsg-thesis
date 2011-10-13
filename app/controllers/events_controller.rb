@@ -80,7 +80,7 @@ class EventsController < ApplicationController
 
     if @event.save
       if params[:event][:galleries_attributes].blank?
-        redirect_to events_path, :notice => 'Event added.'
+        redirect_to events_path, :flash => { :success => 'Event added.' }
       else
         render :crop
       end
@@ -110,7 +110,7 @@ class EventsController < ApplicationController
 
     if @event.update_attributes(params[:event])
       if params[:event][:galleries_attributes].blank?
-        redirect_to events_path, :notice => 'Event updated.'
+        redirect_to events_path, :flash => { :success => 'Event updated.' }
       end
     else
       render :edit
@@ -131,7 +131,7 @@ class EventsController < ApplicationController
   def approve
     @event = Event.find(params[:id])
     @event.approve!
-    redirect_to unapproved_events_path, :notice => 'Event approved'
+    redirect_to unapproved_events_path, :flash => { :success => 'Event approved' }
   end
   
   def my_events

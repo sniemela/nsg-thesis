@@ -8,8 +8,10 @@
     <header>
       <h1>
         <%= link_to event.name, event, :id => "event-name-#{event.id}" %>
-        <% if current_user.has_event?(event) %>
-          <span style="font-size:10px;">(<%= link_to t('title.edit'), edit_event_path(event) %>)</span>
+        <% if current_user %>
+          <% if current_user.has_event?(event) %>
+            <span style="font-size:10px;">(<%= link_to t('title.edit'), edit_event_path(event) %>)</span>
+          <% end %>
         <% end %>
       </h1>
       <span class="event_showtime">

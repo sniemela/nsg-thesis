@@ -386,3 +386,28 @@ header h1 a {
 .field_with_errors input {
   border: 2px solid #D87D7D;
 }
+
+.notification { 
+  margin: 0;
+  position: absolute;
+  top: 0;
+  position: fixed;
+  padding: 8px;
+  width: 565px;
+  margin-left: 153px;
+  border: 1px solid;
+  border-top: 0;
+  box-shadow: 0 0 3px #A2A2A2;
+  -webkit-box-shadow: 0 0 3px #A2A2A2;
+  -moz-box-shadow: 0 0 3px #A2A2A2;
+  opacity: 0.96;
+}
+
+.removed { opacity: 0.30; }
+
+a.close img { margin: 0; padding: 0; }
+
+.notification.notice { background-color: #FFF8C7; color: #948517; border-color: #B19F19; }
+.notification.success { background-color: #E0FCCB; color: #5FA728; border-color: #73C435; }
+.notification.alert { background-color: #FDD6D6; color: #A72525; border-color: #D65757; }
+.notification a.close, .notification a.close_and_remove { position: absolute; float: right; top: 0; right: 0; margin: 7px 5px 10px 10px; }

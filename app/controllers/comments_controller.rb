@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     
     if @comment.save
-      redirect_to @commentable, :notice => 'Thank you for your comment!'
+      redirect_to @commentable, :flash => { :success => 'Thank you for your comment!' }
     else
       render :new
     end
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     @comment = Comments.find(params[:id])
     
     if @comment.update_attributes(params[:comment])
-      redirect_to event_url, :notice => 'Your comment has been updated!'
+      redirect_to event_url, :flash => { :success => 'Your comment has been updated!' }
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
   def destroy
     @commentable = find_commentable
     @commentable.destroy
-    redirect_to @commentable, :notice => "Comment has been deleted!"
+    redirect_to @commentable, :flash => { :success => "Comment has been deleted!" }
   end
   
   private

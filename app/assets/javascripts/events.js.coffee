@@ -16,12 +16,13 @@ showUpdatesAvailableMessage = (data) ->
   event = data.param
   return if not event.approved
   
-  $('.available_updates').show();
+  $('.available_updates').slideDown('fast')
   $('.update_content_link').attr('id', 'update_event_content')
-  $('#update_event_content').click ->
+  $('#update_event_content').click (e) ->
+    e.preventDefault()
     applyUpdates()
     $('.update_content_link').attr('id', '')
-    $('.available_updates').hide()
+    $('.available_updates').slideUp('fast')
 
 
 incrementUnconfirmedEvents = (data) ->
@@ -73,13 +74,27 @@ updateEventDom = (event) ->
   eventDiv = $('#event-' + event.id)
   
   if eventDiv
-    $('#event-name-' + event.id).html(event.name)
-    $('#event-description-' + event.id).html(event.description)
+    updateEvent(event.id, 'name', event.name)
+    updateEvent(event.id, 'description', event.description)
+
+
+updateEvent = (id, element, content) ->
+  element = $('#event-' + element + '-' + id)
+  element.hide()
+  element.html(content)
+  element.fadeIn()
 
 
 removeEventFromDom = (event) ->
   eventDiv = $('#event-' + event.id)
-  eventDiv.hide() if eventDiv
+
+  if eventDiv
+    eventDiv.wrap('<div class="removed"></div>')
+    name = $('#event-name-' + event.id)
+    name.attr('href', '#')
+    name.click (e) ->
+      e.preventDefault()
+      return false
 
 $ ->
   $('.datepicker').live 'mouseover', ->
