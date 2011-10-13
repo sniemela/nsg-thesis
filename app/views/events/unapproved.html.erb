@@ -2,8 +2,4 @@
   <h1><%= t 'title.unapproved_events' %></h1>
 </header>
 
-<% for event in @events %>
-  <%= link_to t('misc.approve'), approve_event_path(event) %><br />
-  <%= render event %>
-  <br />
-<% end %>
+<%= render :partial => 'event', :collection => @events, :locals => { :show_record_info => true } %>

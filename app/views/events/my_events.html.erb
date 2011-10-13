@@ -2,6 +2,4 @@
   <h1><%= t 'my_links.my_events' %></h1>
 </header>
 
-<%- for event in @my_events -%>
-<%= render event %>
-<%- end -%>
+<%= render :partial => 'event', :collection => @my_events, :locals => { :show_record_info => true } %>

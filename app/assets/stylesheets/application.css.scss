@@ -24,6 +24,14 @@ textarea { padding: 4px 4px; }
   color: $header-signout-color; background-color: $header-signout-backcolor;
 }
 
+.button_small_green {
+  @include small_button;
+  color: $header-signin-color; background-color: $header-signin-backcolor;
+}
+
+.button_small_green a { text-decoration: none; color: $header-signin-color; }
+.button_small_green a:hover { color: $header-signin-color;  }
+
 body { margin: 0; padding: 0; color: $font-color; font-family: $font-family; font-size: $font-size; }
 
 a { color: $link-color; }

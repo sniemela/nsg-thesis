@@ -1,3 +1,5 @@
+<% show_record_info = nil unless defined?(show_record_info) %>
+
 <article id="event-<%= event.id %>" class="event_list_entry <%= cycle('even', 'odd') %> clearfix">
   <div class="event_image">
   <% unless event.galleries.first.nil? %>
@@ -5,6 +7,14 @@
   <% end %>
   </div>
   <div class="event_info">
+    <% if show_record_info %>
+      <% if is_admin? && !event.approved? %>
+        <div class="record_status"><span class="button_small_green"><%= link_to t('help.approve'), approve_event_path(event) %></span></div>
+      <% elsif current_user && !is_admin? && current_user.has_event?(event) && !event.approved? %>
+        <div class="record_status"><span class="button_small_red"><%= t('title.waiting_for_confirmation') %></span></div>
+      <% end %>
+    <% end %>
+
     <header>
       <h1>
         <%= link_to event.name, event, :id => "event-name-#{event.id}" %>
