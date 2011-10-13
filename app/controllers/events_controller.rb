@@ -135,6 +135,6 @@ class EventsController < ApplicationController
   end
   
   def my_events
-    @my_events = current_user.all_events
+    @my_events = current_user.all_events.order('created_at DESC')
   end
 end
