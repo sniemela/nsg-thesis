@@ -11,7 +11,7 @@ en:
     formats:
       long: "%m-%d-%Y %H:%M"
 
-  errors:
+  custom_errors:
     cant_be_past: can't be in the past
     cant_be_earlier: can't be earlier than start time
   

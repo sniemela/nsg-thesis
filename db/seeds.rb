@@ -82,8 +82,8 @@ clients = Client.create!(clients_info, :without_protection => true)
 events = [{
   :name => 'Hangover Part II',
   :description => "Two years after the bachelor party in Las Vegas, Phil, Stu, Alan, and Doug jet to Thailand for Stu's wedding. Stu's plan for a subdued pre-wedding brunch, however, goes seriously awry.",
-  :active_time_start => Time.now - 5.days,
-  :active_time_end => Time.now + 1.week,
+  :active_time_start => Time.now + 5.days,
+  :active_time_end => Time.now + 2.weeks,
   :address => 'Hovioikeudenpuistikko 16, Vaasa',
   :country => 'Finland',
   :submitter_id => clients[0].id,
@@ -93,7 +93,7 @@ events = [{
 {
   :name => 'The Rise of The Planet Of The Apes',
   :description => "During experiments to find a cure for Alzheimer's disease, a genetically-enhanced chimpanzee uses its greater intelligence to lead other apes to freedom.",
-  :active_time_start => Time.now - 4.days,
+  :active_time_start => Time.now + 4.days,
   :active_time_end => Time.now + 2.weeks,
   :address => 'Hovioikeudenpuistikko 16, Vaasa',
   :country => 'Finland',
@@ -104,8 +104,8 @@ events = [{
 {
   :name => 'Provinssirock',
   :description => 'Ihmisten Juhla, Provinssirock, tuo Suomen kesään niin kansainväliset kuin kotimaisetkin kärkinimet, musiikkimaailman uudempia tuttavuuksia ja sykäyttävän tunnelman. Festivaalia on järjestetty jo vuodesta 1979 kulttuurihistoriallisella Törnävänsaaren puistoalueella.',
-  :active_time_start => Time.now,
-  :active_time_end => Time.now + 2.hours,
+  :active_time_start => Time.now + 2.days,
+  :active_time_end => Time.now + 2.weeks,
   :address => 'Vaasantie 11, Seinäjoki',
   :country => 'Finland',
   :submitter_id => clients[0].id,
@@ -116,8 +116,8 @@ events = [{
 Event.create!(events)
 
 showtimes = [{
-  :start_time => Time.now + 2.day,
-  :end_time => Time.now + 2.week,
+  :start_time => Time.now + 2.days,
+  :end_time => Time.now + 2.weeks,
   :event_id => 1
 },
 {
