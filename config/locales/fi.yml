@@ -84,6 +84,15 @@ fi:
     hotels: Hotellit
     edit: Muokkaa
     edit_event: Muokkaa tapahtumaa
+    delete: Poista
+    delete_event: Poista tapahtuma
+    delete_confirm: Haluatko varmasti poistaa tapahtuman?
+    
+  notice:
+    event_added: Tapahtuma lisätty
+    event_updated: Tapahtuma päivitetty
+    event_deleted: Tapahtuma poistettu
+    event_approved: Tapahtuma hyväksytty
 
   date:
       formats:

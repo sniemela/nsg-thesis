@@ -80,7 +80,7 @@ class EventsController < ApplicationController
 
     if @event.save
       if params[:event][:galleries_attributes].blank?
-        redirect_to events_path, :flash => { :success => 'Event added.' }
+        redirect_to events_path, :flash => { :success => I18n.t('notice.event_added') }
       else
         render :crop
       end
@@ -110,7 +110,7 @@ class EventsController < ApplicationController
 
     if @event.update_attributes(params[:event])
       if params[:event][:galleries_attributes].blank?
-        redirect_to events_path, :flash => { :success => 'Event updated.' }
+        redirect_to events_path, :flash => { :success => I18n.t('notice.event_updated') }
       end
     else
       render :edit
@@ -121,7 +121,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     
-    redirect_to events_url
+    redirect_to events_path, :flash => { :success => I18n.t('notice.event_deleted') }
   end
 
   def unapproved
@@ -131,7 +131,7 @@ class EventsController < ApplicationController
   def approve
     @event = Event.find(params[:id])
     @event.approve!
-    redirect_to unapproved_events_path, :flash => { :success => 'Event approved' }
+    redirect_to unapproved_events_path, :flash => { :success => I18n.t('notice.event_approved') }
   end
   
   def my_events

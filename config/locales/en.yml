@@ -56,3 +56,12 @@ en:
     hotels: Hotels
     edit: Edit
     edit_event: Edit event
+    delete: Delete
+    delete_event: Delete event
+    delete_confirm: Are you sure you want to delete the event?
+    
+  notice:
+    event_added: Event added
+    event_updated: Event Updated
+    event_deleted: Event deleted
+    event_approved: Event approved
