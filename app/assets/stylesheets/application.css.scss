@@ -273,15 +273,31 @@ header h1 a {
 #logo {
   border: medium none;
   float: left;
-  height: 32px;
+  height: 55px;
   margin: 0 0 0 0;
   position: relative;
   z-index: 100;
+	width: 64px;
 }
-#logo img {
-  border: none;
-  position: relative;
-  width: 59px;
+#logo a {
+	background: url("/assets/Logo/happen_logo_64.png") no-repeat scroll -7px -4px transparent;
+  border-radius: 60px 60px 60px 60px;
+	-moz-border-radius: 60px 60px 60px 60px;
+	-webkit-border-radius: 60px 60px 60px 60px;
+  display: block;
+  height: 48px;
+  margin: 2px 2px 2px 10px;
+  padding: 0;
+  width: 49px;
+}
+
+#logo a:active {
+	background: url("/assets/Logo/happen_logo_64_active.png") no-repeat scroll -7px -4px transparent;
+}
+#logo a:hover {
+	box-shadow: 0 0 20px #FFFFFF;
+	-moz-box-shadow: 0 0 20px #FFFFFF;
+	-webkit-box-shadow: 0 0 20px #FFFFFF;
 }
 #user_nav {
   float: right;
@@ -409,6 +425,10 @@ header h1 a {
   -webkit-box-shadow: 0 0 3px #A2A2A2;
   -moz-box-shadow: 0 0 3px #A2A2A2;
   opacity: 0.96;
+	text-align: center;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
 }
 
 .removed { opacity: 0.30; }
