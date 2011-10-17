@@ -17,6 +17,9 @@ class Event < ActiveRecord::Base
   after_create :notify_created
   after_update :notify_updated
   after_destroy :notify_removed
+  validate :check_active_times
+
+  before_save :set_active_datetimes
   
   accepts_nested_attributes_for :showtimes, :galleries, :categories, :reject_if => :all_blank, :allow_destroy => true
   
@@ -24,7 +27,7 @@ class Event < ActiveRecord::Base
 
   scope :most_watched, where('times_watched > ?', 0).order('times_watched desc').limit(50)
   scope :popular, where('liked_count > ?', 0).order('liked_count desc').limit(50)
-  scope :recent, where('created_at >= ?', Time.zone.now - 1.week)
+  scope :recent, where('created_at >= ?', Time.zone.now - 1.week).order('created_at DESC')
   scope :upcoming, joins(:showtimes).where('showtimes.start_time >= ?', Time.zone.now - 2.days).select('distinct events.*').order('showtimes.start_time ASC')
   scope :between, lambda { |from, to| where('created_at between ? and ?', from, to) }
   scope :approved, where(:approved => true)
@@ -45,6 +48,27 @@ class Event < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
+
+  def set_active_datetimes
+    self[:active_time_start] = Time.now if self[:active_time_start].blank?
+    self[:active_time_end] = Time.now if self[:active_time_end].blank?
+  end
+
+  def check_active_times
+    if !self[:active_time_start].blank? && self[:active_time_start] < Time.zone.now
+      errors.add(:active_time_start, I18n.t('custom_errors.cant_be_past'))
+    end
+
+    if !self[:active_time_end].blank? && self[:active_time_end] < Time.zone.now
+      errors.add(:active_time_end, I18n.t('custom_errors.cant_be_past'))
+    end
+
+    if !self[:active_time_start].blank? && !self[:active_time_end].blank?
+      if self[:active_time_end] < self[:active_time_start]
+        errors.add(:active_time_end, I18n.t('custom_errors.cant_be_earlier'))
+      end
+    end
+  end
 
   def approve!
     self[:approved] = true

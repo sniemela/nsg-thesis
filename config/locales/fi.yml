@@ -15,6 +15,10 @@ fi:
     updated_at: Päivitetty
     start_time: Alkamisaika
     comment: Kommentisi
+  
+  custom_errors:
+    cant_be_past: ei voi olla menneisyydessä
+    cant_be_earlier: ei voi olla aikasemmin kuin alkamisaika
 
   client_type:
     company: Yritys
@@ -301,6 +305,7 @@ fi:
         approved: Hyväksytty
         showtimes:
           start_time: Alkamisaika
+          end_time: Päättymisaika
       showtime:
         end_time: Päättymisaika
       ad:
