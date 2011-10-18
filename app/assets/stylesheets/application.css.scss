@@ -234,6 +234,9 @@ header h1 a {
 		box-shadow: 2px 2px 2px #CCC inset;
 		float: left;
 	}
+	input[type="text"] {
+		height: 25px;
+	}
 	#new_event input {
 		width: 160px;
 		height: 25px;

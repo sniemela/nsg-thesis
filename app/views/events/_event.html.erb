@@ -37,8 +37,9 @@
           (<%= link_to(t('title.more_times'), event_path(event, :anchor => 'showtimes')) %>)
         <% end %>
       </span>
+		</header>
       <p id="event-description-<%= event.id %>"><%= event.description %></p>
-    </header>
+    
 
     <ul class="event_additional_info">
       <li>
@@ -62,4 +63,3 @@
     })();
   </script>
 </article>
-<br />
