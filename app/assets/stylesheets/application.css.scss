@@ -244,6 +244,10 @@ header h1 a {
 		height: 25px;
 		position: relative;
 	}
+	#event_submit input {
+	width: 170px;
+	margin-right: 20px;
+}
 	#new_event textarea {height: 263px;}
 #location p {
 	float: left;
@@ -374,17 +378,22 @@ header h1 a {
   -moz-border-radius: 0 6px 6px 6px;
   border-radius: 0 6px 6px 6px;
 }
-#categories label {
-	margin-left: 100px;
-	float: left;
+.categories {
+	margin-bottom: 20px;
 }
-#categories {
-	width: 700px;
+.categories, .categories p {
+	float:left;
+	width: 100%;
 }
-#categories input {float: left;}
-#categories p {
-	float: left;
-	width: 100%
+.categories input {
+	width:20px !important;
+	height:20px !important;
+}
+.categories p label {
+	padding-left: 0 !important;
+}
+.categories label, .categories input {
+	padding-left: 100px;
 }
 #categories li {
   list-style: none;
