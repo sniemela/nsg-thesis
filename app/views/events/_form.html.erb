@@ -63,5 +63,8 @@
     </p>
   </div>
   
-  <p id="event_submit"><%= f.submit %></p>
+  <p id="event_submit">
+		<%= f.submit %>
+		<%= link_to 'Cancel', events_path %>
+	</p>
 <% end %>

@@ -196,7 +196,7 @@ header h1 a {
 	float: left;
 	width: 700px;
 }
-#categories, #showtimes, #location, #publishing-time, #event_submit {
+#showtimes, #location, #publishing-time, #event_submit {
 	float: left;
 	width: 700px;
 	margin: 5px 0;
@@ -217,7 +217,7 @@ header h1 a {
 	float: right;
 	width: 220px;
 }
-#new_event label {
+#new_event label, .edit_event label {
 	float: left;
   margin: 3px 10px 0 0;
   text-align: right;
@@ -236,6 +236,8 @@ header h1 a {
 	}
 	input[type="text"] {
 		height: 25px;
+		float: left;
+		width: 160px;
 	}
 	#new_event input {
 		width: 160px;
@@ -372,7 +374,18 @@ header h1 a {
   -moz-border-radius: 0 6px 6px 6px;
   border-radius: 0 6px 6px 6px;
 }
-
+#categories label {
+	margin-left: 100px;
+	float: left;
+}
+#categories {
+	width: 700px;
+}
+#categories input {float: left;}
+#categories p {
+	float: left;
+	width: 100%
+}
 #categories li {
   list-style: none;
   display: inline;
