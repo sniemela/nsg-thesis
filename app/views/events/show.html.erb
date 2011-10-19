@@ -10,15 +10,13 @@
     <li><a href="#event-hotels"><%= t 'title.hotels' %></a></li>
   </ul>
 
-  <div class="event_info_content">
+  <div class="event_content">
     <div id="event-info">
-      <p class="event-image">
-        <% for gallery in @event.galleries %>
-          <% for resource_file in gallery.gallery_resources %>
-            <%= image_tag resource_file.resource(:medium) %>
-          <% end %>
-        <% end %>
-      </p>
+      <% if @event.galleries.exists? %>
+        <p class="event-image">
+          <%= image_tag @event.galleries.first.gallery_resources.first.resource(:medium) %>
+        </p>
+      <% end %>
       <p class="event-description">
         <%= @event.description %>
       </p>
@@ -35,26 +33,26 @@
         <%= category_list(@event.categories) %>
       </p>
     </div> 
-  </div>
   
-  <div id="event-comments" style="display: none">
-    <% if current_user %>
-      <h2><%= t "title.comment" %></h2>
-      <%= render "comments/form" %>
-    <% else %>
-      <p><%= t('help.not_logged_in_for_commenting') %></p>
-    <% end %>
-    <% if @event.comments %>
-      <h1><%= t "title.comments" %></h1>
-      <%= render :partial => 'shared/comment', :collection => @event.comments, :locals => { :commentable => @commentable } %>
-    <% end %>
-  </div>
-  
-  <div id="event-gallery">
-    <p>Image-gallery</p>
-  </div>
-  
-  <div id="event-hotels">
-    <p>Show hotels in the current city</p>
-    <p><%= link_to "Hotels.com", "http://hotels.com" %></p>
+    <div id="event-comments" style="display: none">
+      <% if current_user %>
+        <h2><%= t 'title.comment' %></h2>
+        <%= render "comments/form" %>
+      <% else %>
+        <p><%= t 'help.not_logged_in_for_commenting' %></p>
+      <% end %>
+      <% if @event.comments.exists? %>
+        <h1><%= t 'title.comments' %></h1>
+        <%= render :partial => 'shared/comment', :collection => @event.comments, :locals => { :commentable => @commentable } %>
+      <% end %>
+    </div>
+    
+    <div id="event-gallery">
+      <p>Image-gallery</p>
+    </div>
+    
+    <div id="event-hotels">
+      <h2><%= t 'help.show_hotels' %></h2>
+      <p><%= link_to "Hotels.com", "http://www.hotels.com/search.do?destination=#{get_city(@event.address)}%2C#{@event.country}" %></p>
+    </div>
   </div>

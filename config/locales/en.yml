@@ -29,6 +29,7 @@ en:
     not_logged_in_for_commenting: You have to sign in before you can add a comment
     search: Search
     show_map: Show map
+    show_hotels: Search hotels in the current city
   
   title:
     search_results: Search results for

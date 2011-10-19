@@ -3,11 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "themes/happen";
 
-.showtime_fields {}
-.start_time {}
-.end_time {}
-.remove_showtime {}
-
 .event_list_entry { padding: 10px 10px 10px 0; }
 .event_list_entry.even { 
 	background-color: #f8f8f8;
@@ -60,15 +55,15 @@
   cursor:default;
   }
 
-.event_info_content {
+.event_content {
   padding:15px 20px;
 }
 
-.event_info_content h2 {
+.event_content h2 {
   font-size: 17px;
 }
 
-.event_info_content div {
+.event_content div {
   padding:10px 10px 8px 10px;
   *padding-top:3px;
   *margin-top:-15px;

@@ -39,6 +39,7 @@ fi:
     not_logged_in_for_commenting: Sinun tulee olla kirjautuneena jotta voisit kommentoida
     search: Hae
     show_map: Näytä kartalla
+    show_hotels: Hae paikkakunnan hotellit
 
   misc:
     price: Hinta
