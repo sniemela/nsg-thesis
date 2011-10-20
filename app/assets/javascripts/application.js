@@ -33,9 +33,9 @@ $('#toggle_live_mode').click(function(e) {
   $.liveMode = !$.liveMode;
 
   if ($.liveMode) {
-    $('#toggle_live_mode').html('on');
+    $('#toggle_live_mode').html('<img src="/assets/on50.png" />');
   } else {
-    $('#toggle_live_mode').html('off');
+    $('#toggle_live_mode').html('<img src="/assets/off50.png" />');
   }
 });
 
