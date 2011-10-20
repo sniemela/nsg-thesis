@@ -9,6 +9,9 @@ $.DataBuffer = class DataBuffer
     if not @buffer
       @buffer = []
     return @buffer
+  
+  isEmpty: ->
+    return @buffer and @buffer.length == 0
 
   notifyListeners: (data) ->
     for listener in @getListeners()

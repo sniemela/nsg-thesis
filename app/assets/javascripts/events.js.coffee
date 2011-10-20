@@ -13,6 +13,8 @@ applyUpdates = ->
   eventDataBuffer.reset()
 
 showUpdatesAvailableMessage = (data) ->
+  return if $.liveMode
+
   event = data.param
   return if not event.approved
   
@@ -46,24 +48,36 @@ eventDataBuffer.onData(incrementUnconfirmedEvents)
 
 
 eventFeed.on 'add', (event) ->
-  eventDataBuffer.push
-    action: 'add',
-    method: addEventToList,
-    param: event
+  if $.liveMode
+    applyUpdates() unless eventDataBuffer.isEmpty()
+    addEventToList(event)
+  else
+    eventDataBuffer.push
+      action: 'add',
+      method: addEventToList,
+      param: event
 
 
 eventFeed.on 'update', (event) ->
-  eventDataBuffer.push
-    action: 'update',
-    method: updateEventDom,
-    param: event
+  if $.liveMode
+    applyUpdates() unless eventDataBuffer.isEmpty()
+    updateEventDom(event)
+  else
+    eventDataBuffer.push
+      action: 'update',
+      method: updateEventDom,
+      param: event
 
 
 eventFeed.on 'remove', (event) ->
-  eventDataBuffer.push
-    action: 'remove',
-    method: removeEventFromDom,
-    param: event
+  if $.liveMode
+    applyUpdates() unless eventDataBuffer.isEmpty()
+    removeEventFromDom(event)
+  else
+    eventDataBuffer.push
+      action: 'remove',
+      method: removeEventFromDom,
+      param: event
 
 
 addEventToList = (event) ->

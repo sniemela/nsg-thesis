@@ -3,7 +3,7 @@
   "description": "boardcasts messages to clients",
   "version": "0.1.0",
   "dependencies": {
-    "express": ">= 2.4.6",
-    "socket.io": ">= 0.8.4"
+    "express": ">= 2.4.7",
+    "socket.io": ">= 0.8.5"
   }
 }

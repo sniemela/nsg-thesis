@@ -13,6 +13,9 @@
 //= require jquery.Jcrop.min
 //= require_tree .
 
+// By default, live mode is disabled.
+$.liveMode = false;
+
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
   $(link).closest(".showtime_fields").hide();
@@ -23,6 +26,18 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g")
   $(link).parent().before(content.replace(regexp, new_id));
 }
+
+$('#toggle_live_mode').click(function(e) {
+  e.preventDefault();
+
+  $.liveMode = !$.liveMode;
+
+  if ($.liveMode) {
+    $('#toggle_live_mode').html('on');
+  } else {
+    $('#toggle_live_mode').html('off');
+  }
+});
 
 $(document).ready(function() {
   $("a#signin").fancybox();
