@@ -33,10 +33,13 @@ $('#toggle_live_mode').click(function(e) {
   $.liveMode = !$.liveMode;
 
   if ($.liveMode) {
-    $('#toggle_live_mode').html('<img src="/assets/off50.png" />');
+		$('#live_on').hide();		
+		$('#live_off').show();
   } else {
-    $('#toggle_live_mode').html('<img src="/assets/on50.png" />');
-  }
+		$('#live_on').show(); 
+		$('#live_off').hide(); 
+	}
+	}
 });
 
 $(document).ready(function() {
