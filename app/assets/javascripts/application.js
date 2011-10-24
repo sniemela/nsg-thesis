@@ -33,13 +33,12 @@ $('#toggle_live_mode').click(function(e) {
   $.liveMode = !$.liveMode;
 
   if ($.liveMode) {
-		$('#live_on').hide();		
-		$('#live_off').show();
+    $('#live_on').show();		
+    $('#live_off').hide();
   } else {
-		$('#live_on').show(); 
-		$('#live_off').hide(); 
-	}
-	}
+    $('#live_on').hide();
+    $('#live_off').show(); 
+  }
 });
 
 $(document).ready(function() {
