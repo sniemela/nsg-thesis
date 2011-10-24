@@ -125,7 +125,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     
-    redirect_to events_path, :flash => { :success => I18n.t('notice.event_deleted') }
+    redirect_to :back, :flash => { :success => I18n.t('notice.event_deleted') }
   end
 
   def unapproved
