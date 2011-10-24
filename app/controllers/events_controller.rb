@@ -105,13 +105,17 @@ class EventsController < ApplicationController
   end
   
   def update
-    params[:event][:category_ids] ||= []
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id], :include => { :galleries => :gallery_resources })
+    ids = params[:event][:category_ids]
+    params[:event][:category_ids] = (ids || []) + @event.category_ids
+    params[:event][:category_ids].uniq!
 
-    if @event.update_attributes(params[:event])
-      if params[:event][:galleries_attributes].blank?
-        redirect_to events_path, :flash => { :success => I18n.t('notice.event_updated') }
+    if @event.update_attributes!(params[:event])
+      unless params[:event][:galleries_attributes].blank?
+        update_event_first_gallery_resource(@event, params[:event][:galleries_attributes]["0"][:gallery_resources_attributes]["0"])
       end
+
+      redirect_to @event, :flash => { :success => I18n.t('notice.event_updated') }
     else
       render :edit
     end
@@ -137,4 +141,9 @@ class EventsController < ApplicationController
   def my_events
     @my_events = current_user.all_events.order('created_at DESC')
   end
+
+  private
+    def update_event_first_gallery_resource(event, params)
+      event.galleries.first.gallery_resources.first.update_attributes!(params)
+    end
 end

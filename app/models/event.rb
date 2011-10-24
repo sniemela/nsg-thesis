@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
   
   accepts_nested_attributes_for :showtimes, :galleries, :categories, :reject_if => :all_blank, :allow_destroy => true
   
-  validates_presence_of :name, :description, :country, :address, :active_time_start, :active_time_end
+  validates_presence_of :name, :description, :country, :address
 
   scope :most_watched, where('times_watched > ?', 0).order('times_watched desc').limit(50)
   scope :popular, where('liked_count > ?', 0).order('liked_count desc').limit(50)
@@ -50,8 +50,8 @@ class Event < ActiveRecord::Base
   after_validation :geocode, :if => :address_changed?
 
   def set_active_datetimes
-    self[:active_time_start] = Time.now if self[:active_time_start].blank?
-    self[:active_time_end] = Time.now if self[:active_time_end].blank?
+    self[:active_time_start] = Time.zone.now + 10.minutes if self[:active_time_start].blank?
+    self[:active_time_end] = Time.zone.now + 1.week if self[:active_time_end].blank?
   end
 
   def check_active_times

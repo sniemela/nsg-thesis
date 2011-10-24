@@ -16,7 +16,7 @@ class GalleryResource < ActiveRecord::Base
   end  
   
   private
-  
+
   def reprocess_resource
     resource.reprocess!
   end
