@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.integer :client_id
       t.string :email
+      t.string :avatar
       t.boolean :admin
 
       t.timestamps
