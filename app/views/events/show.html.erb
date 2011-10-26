@@ -4,14 +4,14 @@
 
 <div id="event-nav" class="eventTab">
   <ul class="clearfix"> 
-    <li><a class="selected" href="#event-info"><%= t 'title.event_info' %></a></li> 
+    <li><a href="#event-info"><%= t 'title.event_info' %></a></li> 
     <li><a href="#event-comments"><%= t 'title.comments' %></a></li>
     <li><a href="#event-gallery"><%= t 'title.gallery' %></a></li>
     <li><a href="#event-hotels"><%= t 'title.hotels' %></a></li>
   </ul>
 
   <div class="event_content">
-    <div id="event-info">
+    <div id="event-info" style="display: none">
       <% if @event.galleries.exists? %>
         <p class="event-image">
           <%= image_tag @event.galleries.first.gallery_resources.first.resource(:medium) %>
@@ -43,15 +43,15 @@
       <% end %>
       <% if @event.comments.exists? %>
         <h1><%= t 'title.comments' %></h1>
-        <%= render :partial => 'shared/comment', :collection => @event.comments, :locals => { :commentable => @commentable } %>
+        <%= render :partial => 'shared/comment', :collection => @event.comments.order('created_at ASC'), :locals => { :commentable => @commentable } %>
       <% end %>
     </div>
     
-    <div id="event-gallery">
+    <div id="event-gallery" style="display: none">
       <p>Image-gallery</p>
     </div>
     
-    <div id="event-hotels">
+    <div id="event-hotels" style="display: none">
       <h2><%= t 'help.show_hotels' %></h2>
       <p><%= link_to "Hotels.com", "http://www.hotels.com/search.do?destination=#{get_city(@event.address)}%2C#{@event.country}" %></p>
     </div>

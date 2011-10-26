@@ -13,10 +13,10 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build(params[:comment])
-    @comment.user = current_user
+    @comment.user_id = current_user.id
     
     if @comment.save
-      redirect_to @commentable, :flash => { :success => 'Thank you for your comment!' }
+      redirect_to event_path(@commentable, :anchor => 'event-comments'), :flash => { :success => 'Thank you for your comment!' }
     else
       render :new
     end
@@ -42,8 +42,9 @@ class CommentsController < ApplicationController
   
   def destroy
     @commentable = find_commentable
-    @commentable.destroy
-    redirect_to @commentable, :flash => { :success => "Comment has been deleted!" }
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to event_path(@commentable, :anchor => 'event-comments'), :flash => { :success => 'Comment has been deleted.' }
   end
   
   private

@@ -115,5 +115,5 @@ $ ->
     $(this).datetimepicker
       dateFormat: "yy-mm-dd"
       
-settings = { start:1, change:false }
-$("#event-nav ul").idTabs(settings,true)
+settings = { start:0; change:true }
+$("#event-nav ul").idTabs(settings)

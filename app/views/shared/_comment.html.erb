@@ -1,8 +1,10 @@
-<div id="comments">
-  <p class="comment-commenter"><%= comment.user_id %></p>
-  <p class="comment-created_at"><%= comment.created_at %></p>
-  <p class="comment-body"><%= comment.body %></p>
+<div id="comment-<%= comment.id %>">
+  <p class="comment-commenter"><%= comment.user.try(:name) %>
   <% if is_admin? %>
-    <%= link_to "Remove", [@event, comment], :method => :destroy %>
-  <% end %>
+    <span><%= link_to (image_tag 'edit.png'), edit_event_comment_path(@event, comment) %></span>
+    <span style="padding-right:5px;"><%= link_to (image_tag 'delete.gif'), [@event, comment], :confirm => I18n.t('help.delete_confirm_comment'), :method => :delete %></span>
+  <% end %></p>
+  <p class="comment-avatar"><%= image_tag comment.user.try(:avatar) %></p>
+  <p class="comment-created_at"><%= l comment.created_at, :format => :long if comment.created_at? %></p>
+  <p class="comment-body"><%= comment.body %></p>
 </div>
