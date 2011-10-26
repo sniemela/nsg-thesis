@@ -5,14 +5,17 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
+    add_breadcrumb I18n.t('title.clients'), :clients_path    
   end
 
   def new
     @client = Client.new
+    add_breadcrumb I18n.t('my_links.new_client'), :new_client_path
   end
 
   def show
     @client = Client.find(params[:id], :joins => :user, :select => 'clients.*, users.id as user_id')
+    add_breadcrumb I18n.t('title.clients'), :clients_path 
   end
 
   def confirm

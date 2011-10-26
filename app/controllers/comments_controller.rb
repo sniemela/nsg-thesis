@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   
   def index
     @commentable = find_commentable
-    @comments = @commentable.comments
+    @comments = @commentable.comments 
   end
   
   def new

@@ -149,6 +149,13 @@ header h1 a {
     margin-top: 20px;
     width: 223px;
 }
+#toggl_live_mode, #live {
+  display: inline;
+  position: relative;
+}
+#live {
+  top: -4px;
+}
 .recent_events {
 	color: #000;
 	margin: 25px 0 0 95px;

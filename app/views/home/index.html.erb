@@ -4,7 +4,8 @@
 
 <header>
   <h1><%= t 'title.latest_events' %></h1>
-  Live mode: <a href="#" id="toggle_live_mode"><img style="display:none" id="live_on" src="/assets/on50.png" /><img src="/assets/off50.png" id="live_off" /></a>
+  <span id="live"> Live mode: </span> 
+  <a href="#" id="toggle_live_mode"><img style="display:none" id="live_on" src="/assets/on25.png" /><img src="/assets/off25.png" id="live_off" /></a>  
 </header>
 
 <%- for event in @events -%>
