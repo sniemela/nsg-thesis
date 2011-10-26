@@ -32,6 +32,7 @@ en:
     show_hotels: Search hotels in the current city
   
   title:
+    home: Home    
     search_results: Search results for
     my_links: My links
     admin_links: Admin links
@@ -50,6 +51,7 @@ en:
     comment: Comment
     event_info: Info
     add_event: Add Event
+    new_event: New Event
     event_image: Event image
     latest_events: Latest Events
     where: Where

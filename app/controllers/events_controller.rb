@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.approved.recent
+		add_breadcrumb I18n.t('title.events'), :events_path
   end
 
   def recent
@@ -64,6 +65,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    add_breadcrumb I18n.t('title.new_event'), :new_event_path    
     @event = Event.new 
     
     @event.categories.build
@@ -93,11 +95,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.increment!(:times_watched, 1)
     @comment = @event.comments.build
+    add_breadcrumb @event.name, event_path(@event)
   end
   
   def edit
     @event = Event.find(params[:id])
-    
+    add_breadcrumb I18n.t('title.edit_event'), :edit_event_path
     if @event.galleries.blank?
       @event.galleries.build
       @event.galleries[0].gallery_resources.build
@@ -139,6 +142,7 @@ class EventsController < ApplicationController
   end
   
   def my_events
+    add_breadcrumb I18n.t('my_links.my_events'), :myevents_path
     @my_events = current_user.all_events.order('created_at DESC')
   end
 

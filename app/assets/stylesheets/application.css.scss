@@ -129,6 +129,10 @@ header h1 a {
   position: relative;
   margin: 0 auto;
 }
+#breadcrumb {
+	float: left;
+	margin: 7px 0 0 10px;
+}
 
 #page_header .bottom_group {
   overflow: auto;

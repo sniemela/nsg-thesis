@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :set_time_zone
 
+	add_breadcrumb I18n.t('title.home'), :root_path
   def admin_required
     unless current_user && current_user.admin?
       redirect_to root_path, :alert => 'Unauthorized access'

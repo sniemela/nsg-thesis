@@ -10,9 +10,12 @@
 <div id="header_wrapper">
   <header id="page_header">
     <div class="top_group">
-  <div id="logo">
+  		<div id="logo">
        <a href="#"></a>
-     </div> 
+     	</div> 
+		 <div id="breadcrumb">
+			<%= render_breadcrumbs :separator => ' / ' %>
+		 </div>
      <nav id="user_nav">
         <% if current_user %>
           <%= t 'title.welcome' %> <%= current_user.name %>
