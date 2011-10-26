@@ -40,6 +40,8 @@ fi:
     search: Hae
     show_map: Näytä kartalla
     show_hotels: Hae paikkakunnan hotellit
+    delete_confirm_event: Haluatko varmasti poistaa tapahtuman?
+    delete_confirm_comment: Haluatko varmasti poistaa kommentin?
 
   misc:
     price: Hinta
@@ -87,7 +89,6 @@ fi:
     edit_event: Muokkaa tapahtumaa
     delete: Poista
     delete_event: Poista tapahtuma
-    delete_confirm: Haluatko varmasti poistaa tapahtuman?
     
   notice:
     event_added: Tapahtuma lisätty
