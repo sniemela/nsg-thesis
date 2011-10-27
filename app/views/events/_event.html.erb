@@ -21,7 +21,7 @@
         <% if current_user %>
           <% if current_user.has_event?(event) %>
             <span style="font-size:10px;">(<%= link_to t('title.edit'), edit_event_path(event) %>)</span>
-            <span style="font-size:10px;">(<%= link_to t('title.delete'), event, :confirm => I18n.t('title.delete_confirm_event'), :method => :delete %>)</span>
+            <span style="font-size:10px;">(<%= link_to t('title.delete'), event, :confirm => I18n.t('help.delete_confirm_event'), :method => :delete %>)</span>
           <% end %>
         <% end %>
       </h1>

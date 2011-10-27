@@ -27,14 +27,16 @@ class CommentsController < ApplicationController
   end
   
   def edit
+    @commentable = find_commentable
     @comment = Comment.find(params[:id])
   end
   
   def update
-    @comment = Comments.find(params[:id])
+    @comment = Comment.find(params[:id])
+    @commentable = find_commentable
     
     if @comment.update_attributes(params[:comment])
-      redirect_to event_url, :flash => { :success => 'Your comment has been updated!' }
+      redirect_to event_path(@commentable, :anchor => 'event-comments'), :flash => { :success => 'Your comment has been updated!' }
     else
       render :edit
     end

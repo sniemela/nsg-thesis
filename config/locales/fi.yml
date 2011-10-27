@@ -89,6 +89,7 @@ fi:
     edit_event: Muokkaa tapahtumaa
     delete: Poista
     delete_event: Poista tapahtuma
+    anonymous: Käyttäjä
     
   notice:
     event_added: Tapahtuma lisätty

@@ -1,10 +1,18 @@
 <div id="comment-<%= comment.id %>">
-  <p class="comment-commenter"><%= comment.user.try(:name) %>
+  <% if comment.user.name %>
+    <p class="comment-commenter"><%= comment.user.try(:name) %>
+  <% else %>
+    <p class="comment-commenter"><%= t 'title.anonymous' %>
+  <% end %>
   <% if is_admin? %>
-    <span><%= link_to (image_tag 'edit.png'), edit_event_comment_path(@event, comment) %></span>
-    <span style="padding-right:5px;"><%= link_to (image_tag 'delete.gif'), [@event, comment], :confirm => I18n.t('help.delete_confirm_comment'), :method => :delete %></span>
+    <span style="float:right;padding-right:25px;"><%= link_to (image_tag 'edit.png'), edit_event_comment_path(@event, comment) %></span>
+    <span style="float:right;padding-left:15px;"><%= link_to (image_tag 'delete.gif'), [@event, comment], :confirm => I18n.t('help.delete_confirm_comment'), :method => :delete %></span>
   <% end %></p>
-  <p class="comment-avatar"><%= image_tag comment.user.try(:avatar) %></p>
+  <% if comment.user.avatar %>
+    <p class="comment-avatar"><%= image_tag comment.user.try(:avatar) %></p>
+  <% else %>
+    <p class="comment-avatar"><%= image_tag ('user_no_image.png') %></p>
+  <% end %>
   <p class="comment-created_at"><%= l comment.created_at, :format => :long if comment.created_at? %></p>
   <p class="comment-body"><%= comment.body %></p>
 </div>

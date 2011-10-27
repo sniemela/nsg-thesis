@@ -36,8 +36,13 @@
   
     <div id="event-comments" style="display: none">
       <% if current_user %>
-        <h2><%= t 'title.comment' %></h2>
-        <%= render "comments/form" %>
+        <h1><%= t 'title.comment' %></h1>
+        <% if current_user.avatar %>
+          <%= image_tag current_user.avatar %>
+        <% else %>
+          <%= image_tag 'user_no_image.png' %>
+        <% end %>
+        <%= render :partial => "comments/form", :locals => { :commentable => @event } %>
       <% else %>
         <p><%= t 'help.not_logged_in_for_commenting' %></p>
       <% end %>
@@ -56,3 +61,4 @@
       <p><%= link_to "Hotels.com", "http://www.hotels.com/search.do?destination=#{get_city(@event.address)}%2C#{@event.country}" %></p>
     </div>
   </div>
+</div>
