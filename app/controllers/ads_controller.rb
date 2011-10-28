@@ -13,6 +13,7 @@ class AdsController < ApplicationController
 
   def new
     @ad = Ad.new
+    add_breadcrumb I18n.t("my_links.new_ad"), :new_ad_path
   end
 
   def unconfirmed

@@ -208,17 +208,14 @@ header h1 a {
 	width: 700px;
 }
 #showtimes, #location, #publishing-time, #event_submit {
-	float: left;
 	width: 700px;
 	margin: 5px 0;
 }
 #event_main_info {
-	float:left;
 	width: 450px;
 	margin-top: 7px;
 }
-	#event_main_info input, #event_main_info textarea {
-		float: left;
+	#event_main_info input, #event_main_info textarea {;
 		width: 300px !important;
 	}
 	#event_main_info input, #event_main_info label, #event_main_info textarea {
@@ -243,11 +240,9 @@ header h1 a {
 		-webkit-box-shadow: 2px 2px 2px #CCC inset;
 		-moz-box-shadow: 2px 2px 2px #CCC inset;
 		box-shadow: 2px 2px 2px #CCC inset;
-		float: left;
 	}
 	input[type="text"] {
 		height: 25px;
-		float: left;
 		width: 160px;
 	}
 	#new_event input {
