@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
   before_filter :admin_required, :except => [:index, :show]
-  
+  add_breadcrumb I18n.t('title.categories'), :categories_path
+
   def index
     @categories = Category.all
-    add_breadcrumb I18n.t('title.categories'), :categories_path
   end
   
   def new
