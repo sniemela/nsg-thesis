@@ -19,6 +19,7 @@ gem 'thinking-sphinx', :git => 'git://github.com/freelancing-god/thinking-sphinx
 gem 'mysql2'
 gem 'geocoder'
 gem 'breadcrumbs_on_rails'
+gem 'mail'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -213,6 +213,7 @@ DEPENDENCIES
   foreman
   geocoder
   jquery-rails
+  mail
   mysql2
   omniauth
   paperclip (~> 2.4)

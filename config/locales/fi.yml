@@ -92,7 +92,7 @@ fi:
     anonymous: Käyttäjä
     
   notice:
-    event_added: Tapahtuma lisätty
+    event_added: Tapahtuma välitetty ylläpitäjälle
     event_updated: Tapahtuma päivitetty
     event_deleted: Tapahtuma poistettu
     event_approved: Tapahtuma hyväksytty

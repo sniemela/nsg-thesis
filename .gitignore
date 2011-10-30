@@ -9,4 +9,4 @@ lib/nodejs/node_modules
 *~
 config/*.sphinx.conf
 db/sphinx
-
+config/initializers/setup_mail.rb

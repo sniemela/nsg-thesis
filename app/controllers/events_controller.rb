@@ -81,6 +81,7 @@ class EventsController < ApplicationController
     @event.submitter = current_user
 
     if @event.save
+    UserMailer.event_sent_to_admin(@event, @event.submitter).deliver
       if params[:event][:galleries_attributes].blank?
         redirect_to events_path, :flash => { :success => I18n.t('notice.event_added') }
       else
@@ -138,6 +139,7 @@ class EventsController < ApplicationController
   def approve
     @event = Event.find(params[:id])
     @event.approve!
+    UserMailer.event_published(@event, @event.submitter).deliver
     redirect_to unapproved_events_path, :flash => { :success => I18n.t('notice.event_approved') }
   end
   
