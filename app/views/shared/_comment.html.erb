@@ -5,7 +5,7 @@
     <p class="comment-commenter"><%= t 'title.anonymous' %>
   <% end %>
   <% if is_admin? %>
-    <span style="float:right;padding-right:25px;"><%= link_to (image_tag 'edit.png'), edit_event_comment_path(@event, comment) %></span>
+    <span style="float:right;padding-right:20px;"><%= link_to (image_tag 'edit.png'), edit_event_comment_path(@event, comment) %></span>
     <span style="float:right;padding-left:15px;"><%= link_to (image_tag 'delete.gif'), [@event, comment], :confirm => I18n.t('help.delete_confirm_comment'), :method => :delete %></span>
   <% end %></p>
   <% if comment.user.avatar %>

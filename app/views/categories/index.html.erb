@@ -1,9 +1,22 @@
 <h1><%= t 'title.categories' %></h1>
+<% if is_admin? %>
+  <p class="add_category"><%= link_to t("title.add_category"), new_category_path %></p>
+<% end %>
 
-<ul id="categories">
-  <% @categories.each do |category| %>
-    <li><%= link_to category.name, category %></li>
-  <% end %>
-</ul>
-
-<p><%= link_to t("title.add_category"), new_category_path %></p>
+<div id="categories">
+<% @categories.each do |category| %>
+  <div id="category-<%= category.name %>" class="event_list_entry <%= cycle('even', 'odd') %> clearfix">
+    <% if is_admin? %>
+      <span style="float:right;padding-left:5px;"><%= link_to (image_tag 'delete.gif'), category, :confirm => I18n.t('help.delete_confirm_category'), :method => :delete %></span>
+      <span style="float:right;"><%= link_to (image_tag 'edit.png'), edit_category_path(category) %></span>
+    <% end %>
+    <h1 class="category_name"><%= link_to category.name, category %></h1>
+    <p class="category_description"><%= category.description %></p>
+    <% if category.image.present? %>
+      <%= link_to (image_tag category.image(:small), :class => "category_image"), category %>
+    <% else %>
+      <p class="category_image"></p>
+    <% end %>
+  </div>
+<% end %>
+</div>

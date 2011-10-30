@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
   before_filter :admin_required, :except => [:index, :show]
-  add_breadcrumb I18n.t('title.categories'), :categories_path
-
+  
   def index
     @categories = Category.all
+    add_breadcrumb I18n.t('title.categories'), :categories_path
   end
   
   def new
@@ -28,11 +28,11 @@ class CategoriesController < ApplicationController
   end
   
   def edit
-    @category = Category.find(params[:id])
+    @category = Category.find_by_name(params[:id])
   end
   
   def update
-    @category = Category.find(params[:id])
+    @category = Category.find_by_name(params[:id])
     
     if @category.update_attributes(params[:category])
       redirect_to categories_url, :flash => { :success => 'Category updated.' }

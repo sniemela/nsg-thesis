@@ -42,6 +42,8 @@ fi:
     show_hotels: Hae paikkakunnan hotellit
     delete_confirm_event: Haluatko varmasti poistaa tapahtuman?
     delete_confirm_comment: Haluatko varmasti poistaa kommentin?
+    delete_confirm_category: Haluatko varmasti poistaa kategorian?
+    empty_category: Tässä kategoriassa ei ole tapahtumia
 
   misc:
     price: Hinta

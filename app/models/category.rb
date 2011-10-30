@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   has_many :taggings, :as => :taggable
   has_many :tags, :through => :taggings
 
-  has_attached_file :image, :styles => { :small => "100x100#", :medium => "320x240#" }
+  has_attached_file :image, :styles => { :small => "100x100#", :medium => "250x250#" }
   
   validates :name, :uniqueness => true
   validates_presence_of :description, :image

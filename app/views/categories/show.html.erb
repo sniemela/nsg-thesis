@@ -3,15 +3,23 @@
 <% end %>
 
 <header>
-  <h1><%= @category.name %></h1>
+  <h1 class="show_category_name"><%= @category.name %></h1>
 </header>
 
-<p><%= image_tag @category.image(:small) %></p>
+<p class="show_category_description"><%= @category.description %></p>
 
-<p><%= @category.description %></p>
+<% if @category.image.present? %>
+  <%= image_tag (@category.image(:medium)), :class => 'show_category_image' %>
+<% else %>
+  <p class="show_category_image"></p>
+<% end %>
 
 <h1>Events in <%= @category.name %></h1>
 
+<% if @category.events.approved.any? %>
   <%- for event in @category.events.approved -%>
     <%= render event %>
   <%- end -%>
+<% else %>
+  <p><%= t 'help.empty_category' %></p>
+<% end %>

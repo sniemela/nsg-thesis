@@ -1,3 +1,41 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com
+
+.add_category {
+    display: block;
+    margin: 0 40px 5px 0;   
+    position: relative;
+}
+.add_category a {
+	background: url("/assets/new_event.png") no-repeat scroll 0 -1px transparent;
+	font-size: 12px;
+	color: #333;
+	text-decoration: none;
+	padding: 0 0 0 20px;
+}
+.category_image {
+  height: 100px;
+  width: 100px;
+  margin-top: -50px;
+}
+.category_image img {
+  position: absolute;
+}
+.category_name, .category_description {
+  margin: 0 0 0 115px;
+}
+.category_name a {
+  text-decoration: none;
+}
+.category_description {
+  margin-top: 10px;
+}
+.show_category_name, .show_category_description {
+  margin: 15px 0 0 270px;
+}
+.show_category_image {
+  margin: -55px 0 0 0;
+  height: 250px;
+  width: 250px;
+}
