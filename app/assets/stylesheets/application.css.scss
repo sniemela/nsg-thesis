@@ -131,9 +131,18 @@ header h1 a {
 }
 #breadcrumb {
 	float: left;
-	margin: 7px 0 0 10px;
+	margin: 8px 0 0 20px;
+  font-size: 12px;
+  height: 25px;
+  display: block;
 }
-
+#breadcrumb a {
+  float: left;
+}
+.bread-split {
+  float: left;
+  margin: -10px 15px 0 15px;
+}
 #page_header .bottom_group {
   overflow: auto;
   background-color: $header-bottomgroup-backcolor;
@@ -146,7 +155,6 @@ header h1 a {
 }
 #search-box {
  		float: right;
-    margin-top: 20px;
     width: 223px;
 }
 #toggl_live_mode, #live {
@@ -158,15 +166,16 @@ header h1 a {
 }
 .recent_events {
 	color: #000;
-	margin: 25px 0 0 95px;
-	width: 412px;
 	float: left;
+}
+.recent_events span{
+  display: block;
+  margin-left: 150px;
 }
 .add_event {
     display: block;
     float: right;
-    margin: 25px 40px 0 0;
-    
+    margin: 5px 40px 0 0;
     position: relative;
 }
 .add_event a {
