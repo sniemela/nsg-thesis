@@ -231,18 +231,9 @@ header h1 a {
 	#event_main_info input, #event_main_info textarea {;
 		width: 300px !important;
 	}
-	#event_main_info input, #event_main_info label, #event_main_info textarea {
-		margin-bottom: 10px;
-	}
 #event-image {
 	float: right;
 	width: 220px;
-}
-#new_event label, .edit_event label {
-	float: left;
-  margin: 3px 10px 0 0;
-  text-align: right;
-  width: 120px;
 }
 
 	input[type="text"], textarea {
@@ -367,7 +358,7 @@ header h1 a {
   -webkit-box-shadow: 0 0 8px #444;
   -moz-box-shadow: 0 0 8px #444;
   display: none;
-  margin-top: -40px;
+  margin-top: -20px;
   padding: 20px 0 0 0;
   position: absolute;
   z-index: 99;

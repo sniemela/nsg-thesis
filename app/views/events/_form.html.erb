@@ -1,67 +1,55 @@
 <%= form_for @event do |f| %>
   <%= f.error_messages %>
 
-  <div id="event_main_info">
-		<p>
-		  <%= f.label :name %>
-		  <%= f.text_field :name %>
+	<p>
+		  <%= f.label :name %><br />
+      <%= f.text_field :name %>
 		</p>
 		<p>
-		  <%= f.label :description %>
+		  <%= f.label :description %><br />
 		  <%= f.text_area :description %>
 		</p>
-	</div>
 
-  <div class="categories">
     <p><%= f.label :categories %></p>
     <br />
     <% Category.all.each do |category| %>
       <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
       <br />
     <% end %>
-  </div>
-  
-  <div id="showtimes">   
+ 
     <%= f.fields_for :showtimes do |builder| %>
       <%= render 'showtime_fields', :f => builder %>
     <% end %>    
     <span class="add_showtime">
 			<%= link_to_add_fields "Add showtime", f, :showtimes %>
 		</span>  
-  </div>
   
   <% if @event.new_record? %>
-    <div id="event-image">
       <%= f.fields_for :galleries do |gallery_form| %>
         <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
           <%= resource_form.label t('title.event_image') %><br />
           <%= resource_form.file_field :resource %>
         <% end %>
       <% end %>
-    </div>
   <% end %>
 
-  <div id="location">
     <p id="country">
-      <%= f.label :country %>
+      <%= f.label :country %><br />
       <%= f.text_field :country %>
     </p>
     <p id="address">
-      <%= f.label :address %>
+      <%= f.label :address %><br />
       <%= f.text_field :address %>
     </p>
-  </div>
-  
-  <div id="publishing-time">
+
     <p class="start_time">
-      <%= f.label :active_time_start %>
+      <%= f.label :active_time_start %><br />
       <%= f.text_field :active_time_start, :class => "datepicker" %>
     </p>
     <p class="end_time">
-      <%= f.label :active_time_end %>
+      <%= f.label :active_time_end %><br />
       <%= f.text_field :active_time_end, :class => "datepicker" %>
     </p>
-  </div>
   
   <p id="event_submit">
 		<%= f.submit %>
