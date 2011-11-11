@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
-gem 'omniauth'
+gem 'rails', '3.1.1'
+gem 'omniauth', '~> 0.3.2'
 gem 'fancybox-rails'
 
 # Bundle edge Rails instead:

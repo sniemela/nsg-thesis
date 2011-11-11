@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(:version => 20110926072223) do
 
   create_table "ads", :force => true do |t|
-    t.integer  "client_id",                             :null => false
-    t.decimal  "price",              :default => 0.0
+    t.integer  "client_id",                                                            :null => false
+    t.decimal  "price",              :precision => 10, :scale => 0, :default => 0
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "media_file_name"
     t.string   "media_content_type"
     t.integer  "media_file_size"
     t.datetime "media_updated_at"
-    t.boolean  "confirmed",          :default => false
+    t.boolean  "confirmed",                                         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
