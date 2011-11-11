@@ -30,7 +30,7 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(params[:client])
-    @client.client_type_id = params[:client][:client_type_id].to_i
+    @client.client_type = params[:client][:client_type]
     @client.user = current_user
 
     if @client.save
