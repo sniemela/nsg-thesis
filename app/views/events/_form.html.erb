@@ -21,10 +21,9 @@
     <p>
       <%= f.fields_for :showtimes do |builder| %>
         <%= render 'showtime_fields', :f => builder %>
-      <% end %>    
-      <span><%= link_to_add_fields "Add showtime", f, :showtimes %></span>
-    </p>
-  
+      <% end %>
+      <span><%= link_to_add_fields "Add showtime", f, :showtimes %></span>  
+    </p>  
     <p>
       <% if @event.new_record? %>
           <%= f.fields_for :galleries do |gallery_form| %>
@@ -45,18 +44,17 @@
       <%= f.label :address %><br />
       <%= f.text_field :address %>
     </p>
-
+ 
     <p class="start_time">
       <%= f.label :active_time_start %><br />
       <%= f.text_field :active_time_start, :class => "datepicker" %>
     </p>
-
     <p class="end_time">
       <%= f.label :active_time_end %><br />
       <%= f.text_field :active_time_end, :class => "datepicker" %>
     </p>
   
-    <p>
+    <p class="submit_form">
 		  <%= f.submit %>
 		  <%= link_to 'Cancel', events_path %>
 	  </p>
