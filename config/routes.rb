@@ -10,6 +10,7 @@ NsgThesis::Application.routes.draw do
   resources :events do
     resources :comments
     resources :galleries
+    resources :hotels
     get 'unapproved', :on => :collection
     get 'approve', :on => :member
     get 'feed', :on => :collection

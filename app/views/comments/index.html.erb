@@ -1,0 +1,22 @@
+<%= render :partial => 'shared/event_tab_nav', :locals => { :event => @commentable } %>
+
+<div class="event_content">
+    <div id="event-comments">
+      <% if current_user %>
+        <h1><%= t 'title.comment' %></h1>
+        <% if current_user.avatar %>
+          <%= image_tag current_user.avatar %>
+        <% else %>
+          <%= image_tag 'user_no_image.png' %>
+        <% end %>
+        <%= render :partial => "form", :locals => { :commentable => @commentable } %>
+      <% else %>
+        <p><%= t 'help.not_logged_in_for_commenting' %></p>
+      <% end %>
+      <% if @commentable.comments.exists? %>
+        <h1><%= t 'title.comments' %></h1>
+        <%= render :partial => 'shared/comment', :collection => @commentable.comments.order('created_at ASC'), :locals => { :commentable => @commentable } %>
+      <% end %>
+    </div>
+</div>
+

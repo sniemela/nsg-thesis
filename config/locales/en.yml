@@ -66,6 +66,7 @@ en:
     delete: Delete
     delete_event: Delete event
     anonymous: User
+    comments: Comments
     
   notice:
     event_added: Event sent to admin

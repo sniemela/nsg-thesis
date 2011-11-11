@@ -1,17 +1,7 @@
-<header>
-  <h1><%= @event.name %></h1>
-</header>
-
-<div id="event-nav" class="eventTab">
-  <ul class="clearfix"> 
-    <li><a href="#event-info"><%= t 'title.event_info' %></a></li> 
-    <li><a href="#event-comments"><%= t 'title.comments' %></a></li>
-    <li><a href="#event-gallery"><%= t 'title.gallery' %></a></li>
-    <li><a href="#event-hotels"><%= t 'title.hotels' %></a></li>
-  </ul>
+<%= render :partial => 'shared/event_tab_nav', :locals => { :event => @event } %>
 
   <div class="event_content">
-    <div id="event-info" style="display: none">
+    <div id="event-info">
       <% if @event.galleries.exists? %>
         <p class="event-image">
           <%= image_tag @event.galleries.first.gallery_resources.first.resource(:medium) %>
@@ -33,32 +23,4 @@
         <%= category_list(@event.categories) %>
       </p>
     </div> 
-  
-    <div id="event-comments" style="display: none">
-      <% if current_user %>
-        <h1><%= t 'title.comment' %></h1>
-        <% if current_user.avatar %>
-          <%= image_tag current_user.avatar %>
-        <% else %>
-          <%= image_tag 'user_no_image.png' %>
-        <% end %>
-        <%= render :partial => "comments/form", :locals => { :commentable => @event } %>
-      <% else %>
-        <p><%= t 'help.not_logged_in_for_commenting' %></p>
-      <% end %>
-      <% if @event.comments.exists? %>
-        <h1><%= t 'title.comments' %></h1>
-        <%= render :partial => 'shared/comment', :collection => @event.comments.order('created_at ASC'), :locals => { :commentable => @commentable } %>
-      <% end %>
-    </div>
-    
-    <div id="event-gallery" style="display: none">
-      <p>Image-gallery</p>
-    </div>
-    
-    <div id="event-hotels" style="display: none">
-      <h2><%= t 'help.show_hotels' %></h2>
-      <p><%= link_to "Hotels.com", "http://www.hotels.com/search.do?destination=#{get_city(@event.address)}%2C#{@event.country}" %></p>
-    </div>
   </div>
-</div>

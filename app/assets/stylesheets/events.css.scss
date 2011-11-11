@@ -29,15 +29,16 @@
 .event_category_list { font-size: 10px; margin-bottom: 0; }
 .event_showtime { font-size: 9px; color: #757575 }
 
-.eventTab {
+.eventTab, .event_content {
   background: #F5F5F5;
   color:#111;
-  margin:8px auto;
 }
 .eventTab li { list-style:none; float:left; }
 
 .eventTab ul {
   background-color: $body-backcolor;
+  margin: 0;
+  padding: 0;
 }
 
 .eventTab ul a {
@@ -48,7 +49,7 @@
   background-color: #E6E6E6;
   color:#111;
 }
-.eventTab ul a.selected {
+.eventTab ul a.active_tab {
   margin-bottom:0;
   color:#000;
   background-color: #F5F5F5;

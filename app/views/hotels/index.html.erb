@@ -1,0 +1,6 @@
+<%= render :partial => 'shared/event_tab_nav', :locals => { :event => @event } %>
+
+<div class="event_content">
+  <p><%= t 'help.show_hotels' %>.</p>
+  <p><%= link_to "Hotels.com", "http://www.hotels.com/search.do?destination=#{get_city(@event.address)}%2C#{@event.country}" %></p>
+</div>

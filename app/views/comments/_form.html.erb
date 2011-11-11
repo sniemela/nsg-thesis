@@ -1,6 +1,6 @@
 <div id="comment-form">
   <div class="fix-styling">
-    <%= form_for [commentable, @comment] do |f| %>
+    <%= form_for [commentable, Comment.new] do |f| %>
       <%= f.error_messages %>
       
       <p>

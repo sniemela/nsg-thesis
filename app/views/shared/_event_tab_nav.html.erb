@@ -1,0 +1,12 @@
+<header>
+  <h1><%= event.name %></h1>
+</header>
+
+<div class="eventTab">
+<ul class="clearfix"> 
+  <li><%= link_to I18n.t('title.event_info'), event, :class => set_active_if_controller('events') %></li>
+  <li><%= link_to I18n.t('title.comments'), event_comments_path(event), :class => set_active_if_controller('comments') %></li>
+  <li><%= link_to I18n.t('title.gallery'), event_galleries_path(event), :class => set_active_if_controller('galleries') %></li>
+  <li><%= link_to I18n.t('title.hotels'), event_hotels_path(event), :class => set_active_if_controller('hotels') %></li> 
+</ul>
+</div>
