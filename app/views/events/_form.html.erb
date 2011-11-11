@@ -11,8 +11,8 @@
 		  <%= f.text_area :description %>
 		</p>
 
-    <p>
-      <%= f.label :categories %><br />   
+    <%= f.label :categories %><br /> 
+    <p class="categories_field">       
       <% Category.all.each do |category| %>
         <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %><br />
       <% end %>
