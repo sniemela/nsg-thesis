@@ -134,6 +134,7 @@ class EventsController < ApplicationController
 
   def unapproved
     @events = Event.unapproved
+    add_breadcrumb I18n.t('title.unapproved_events'), :unapproved_events_path
   end
 
   def approve

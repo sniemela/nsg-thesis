@@ -2,10 +2,10 @@ class ClientsController < ApplicationController
   before_filter :login_required
   before_filter :admin_required, :only => [:index, :confirm, :unconfirmed]
   before_filter :client_not_allowed, :only => [:new, :create]
+  add_breadcrumb I18n.t('title.clients'), :clients_path
 
   def index
     @clients = Client.all
-    add_breadcrumb I18n.t('title.clients'), :clients_path    
   end
 
   def new
@@ -15,7 +15,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id], :joins => :user, :select => 'clients.*, users.id as user_id')
-    add_breadcrumb I18n.t('title.clients'), :clients_path 
+    add_breadcrumb I18n.t('my_links.my_client'), client_path(@client)
   end
 
   def confirm
@@ -26,11 +26,12 @@ class ClientsController < ApplicationController
 
   def unconfirmed
     @clients = Client.unconfirmed
+    add_breadcrumb I18n.t('title.unconfirmed_clients'), :unconfirmed_clients_path
   end
 
   def create
     @client = Client.new(params[:client])
-    @client.client_type_id = params[:client][:client_type_id].to_i
+    @client.client_type = params[:client][:client_type]
     @client.user = current_user
 
     if @client.save

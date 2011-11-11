@@ -20,6 +20,7 @@ class AdsController < ApplicationController
 
   def unconfirmed
     @ads = Ad.unconfirmed
+    add_breadcrumb I18n.t('title.unconfirmed_ads'), :unconfirmed_ads_path
   end
 
   def confirm

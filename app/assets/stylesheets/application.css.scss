@@ -216,6 +216,14 @@ header h1 a {
   height: 19px;
   width: 15px;
 }
+.submit_form{
+  width:700px;
+  float:left;
+}
+.showtime_fields {
+  float: left;
+  width: 100%;
+}
 #new_event {
 	float: left;
 	width: 700px;
@@ -264,10 +272,13 @@ header h1 a {
 	width: 700px;
 	margin: 5px 0;
 }
-.start_time, .end_time {
-	float: left;
-	width: 300px;
-	margin: 5px 0;
+.end_time{	
+  float: left;
+	margin: 5px 50px 5px 0;
+}
+.start_time{	
+  float: left;
+	margin: 5px 50px 5px 0;
 }
 .add_showtime {
 	float: left;
@@ -276,7 +287,7 @@ header h1 a {
 }
 .remove_showtime {
 	float: left;
-  margin: 8px 0 0 10px;
+  margin: 25px 0 0 0px;
 }
 .to-until {
 	margin: 0 30px;
@@ -387,6 +398,10 @@ header h1 a {
   -webkit-border-radius: 0 6px 6px 6px;
   -moz-border-radius: 0 6px 6px 6px;
   border-radius: 0 6px 6px 6px;
+}
+.categories_field {
+  width: 25%;
+  text-align: right;
 }
 .categories {
 	margin-bottom: 20px;
