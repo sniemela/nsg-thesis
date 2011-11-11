@@ -3,7 +3,12 @@
 <% end %>
 
 <header>
-  <h1 class="show_category_name"><%= @category.name %></h1>
+  <h1 class="show_category_name"><%= @category.name %>
+    <% if is_admin? %>
+      <span class="icons-right"><%= link_to (image_tag 'delete.gif'), @category, :confirm => I18n.t('help.delete_confirm_category'), :method => :delete %></span>
+      <span class="icons-right"><%= link_to (image_tag 'edit.png'), edit_category_path(@category) %></span>
+    <% end %>
+  </h1>
 </header>
 
 <p class="show_category_description"><%= @category.description %></p>
