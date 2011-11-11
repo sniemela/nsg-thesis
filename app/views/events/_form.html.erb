@@ -1,43 +1,47 @@
 <%= form_for @event do |f| %>
   <%= f.error_messages %>
 
-	<p>
+	  <p>
 		  <%= f.label :name %><br />
       <%= f.text_field :name %>
 		</p>
+		
 		<p>
 		  <%= f.label :description %><br />
 		  <%= f.text_area :description %>
 		</p>
 
-    <p><%= f.label :categories %></p>
-    <br />
-    <% Category.all.each do |category| %>
-      <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %>
-      <br />
-    <% end %>
- 
-    <%= f.fields_for :showtimes do |builder| %>
-      <%= render 'showtime_fields', :f => builder %>
-    <% end %>    
-    <span class="add_showtime">
-			<%= link_to_add_fields "Add showtime", f, :showtimes %>
-		</span>  
-  
-  <% if @event.new_record? %>
-      <%= f.fields_for :galleries do |gallery_form| %>
-        <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
-          <%= resource_form.label t('title.event_image') %><br />
-          <%= resource_form.file_field :resource %>
-        <% end %>
+    <p>
+      <%= f.label :categories %><br />   
+      <% Category.all.each do |category| %>
+        <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %><br />
       <% end %>
-  <% end %>
-
-    <p id="country">
+    </p>
+    
+    <p>
+      <%= f.fields_for :showtimes do |builder| %>
+        <%= render 'showtime_fields', :f => builder %>
+      <% end %>    
+      <span><%= link_to_add_fields "Add showtime", f, :showtimes %></span>
+    </p>
+  
+    <p>
+      <% if @event.new_record? %>
+          <%= f.fields_for :galleries do |gallery_form| %>
+            <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
+              <%= resource_form.label t('title.event_image') %><br />
+              <%= resource_form.file_field :resource %>
+            <% end %>
+          <% end %>
+      <% end %>
+    </p>
+    
+    <p>
       <%= f.label :country %><br />
       <%= f.text_field :country %>
     </p>
-    <p id="address">
+    
+    <p>
       <%= f.label :address %><br />
       <%= f.text_field :address %>
     </p>
@@ -46,13 +50,14 @@
       <%= f.label :active_time_start %><br />
       <%= f.text_field :active_time_start, :class => "datepicker" %>
     </p>
+
     <p class="end_time">
       <%= f.label :active_time_end %><br />
       <%= f.text_field :active_time_end, :class => "datepicker" %>
     </p>
   
-  <p id="event_submit">
-		<%= f.submit %>
-		<%= link_to 'Cancel', events_path %>
-	</p>
+    <p>
+		  <%= f.submit %>
+		  <%= link_to 'Cancel', events_path %>
+	  </p>
 <% end %>
