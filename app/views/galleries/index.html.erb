@@ -1,5 +1,5 @@
 <%= render :partial => 'shared/event_tab_nav', :locals => { :event => @event } %>
 
 <div class="event_content">
-
+  <%= link_to I18n.t('title.new_gallery'), new_event_gallery_path(@event) %>
 </div>

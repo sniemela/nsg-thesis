@@ -1,0 +1,12 @@
+<header>
+  <h1><%= I18n.t('title.new_gallery') %></h1>
+</header>
+
+<%= form_for [@event, @gallery] do |f| %>
+  <%= render f %>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+

@@ -94,6 +94,7 @@ fi:
     delete_event: Poista tapahtuma
     anonymous: Käyttäjä
     advanced_search: Tarkentava haku
+    new_gallery: Uusi galleria
     
   notice:
     event_added: Tapahtuma välitetty ylläpitäjälle
