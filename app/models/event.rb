@@ -42,6 +42,10 @@ class Event < ActiveRecord::Base
 
     has "RADIANS(longitude)", :as => :longitude, :type => :float
     has "RADIANS(latitude)", :as => :latitude, :type => :float
+    has showtimes(:start_time), :as => :start_time
+
+    set_property :longitude_attr, :as => :longitude
+    set_property :latitude_attr, :as => :latitude
 
     where sanitize_sql(['approved', true])
   end

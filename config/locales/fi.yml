@@ -44,6 +44,7 @@ fi:
     delete_confirm_comment: Haluatko varmasti poistaa kommentin?
     delete_confirm_category: Haluatko varmasti poistaa kategorian?
     empty_category: Tässä kategoriassa ei ole tapahtumia
+    distance: Etäisyys
 
   misc:
     price: Hinta
@@ -92,6 +93,7 @@ fi:
     delete: Poista
     delete_event: Poista tapahtuma
     anonymous: Käyttäjä
+    advanced_search: Tarkentava haku
     
   notice:
     event_added: Tapahtuma välitetty ylläpitäjälle
