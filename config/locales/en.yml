@@ -67,6 +67,8 @@ en:
     delete_event: Delete event
     anonymous: User
     comments: Comments
+    unconfirmed_clients: Unconfirmed Clients
+    unapproved_events: Unapproved Events
     
   notice:
     event_added: Event sent to admin

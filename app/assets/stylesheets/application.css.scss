@@ -214,36 +214,30 @@ header h1 a {
   margin-left: -25px;
   margin-top: 4px;
   height: 19px;
-  width: 15px;
+  width: 15px;  
 }
 .submit_form{
   width:700px;
   float:left;
 }
-.showtime_fields {
+.field_with_errors {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  position: relative;
+  text-align: left;
+}
+.showtime_fields{
   float: left;
   width: 100%;
 }
+.start_time, .end_time {}
+.add_showtime {}
+.remove_showtime {}
 #new_event {
 	float: left;
 	width: 700px;
 }
-#showtimes, #location, #publishing-time, #event_submit {
-	width: 700px;
-	margin: 5px 0;
-}
-#event_main_info {
-	width: 450px;
-	margin-top: 7px;
-}
-	#event_main_info input, #event_main_info textarea {;
-		width: 300px !important;
-	}
-#event-image {
-	float: right;
-	width: 220px;
-}
-
 	input[type="text"], textarea {
 		border: 1px solid #D9D9D8;
 		-webkit-border-radius: 4px 4px 4px 4px;
@@ -266,29 +260,7 @@ header h1 a {
 	width: 170px;
 	margin-right: 20px;
 }
-	#new_event textarea {height: 263px;}
-#location p {
-	float: left;
-	width: 700px;
-	margin: 5px 0;
-}
-.end_time{	
-  float: left;
-	margin: 5px 50px 5px 0;
-}
-.start_time{	
-  float: left;
-	margin: 5px 50px 5px 0;
-}
-.add_showtime {
-	float: left;
-  margin: 0 0 10px 130px;
-  width: 700px;
-}
-.remove_showtime {
-	float: left;
-  margin: 25px 0 0 0px;
-}
+#new_event textarea {height: 263px;}
 .to-until {
 	margin: 0 30px;
 }

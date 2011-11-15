@@ -17,7 +17,6 @@
         <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %><br />
       <% end %>
     </p>
-    
     <p>
       <%= f.fields_for :showtimes do |builder| %>
         <%= render 'showtime_fields', :f => builder %>
@@ -34,7 +33,6 @@
           <% end %>
       <% end %>
     </p>
-    
     <p>
       <%= f.label :country %><br />
       <%= f.text_field :country %>
