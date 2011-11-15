@@ -320,6 +320,7 @@ fi:
         active_time_start: Julkaisuaika
         active_time_end: Piilotusaika
         approved: Hyväksytty
+        picture: Kuva
         showtimes:
           start_time: Alkamisaika
           end_time: Päättymisaika

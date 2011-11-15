@@ -25,14 +25,11 @@
       <span><%= link_to_add_fields "Add showtime", f, :showtimes %></span>  
     </p>  
     <p>
-      <% if @event.new_record? %>
-          <%= f.fields_for :galleries do |gallery_form| %>
-            <%= gallery_form.fields_for :gallery_resources do |resource_form| %>
-              <%= resource_form.label t('title.event_image') %><br />
-              <%= resource_form.file_field :resource %>
-            <% end %>
-          <% end %>
+      <%= f.label :picture %><br />
+      <% if !@event.new_record? && @event.has_picture? %>
+        <%= image_tag @event.picture(:small) %><br />
       <% end %>
+      <%= f.file_field :picture %>
     </p>
     
     <p>

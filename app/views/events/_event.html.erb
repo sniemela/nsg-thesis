@@ -2,8 +2,8 @@
 
 <article id="event-<%= event.id %>" class="event_list_entry <%= cycle('even', 'odd') %> clearfix">
   <div class="event_image">
-  <% unless event.galleries.first.nil? %>
-    <%= image_tag event.galleries.first.gallery_resources.first.resource(:small) %>
+  <% if event.has_picture? %>
+    <%= image_tag event.picture(:small) %>
   <% end %>
   </div>
   <div class="event_info">

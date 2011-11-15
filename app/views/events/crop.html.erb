@@ -15,12 +15,12 @@ function update_crop(coords) {
   var rx = 100/coords.w;
   var ry = 100/coords.h;
   $('#preview').css({
-    width: Math.round(rx * <%= @event.galleries.first.gallery_resources.first.resource_geometry(:large).width %>) + 'px',
-    height: Math.round(ry * <%= @event.galleries.first.gallery_resources.first.resource_geometry(:large).height %>) + 'px',
+    width: Math.round(rx * <%= @event.picture_geometry(:crop).width %>) + 'px',
+    height: Math.round(ry * <%= @event.picture_geometry(:crop).height %>) + 'px',
     marginLeft: '-' + Math.round(rx * coords.x) + 'px',
     marginTop: '-' + Math.round(ry * coords.y) + 'px'
   });
-  var ratio = <%= @event.galleries.first.gallery_resources.first.resource_geometry(:original).width %> / <%= @event.galleries.first.gallery_resources.first.resource_geometry(:crop).width %>;
+  var ratio = <%= @event.picture_geometry(:original).width %> / <%= @event.picture_geometry(:crop).width %>;
   $("#crop_x").val(Math.round(coords.x * ratio));
   $("#crop_y").val(Math.round(coords.y * ratio));
   $("#crop_w").val(Math.round(coords.w * ratio));
@@ -29,20 +29,16 @@ function update_crop(coords) {
 </script>
 <% end %>
 
-<%= image_tag @event.galleries.first.gallery_resources.first.resource(:crop), :id => "cropbox" %>
+<%= image_tag @event.picture(:crop), :id => "cropbox" %>
 
 <h4>Preview:</h4>
 <div style="width:100px; height:100px; overflow:hidden">
-  <%= image_tag @event.galleries.first.gallery_resources.first.resource(:crop), :id => "preview" %>
+  <%= image_tag @event.picture(:crop), :id => "preview" %>
 </div>
 
 <%= form_for @event do |f| %>
-  <%= f.fields_for :galleries do |gallery| %>
-    <%= gallery.fields_for :gallery_resources do |resource| %>
-      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
-        <%= resource.hidden_field attribute, :id => attribute %>
-      <% end %>
-    <% end %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= f.hidden_field attribute, :id => attribute %>
   <% end %>
   <p><%= f.submit "Crop" %></p>
 <% end %>
