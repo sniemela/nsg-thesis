@@ -71,6 +71,7 @@ en:
     unconfirmed_clients: Unconfirmed Clients
     advanced_search: Advanced search
     unapproved_events: Unapproved Events
+    new_gallery: New Gallery
     
   notice:
     event_added: Event sent to admin
