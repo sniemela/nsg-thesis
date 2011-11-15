@@ -1,3 +1,5 @@
 <p><%= @user.name %>,</p>
 
-<p>Thank you for submitting event. The event has been sent to admin who will approve it. You will receive a confirmation mail when event has been published.</p>
+<p>Thank you for submitting an event. The event has been sent to admin who will approve it. You will receive a confirmation mail when your event has been published.</p>
+
+<p>You can edit your event here: <%= link_to "#{@event.name}", myevents_url(@event) %></p>

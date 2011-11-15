@@ -88,7 +88,8 @@ events = [{
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
-  :approved => true
+  :approved => true,
+  :picture => File.open(Rails.root.join('app/assets/images/hangover2.jpg'))
 },
 {
   :name => 'The Rise of The Planet Of The Apes',

@@ -17,7 +17,12 @@ class Event < ActiveRecord::Base
   after_create :notify_created
   after_update :notify_updated
   after_destroy :notify_removed
-  validate :check_active_times
+  validate :check_active_times, :if => Proc.new { |r| r.active_time_start_changed? or r.active_time_end_changed? }
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :reprocess_picture, :if => :cropping?
+
+  has_attached_file :picture, :styles => { :small => "100x100#", :medium => "200x200#", :crop => "300x300>", :large => "800x800>" }, :processors => [:cropper]
 
   before_save :set_active_datetimes
   
@@ -42,6 +47,10 @@ class Event < ActiveRecord::Base
 
     has "RADIANS(longitude)", :as => :longitude, :type => :float
     has "RADIANS(latitude)", :as => :latitude, :type => :float
+    has showtimes(:start_time), :as => :start_time
+
+    set_property :longitude_attr, :as => :longitude
+    set_property :latitude_attr, :as => :latitude
 
     where sanitize_sql(['approved', true])
   end
@@ -79,6 +88,19 @@ class Event < ActiveRecord::Base
     "#{id}-#{name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end
 
+  def has_picture?
+    !self.picture.url.include?('missing')
+  end
+
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+
+  def picture_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(picture.path(style))
+  end
+
   private
     def notify_updated
       NodejsNotifier.notify('/event_updated', to_json)
@@ -90,5 +112,9 @@ class Event < ActiveRecord::Base
   
     def notify_removed
       NodejsNotifier.notify('/event_removed', to_json)
+    end
+
+    def reprocess_picture
+      picture.reprocess!
     end
 end

@@ -22,7 +22,9 @@ NsgThesis::Application.routes.draw do
   end
 
   resources :categories
-  resources :search
+  resources :search do
+    get 'advanced', :on => :collection
+  end
 
   resources :ads do
     get 'unconfirmed', :on => :collection

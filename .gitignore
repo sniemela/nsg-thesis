@@ -4,6 +4,7 @@ log/*.log
 log/*.pid
 tmp/
 db/user_seeds.rb
+config/database.yml
 public/system
 lib/nodejs/node_modules
 *~

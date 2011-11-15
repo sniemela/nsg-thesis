@@ -44,6 +44,7 @@ fi:
     delete_confirm_comment: Haluatko varmasti poistaa kommentin?
     delete_confirm_category: Haluatko varmasti poistaa kategorian?
     empty_category: Tässä kategoriassa ei ole tapahtumia
+    distance: Etäisyys
 
   misc:
     price: Hinta
@@ -92,9 +93,11 @@ fi:
     delete: Poista
     delete_event: Poista tapahtuma
     anonymous: Käyttäjä
+    advanced_search: Tarkentava haku
     
   notice:
     event_added: Tapahtuma välitetty ylläpitäjälle
+    event_published: Tapahtuma lisätty
     event_updated: Tapahtuma päivitetty
     event_deleted: Tapahtuma poistettu
     event_approved: Tapahtuma hyväksytty
@@ -317,6 +320,7 @@ fi:
         active_time_start: Julkaisuaika
         active_time_end: Piilotusaika
         approved: Hyväksytty
+        picture: Kuva
         showtimes:
           start_time: Alkamisaika
           end_time: Päättymisaika

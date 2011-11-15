@@ -69,9 +69,7 @@ class EventsController < ApplicationController
     @event = Event.new 
     
     @event.categories.build
-    @event.showtimes.build      
-    @event.galleries.build
-    @event.galleries[0].gallery_resources.build
+    @event.showtimes.build
   end
   
   def create
@@ -81,9 +79,18 @@ class EventsController < ApplicationController
     @event.submitter = current_user
 
     if @event.save
-    UserMailer.event_sent_to_admin(@event, @event.submitter).deliver
-      if params[:event][:galleries_attributes].blank?
-        redirect_to events_path, :flash => { :success => I18n.t('notice.event_added') }
+      if @event.submitter.client_id.nil?
+        UserMailer.event_sent_to_admin(@event, @event.submitter).deliver
+      else
+        @event.approve!
+        UserMailer.event_published(@event, @event.submitter).deliver
+        UserMailer.notice_admin(@event, @event.submitter).deliver
+      end
+
+      message = @event.approved? ? I18n.t('notice.event_published') : I18n.t('notice.event_added')
+
+      if params[:event][:picture].blank?
+        redirect_to events_path, :flash => { :success => message }
       else
         render :crop
       end
@@ -102,10 +109,6 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     add_breadcrumb I18n.t('title.edit_event'), :edit_event_path
-    if @event.galleries.blank?
-      @event.galleries.build
-      @event.galleries[0].gallery_resources.build
-    end
   end
   
   def update
@@ -115,11 +118,11 @@ class EventsController < ApplicationController
     params[:event][:category_ids].uniq!
 
     if @event.update_attributes!(params[:event])
-      unless params[:event][:galleries_attributes].blank?
-        update_event_first_gallery_resource(@event, params[:event][:galleries_attributes]["0"][:gallery_resources_attributes]["0"])
+      if params[:event][:picture].blank?
+        redirect_to @event, :flash => { :success => I18n.t('notice.event_updated') }
+      else
+        render :crop
       end
-
-      redirect_to @event, :flash => { :success => I18n.t('notice.event_updated') }
     else
       render :edit
     end
@@ -148,9 +151,4 @@ class EventsController < ApplicationController
     add_breadcrumb I18n.t('my_links.my_events'), :myevents_path
     @my_events = current_user.all_events.order('created_at DESC')
   end
-
-  private
-    def update_event_first_gallery_resource(event, params)
-      event.galleries.first.gallery_resources.first.update_attributes!(params)
-    end
 end

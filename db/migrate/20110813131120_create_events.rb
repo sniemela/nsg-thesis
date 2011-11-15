@@ -14,6 +14,10 @@ class CreateEvents < ActiveRecord::Migration
       t.string :submitter_type
       t.float :longitude
       t.float :latitude
+      t.string :picture_file_name
+      t.string :picture_content_type
+      t.integer :picture_file_size
+      t.datetime :picture_updated_at
 
       t.timestamps
     end

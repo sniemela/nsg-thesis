@@ -1,0 +1,38 @@
+<header>
+  <h1><%= I18n.t('title.advanced_search') %></h1>
+</header>
+
+<%= form_tag search_index_path, :method => :get do |f| %>
+  <input type="hidden" name="advs" value="1" />
+  <input type="hidden" name="q" value="1" />
+  <input type="hidden" name="loc" data-location="true" />
+
+  <p>
+    <%= label_tag :name, Event.human_attribute_name('name') %> <br />
+    <%= text_field_tag :name, params[:name] %>
+  </p>
+
+  <p>
+    <%= label_tag :description, Event.human_attribute_name('description') %> <br />
+    <%= text_area_tag :description, params[:description] %>
+  </p>
+
+  <p>
+    <%= label_tag Showtime.human_attribute_name('start_time') %><br />
+    <%= text_field_tag :ss1, params[:ss1], :class => 'datetimepicker' %> - <%= text_field_tag :ss2, params[:ss2], :class => 'datetimepicker' %>
+  </p>
+
+  <p>
+    <%= label_tag :distance, I18n.t('help.distance') %> <br />
+    <%= text_field_tag :distance, params[:distance] %> km
+  </p>
+
+  <p>
+    <%= submit_tag I18n.t('help.search') %>
+  </p>
+<% end %>
+
+<% for event in @events %>
+  <%= render event %>
+<% end %>
+

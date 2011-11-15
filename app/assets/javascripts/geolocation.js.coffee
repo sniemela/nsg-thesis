@@ -10,6 +10,11 @@ $ ->
         href += '?' if href[-1] != '?'
         href += '&location=' + $.userLocation[0] + ',' + $.userLocation[1]
         $(element).attr('href', href)
+      
+      elements = $('input[data-location=true]')
+      for element in elements
+        $(element).val($.userLocation[0] + ',' + $.userLocation[1])
+
 
   if navigator.geolocation
     $.getlocationSupported = true

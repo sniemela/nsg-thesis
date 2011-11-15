@@ -13,7 +13,11 @@ dev_mysql:
   adapter: mysql2
   database: happen
   username: root
+<<<<<<< HEAD:config/database.yml
   password:
+=======
+  password: 
+>>>>>>> 2b40f41bcc326c3aea7411f6519088a1e79e6380:config/database.yml.bak
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
