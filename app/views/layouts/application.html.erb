@@ -50,6 +50,10 @@
 
 <div id="wrapper">
   <section id="content">
+      <div id="livemode">
+    <span id="live"> Live mode: </span> 
+    <a href="#" id="toggle_live_mode"><img style="display:none" id="live_on" src="/assets/on25.png" /><img src="/assets/off25.png" id="live_off" /></a>  
+  </div>
       <p class="notification notice available_updates" style="display: none">
         <%= t 'content_has_been_updated' %>, 
         <a href="#" class="update_content_link"><%= t('show_updates') %></a>
@@ -121,7 +125,11 @@
   </aside>
 
   <footer id="page_footer">
-    
+    <ul>
+      <li> Copyright info </li>
+      <li> Name & Date </li>
+      <li> something else </li>
+    </ul>
   </footer>
 </div>
 <script type="text/javascript">

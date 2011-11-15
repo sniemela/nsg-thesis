@@ -83,13 +83,32 @@ header h1 a {
   float: left;
   margin-right: $content-margin;
   width: $content-width;
-	min-height: 800px;
+	min-height: 600px;
 }
 
 #page_footer {
-  clear: both;
+    background: none repeat scroll 0 0 #DEDEDE;
+    -webkit-box-shadow: 2px 2px 5px #CCC inset;
+    -moz-box-shadow: 2px 2px 5px #CCC inset;
+    box-shadow: 2px 2px 5px #CCC inset;
+    clear: both;
+    height: 100px;
+    margin: 20px 0;
+    width: 100%
+    }
+#page_footer ul {
+  width: 100%; 
+  list-style: none;
+  float:left;
 }
-
+#page_footer li {
+  color: #AAAAAA;
+    float: left;
+    margin: 43px 0;
+    text-align: center;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    width: 33%;
+}
 #user_nav ul li { display: inline; }
 
 #signin li { display: inline; }
@@ -163,6 +182,10 @@ header h1 a {
 }
 #live {
   top: -4px;
+}
+#livemode {
+  float: right;
+  margin-top: 23px;
 }
 .recent_events {
 	color: #000;
