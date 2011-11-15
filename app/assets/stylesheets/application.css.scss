@@ -231,9 +231,25 @@ header h1 a {
   float: left;
   width: 100%;
 }
-.start_time, .end_time {}
-.add_showtime {}
-.remove_showtime {}
+.showtime_fields .field_with_errors, .showtime_fields p {
+  float: left;
+  margin: 0 10px 0 0;
+}
+.showtime_fields .field_with_errors input {
+  margin-top: 15px;
+}
+
+.start_time, .end_time {
+  float:left;
+  margin: 5px 10px 5px 0 !important;
+}
+.add_showtime {
+  FLOAT:LEFT;
+}
+.remove_showtime {
+  float:left;
+  margin-top: 25px !important;
+}
 #new_event {
 	float: left;
 	width: 700px;
