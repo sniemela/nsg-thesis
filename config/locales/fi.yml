@@ -97,6 +97,7 @@ fi:
     
   notice:
     event_added: Tapahtuma välitetty ylläpitäjälle
+    event_published: Tapahtuma lisätty
     event_updated: Tapahtuma päivitetty
     event_deleted: Tapahtuma poistettu
     event_approved: Tapahtuma hyväksytty

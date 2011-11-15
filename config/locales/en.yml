@@ -69,9 +69,11 @@ en:
     anonymous: User
     comments: Comments
     advanced_search: Advanced search
+    unapproved_events: Unapproved Events
     
   notice:
     event_added: Event sent to admin
+    event_published: Event published
     event_updated: Event Updated
     event_deleted: Event deleted
     event_approved: Event approved

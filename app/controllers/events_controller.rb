@@ -81,9 +81,15 @@ class EventsController < ApplicationController
     @event.submitter = current_user
 
     if @event.save
-    UserMailer.event_sent_to_admin(@event, @event.submitter).deliver
       if params[:event][:galleries_attributes].blank?
-        redirect_to events_path, :flash => { :success => I18n.t('notice.event_added') }
+        if @event.submitter.client_id.nil?
+         UserMailer.event_sent_to_admin(@event, @event.submitter).deliver
+         redirect_to events_path, :flash => { :success => I18n.t('notice.event_added') }
+        else
+          @event.approve!
+          UserMailer.event_published(@event, @event.submitter).deliver
+          redirect_to events_path, :flash => { :success => I18n.t('notice.event_published') }
+        end
       else
         render :crop
       end
