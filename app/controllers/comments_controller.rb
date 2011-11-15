@@ -3,10 +3,12 @@ class CommentsController < ApplicationController
   
   def index
     @commentable = find_commentable
-    @comments = @commentable.comments 
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
   
   def new
+    @commentable = find_commentable
     @comment = Comment.new
   end
   
@@ -16,7 +18,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     
     if @comment.save
-      redirect_to event_path(@commentable, :anchor => 'event-comments'), :flash => { :success => 'Thank you for your comment!' }
+      redirect_to event_comments_path(@commentable), :flash => { :success => I18n.t('notice.comment_added') }
     else
       render :new
     end
@@ -32,11 +34,11 @@ class CommentsController < ApplicationController
   end
   
   def update
-    @comment = Comment.find(params[:id])
     @commentable = find_commentable
+    @comment = Comment.find(params[:id])
     
     if @comment.update_attributes(params[:comment])
-      redirect_to event_path(@commentable, :anchor => 'event-comments'), :flash => { :success => 'Your comment has been updated!' }
+      redirect_to event_comments_path(@commentable), :flash => { :success => I18n.t('notice.comment_updated') }
     else
       render :edit
     end
@@ -46,7 +48,7 @@ class CommentsController < ApplicationController
     @commentable = find_commentable
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to event_path(@commentable, :anchor => 'event-comments'), :flash => { :success => 'Comment has been deleted.' }
+    redirect_to event_comments_path(@commentable), :flash => { :success => I18n.t('notice.comment_deleted') }
   end
   
   private

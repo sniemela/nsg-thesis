@@ -78,3 +78,6 @@ en:
     event_updated: Event Updated
     event_deleted: Event deleted
     event_approved: Event approved
+    comment_added: Thank you for your comment
+    comment_updated: Comment updated
+    comment_deleted: Comment deleted

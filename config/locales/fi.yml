@@ -101,6 +101,9 @@ fi:
     event_updated: Tapahtuma päivitetty
     event_deleted: Tapahtuma poistettu
     event_approved: Tapahtuma hyväksytty
+    comment_added: Kiitos kommentistasi
+    comment_updated: Kommentti päivitetty
+    comment_deleted: Kommentti poistettu
 
   date:
       formats:

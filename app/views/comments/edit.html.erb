@@ -2,4 +2,4 @@
 
 <%= render :partial => 'form', :locals => { :commentable => @commentable} %>
 
-<%= link_to 'Cancel', @commentable %>
+<%= link_to 'Cancel', event_comments_path(@commentable) %>
