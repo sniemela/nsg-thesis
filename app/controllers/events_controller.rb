@@ -88,6 +88,7 @@ class EventsController < ApplicationController
         else
           @event.approve!
           UserMailer.event_published(@event, @event.submitter).deliver
+          UserMailer.notice_admin(@event, @event.submitter).deliver
           redirect_to events_path, :flash => { :success => I18n.t('notice.event_published') }
         end
       else

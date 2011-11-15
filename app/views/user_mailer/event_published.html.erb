@@ -1,3 +1,5 @@
 <p><%= @user.name %>,</p>
 
 <p>Your event has now been published.</p>
+
+<p>Here is a link to your event: <%= link_to "#{@event.name}", events_url(@event) %></p>
