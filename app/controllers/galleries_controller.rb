@@ -2,11 +2,14 @@ class GalleriesController < ApplicationController
   before_filter :find_event
 
   def index
-    @galleries = @event.galleries
+    @galleries = @event.galleries.includes(:gallery_resources)
   end
 
   def new
     @gallery = Gallery.new
+    3.times do
+      @gallery.gallery_resources.build
+    end
   end
 
   def create

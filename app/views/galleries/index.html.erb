@@ -3,8 +3,19 @@
 <div class="event_content">
   <%= link_to I18n.t('title.new_gallery'), new_event_gallery_path(@event) %>
 
-  <% for gallery in @galleries %>
-    <%= gallery.name %><br />
+  <div class="galleries">
+  <% @galleries.each_with_index do |gallery, i| %>
+    <% if i % 3 == 0 %>
+    <div class="gallery_row clearfix">
+    <% end %>
+      <div id="gallery-#{gallery.id}" class="gallery">
+        <%= image_tag gallery.gallery_resources.first.resource(:medium) %><br />
+        <span><%= gallery.name %></span>
+      </div>
+    <% if i % 3 == 2 %>
+    </div>
+    <% end %>
   <% end %>
+  </div>
 </div>
 

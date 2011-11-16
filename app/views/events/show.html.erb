@@ -2,9 +2,9 @@
 
   <div class="event_content">
     <div id="event-info">
-      <% if @event.galleries.exists? %>
+      <% if @event.has_picture? %>
         <p class="event-image">
-          <%= image_tag @event.galleries.first.gallery_resources.first.resource(:medium) %>
+          <%= image_tag @event.picture(:medium) %>
         </p>
       <% end %>
       <p class="event-description">

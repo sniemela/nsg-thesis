@@ -5,6 +5,14 @@
 <%= form_for [@event, @gallery] do |f| %>
   <%= render f %>
 
+  <%= f.fields_for :gallery_resources do |gallery| %>
+      <p>
+        <%= gallery.label :name %><br />
+        <%= gallery.text_field :name %><br />
+        <%= gallery.file_field :resource %>
+      </p>
+  <% end %>
+
   <p>
     <%= f.submit %>
   </p>
