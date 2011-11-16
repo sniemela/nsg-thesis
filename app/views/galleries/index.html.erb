@@ -2,4 +2,9 @@
 
 <div class="event_content">
   <%= link_to I18n.t('title.new_gallery'), new_event_gallery_path(@event) %>
+
+  <% for gallery in @galleries %>
+    <%= gallery.name %><br />
+  <% end %>
 </div>
+

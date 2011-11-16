@@ -2,10 +2,25 @@ class GalleriesController < ApplicationController
   before_filter :find_event
 
   def index
+    @galleries = @event.galleries
   end
 
   def new
     @gallery = Gallery.new
+  end
+
+  def create
+    @gallery = @event.galleries.build(params[:gallery])
+
+    if @gallery.save
+      redirect_to event_galleries_path(@event), :flash => { :success => I18n.t('notice.gallery_created') }
+    else
+      render :new
+    end
+  end
+
+  def show
+    @gallery = @event.galleries.find(params[:id])
   end
 
   private

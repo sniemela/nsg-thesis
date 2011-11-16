@@ -105,6 +105,7 @@ fi:
     comment_added: Kiitos kommentistasi
     comment_updated: Kommentti päivitetty
     comment_deleted: Kommentti poistettu
+    gallery_created: Galleria luotu
 
   date:
       formats:
