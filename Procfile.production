@@ -1,3 +1,4 @@
+ts: bundle exec rake thinking_sphinx:run_in_foreground RAILS_ENV=production
 passenger: passenger start -p 3001 -e production
 nodejs: node lib/nodejs/app.js
 log: tail -f -n 0 log/production.log
