@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :active_time_end
       t.string :country,            :null => false
       t.string :address
+      t.string :city
       t.integer :times_watched,     :default => 0
       t.integer :liked_count,       :default => 0
       t.boolean :approved,          :default => false
