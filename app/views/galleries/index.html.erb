@@ -9,7 +9,7 @@
     <div class="gallery_row clearfix">
     <% end %>
       <div id="gallery-#{gallery.id}" class="gallery">
-        <%= image_tag gallery.gallery_resources.first.resource(:medium) %><br />
+        <%= link_to image_tag(gallery.gallery_resources.first.resource(:medium)), [@event, gallery] %><br />
         <span><%= gallery.name %></span>
       </div>
     <% if i % 3 == 2 %>

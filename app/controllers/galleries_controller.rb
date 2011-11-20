@@ -24,6 +24,7 @@ class GalleriesController < ApplicationController
 
   def show
     @gallery = @event.galleries.find(params[:id])
+    @gallery_resources = @gallery.gallery_resources
   end
 
   private

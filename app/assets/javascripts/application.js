@@ -43,6 +43,9 @@ $('#toggle_live_mode').click(function(e) {
 
 $(document).ready(function() {
   $("a#signin").fancybox();
+  $('a.image').fancybox({
+    padding: 5,
+  });
 
   $("a#inline").fancybox({
     hideOnContentClick: true,

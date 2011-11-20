@@ -43,6 +43,8 @@ aside ul li { margin-bottom: 3px; }
 aside a { text-decoration: none; }
 aside h2 { font-size: 15px; }
 
+.gallery img { -webkit-box-shadow: 2px 2px 3px #777; }
+
 body {
   background-color: $body-backcolor;
 }

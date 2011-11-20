@@ -1,0 +1,21 @@
+<%= render :partial => 'shared/event_tab_nav', :locals => { :event => @event } %>
+
+<div class="event_content">
+<header>
+  <h2><%= @gallery.name %></h2>
+</header>
+  <div class="galleries">
+  <% @gallery_resources.each_with_index do |gallery_resource, i| %>
+    <% if i % 3 == 0 %>
+    <div class="gallery_row clearfix">
+    <% end %>
+      <div id="gallery-resource-#{gallery_resource.id}" class="gallery">
+        <%= link_to image_tag(gallery_resource.resource(:medium)), gallery_resource.resource(:large), :class => 'image', :rel => 'gallery' %><br />
+        <span><%= gallery_resource.name %></span>
+      </div>
+    <% if i % 3 == 2 %>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
