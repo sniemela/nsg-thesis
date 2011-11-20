@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
 
   has_attached_file :picture, :styles => { :small => "100x100#", :medium => "200x200#", :crop => "300x300>", :large => "800x800>" }, :processors => [:cropper]
 
-  before_save :set_active_datetimes
+  before_save :set_active_datetimes, :set_address_and_city
   
   accepts_nested_attributes_for :showtimes, :galleries, :categories, :reject_if => :all_blank, :allow_destroy => true
   
@@ -57,6 +57,12 @@ class Event < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
+
+  def set_address_and_city
+    self[:address_and_city] = ""
+    self[:address_and_city] = self[:address] if self[:address]
+    self[:address_and_city] = ", " + self[:city] if self[:city]
+  end
 
   def set_active_datetimes
     self[:active_time_start] = Time.zone.now + 10.minutes if self[:active_time_start].blank?
