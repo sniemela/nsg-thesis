@@ -14,8 +14,9 @@ class SearchController < ApplicationController
       conditions = {}
       q = {}
 
-      conditions[:name] = params[:name] unless params[:name].blank?
-      conditions[:description] = params[:description] unless params[:description].blank?
+      [:name, :description, :address, :city, :country].each do |column|
+        conditions[column] = params[column] unless params[column].blank?
+      end
 
       if !params[:ss1].blank? && !params[:ss2].blank?
         with[:start_time] = Time.parse(params[:ss1])..Time.parse(params[:ss2])

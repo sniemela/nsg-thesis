@@ -23,6 +23,21 @@
   </p>
 
   <p>
+    <%= label_tag :address, Event.human_attribute_name('address') %><br />
+    <%= text_field_tag :address, params[:address] %>
+  </p>
+
+  <p>
+    <%= label_tag :city, Event.human_attribute_name('city') %><br />
+    <%= text_field_tag :city, params[:city] %>
+  </p>
+
+  <p>
+    <%= label_tag :country, Event.human_attribute_name('country') %><br />
+    <%= select_tag :country, country_options_for_select(params[:country]).html_safe, :include_blank => true %>
+  </p>
+
+  <p>
     <%= label_tag :distance, I18n.t('help.distance') %> <br />
     <%= text_field_tag :distance, params[:distance] %> km
   </p>

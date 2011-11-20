@@ -41,6 +41,9 @@ class Event < ActiveRecord::Base
   define_index do
     indexes :name
     indexes description
+    indexes city
+    indexes address
+    indexes country
     indexes comments.body, :as => :comment_body
     indexes tags(:name), :as => :tag_name
     indexes submitter(:name), :as => :submitter_name
