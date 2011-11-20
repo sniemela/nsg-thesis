@@ -13,7 +13,7 @@
 
       <h2><%= t 'title.where' %></h2>
       <p>
-        <%= @event.address %> <a id="inline" href="#map"><%= t('help.show_map') %></a><br />
+        <%= @event.address_and_city %> <a id="inline" href="#map"><%= t('help.show_map') %></a><br />
         <%= @event.country %>
 
         <div style="display:none"><div id="map"><%= image_tag "http://maps.google.com/maps/api/staticmap?size=600x480&sensor=false&zoom=14&markers=#{@event.latitude}%2C#{@event.longitude}" %></div></div>

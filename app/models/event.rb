@@ -59,9 +59,11 @@ class Event < ActiveRecord::Base
   after_validation :geocode, :if => :address_changed?
 
   def set_address_and_city
+    address_and_city_parts = []
+    address_and_city_parts << self[:address] if self[:address]
+    address_and_city_parts << self[:city] if self[:city]
     self[:address_and_city] = ""
-    self[:address_and_city] = self[:address] if self[:address]
-    self[:address_and_city] = ", " + self[:city] if self[:city]
+    self[:address_and_city] = address_and_city_parts.join(', ')
   end
 
   def set_active_datetimes
