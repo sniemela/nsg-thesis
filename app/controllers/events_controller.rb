@@ -100,7 +100,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id], :include => :showtimes)
     @event.increment!(:times_watched, 1)
     @comment = @event.comments.build
     add_breadcrumb @event.name, event_path(@event)
