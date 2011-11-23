@@ -19,6 +19,17 @@
         <div style="display:none"><div id="map"><%= image_tag "http://maps.google.com/maps/api/staticmap?size=600x480&sensor=false&zoom=14&markers=#{@event.latitude}%2C#{@event.longitude}" %></div></div>
       </p>
 
+      <h2><%= I18n.t('title.showtimes') %></h2>
+      <table>
+        <% for showtime in @event.showtimes %>
+        <tr>
+          <td><%= l showtime.start_time, :format => :long2 %></td>
+          <td style="width: 20px; text-align: center">-</td>
+          <td><%= l showtime.end_time, :format => :long2 %></td>
+        </tr>
+        <% end %>
+      </table>
+
       <p class="event-category_list">
         <%= category_list(@event.categories) %>
       </p>

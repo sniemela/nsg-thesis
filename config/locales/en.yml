@@ -10,6 +10,7 @@ en:
   time:
     formats:
       long: "%m-%d-%Y %H:%M"
+      long2: "%m.%d.%Y at %I:%M %p"
 
   custom_errors:
     cant_be_past: can't be in the past
