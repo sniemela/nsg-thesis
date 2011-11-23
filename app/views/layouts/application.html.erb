@@ -16,7 +16,7 @@
 		  </div>
         <nav id="user_nav">
         <% if current_user %>
-          <%= t 'title.welcome' %> <%= current_user.name %>
+          <%= current_user.name %>
           <%= link_to t('title.sign_out'), signout_path, :id => "signout" %>
         <% else %>
           <%= link_to t('title.sign_in'), signin_path, :id => "signin" %>
