@@ -61,6 +61,13 @@ class Event < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
+  def tag_names=(tag_names)
+    tag_names.each do |tag_name|
+      tag = Tag.find_or_initialize_by_name(tag_name.downcase)
+      tags << tag if tag
+    end
+  end
+
   def set_address_and_city
     address_and_city_parts = []
     address_and_city_parts << self[:address] if self[:address]

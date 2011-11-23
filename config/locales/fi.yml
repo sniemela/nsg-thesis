@@ -95,6 +95,7 @@ fi:
     anonymous: Käyttäjä
     advanced_search: Tarkentava haku
     new_gallery: Uusi galleria
+    results_for_tag: Tulokset tagille
     
   notice:
     event_added: Tapahtuma välitetty ylläpitäjälle

@@ -1,0 +1,8 @@
+<header>
+  <h1><%= I18n.t('title.results_for_tag') %> "<%= @tag.name %>"</h1>
+</header>
+
+<% for event in @events %>
+  <%= render :partial => 'events/event', :object => event %>
+<% end %>
+

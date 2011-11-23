@@ -21,6 +21,7 @@ NsgThesis::Application.routes.draw do
     get 'like', :on => :member
   end
 
+  resources :tags
   resources :categories
   resources :search do
     get 'advanced', :on => :collection

@@ -73,6 +73,7 @@ en:
     advanced_search: Advanced search
     unapproved_events: Unapproved Events
     new_gallery: New Gallery
+    results_for_tag: Results for tag
     
   notice:
     event_added: Event sent to admin

@@ -103,6 +103,7 @@ events = [{
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(musiikki music metal konsertti),
   :approved => true,
   :picture => File.open(Rails.root.join('app/assets/images/events/motorhead.jpg'))
 },
@@ -116,6 +117,7 @@ events = [{
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(koulutus oppiminen training),
   :approved => true,
   :picture => File.open(Rails.root.join('app/assets/images/events/education.png'))
 },
@@ -129,6 +131,7 @@ events = [{
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(musiikki music provinssi kesä),
   :approved => false,
   :picture => File.open(Rails.root.join('app/assets/images/events/provinssi.png'))
 },
@@ -142,6 +145,7 @@ events = [{
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(autot moottoripyörät cars),
   :approved => true,
   :picture => File.open(Rails.root.join('app/assets/images/events/motorshow.jpeg'))
 },
@@ -155,6 +159,7 @@ events = [{
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(jääkiekko smliiga hifk tps icehockey),
   :approved => true,
   :picture => File.open(Rails.root.join('app/assets/images/events/smliiga.jpg'))
 },
@@ -169,6 +174,7 @@ Pure Party Pleasure. Biggest Club Hits, Dance, RnB. Party so smooth it's got to 
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(biletys musiikki music party),
   :approved => true,
   :picture => File.open(Rails.root.join('app/assets/images/events/clubsilk.jpeg'))
 },
@@ -182,6 +188,7 @@ Pure Party Pleasure. Biggest Club Hits, Dance, RnB. Party so smooth it's got to 
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(viini expo messu),
   :approved => true,
   :picture => File.open(Rails.root.join('app/assets/images/events/wine.jpg'))
 },
@@ -195,6 +202,7 @@ Pure Party Pleasure. Biggest Club Hits, Dance, RnB. Party so smooth it's got to 
   :country => 'Finland',
   :submitter_id => clients[0].id,
   :submitter_type => 'Client',
+  :tag_names => %w(joulu),
   :approved => true,
   :picture => File.open(Rails.root.join('app/assets/images/events/vesku.jpg'))
 }]

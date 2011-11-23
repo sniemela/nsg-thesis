@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :login_required, :except => [:index, :show, :feed, :recent, :most_watched, :nearby, :upcoming, :like]
   before_filter :admin_required, :only => [:unapproved, :approve]
+
   add_breadcrumb I18n.t('title.events'), :events_path
   
   def index
