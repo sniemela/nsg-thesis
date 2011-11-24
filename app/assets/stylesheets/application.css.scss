@@ -214,7 +214,7 @@ header h1 a {
     position: relative;
 }
 .add_event a {
-	background: url("/assets/new_event.png") no-repeat scroll 0 -1px transparent;
+	background: url("/assets/add.png") no-repeat scroll 0 -1px transparent;
 	font-size: 12px;
 	color: #333;
 	text-decoration: none;
@@ -261,9 +261,11 @@ header h1 a {
   position: relative;
   text-align: left;
 }
+
 .showtime_fields{
   float: left;
   width: 100%;
+  margin-bottom: 10px;
 }
 .showtime_fields .field_with_errors, .showtime_fields p {
   float: left;
@@ -277,12 +279,19 @@ header h1 a {
   float:left;
   margin: 5px 10px 5px 0 !important;
 }
-.add_showtime {
-  FLOAT:LEFT;
+
+.add_showtime a {
+  background: url("/assets/add.png") no-repeat scroll 0 -1px transparent;
+  padding-left: 20px;
+  text-decoration: none;
+  margin-top: 20px;
 }
-.remove_showtime {
-  float:left;
+.remove_showtime a {
+  background: url("/assets/remove.png") no-repeat scroll 0 -1px transparent;
+  float: left;
   margin-top: 25px !important;
+  padding-left: 20px;
+  text-decoration: none;
 }
 #new_event {
 	float: left;

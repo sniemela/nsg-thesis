@@ -24,8 +24,8 @@
       <%= f.fields_for :showtimes do |builder| %>
         <%= render 'showtime_fields', :f => builder %>
       <% end %>
-      <span><%= link_to_add_fields "Add showtime", f, :showtimes %></span>  
-    </p>  
+      <span class="add_showtime"><%= link_to_add_fields "Add showtime", f, :showtimes %></span>
+    </p>
     <p>
       <%= f.label :picture %><br />
       <% if !@event.new_record? && @event.has_picture? %>
