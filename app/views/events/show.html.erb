@@ -7,6 +7,7 @@
           <%= image_tag @event.picture(:medium) %>
         </p>
       <% end %>
+      
       <p class="event-description">
         <%= @event.description %>
       </p>
@@ -33,5 +34,9 @@
       <p class="event-category_list">
         <%= category_list(@event.categories) %>
       </p>
+      
+      <ul class="event_additional_info">
+        <%= render :partial => 'shared/socialmedia_buttons', :locals => { :event => @event } %>
+      
     </div> 
   </div>
