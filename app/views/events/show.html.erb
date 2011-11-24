@@ -1,13 +1,7 @@
 <%= render :partial => 'shared/event_tab_nav', :locals => { :event => @event } %>
 
-  <div class="event_content">
-    <div id="event-info">
-      <% if @event.has_picture? %>
-        <p class="event-image">
-          <%= image_tag @event.picture(:medium) %>
-        </p>
-      <% end %>
-      
+  <div class="event_content clearfix">
+     <div class="event-info" style="width: <%= event_info_width(@event, :style => :info, :info_width => 460, :image_width => 200) %>px;">
       <p class="event-description">
         <%= @event.description %>
       </p>
@@ -37,6 +31,12 @@
       
       <ul class="event_additional_info">
         <%= render :partial => 'shared/socialmedia_buttons', :locals => { :event => @event } %>
-      
-    </div> 
+      </ul>
+    </div>
+
+    <% if @event.has_picture? %>
+      <p class="event-image" style="width: <%= event_image_width(@event, :style => :info, :image_width => 200) %>px;">
+          <%= link_to image_tag(@event.picture(:info)), @event.picture.url(:large), :class => 'image' %>
+      </p>
+    <% end %> 
   </div>
