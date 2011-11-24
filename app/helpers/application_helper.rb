@@ -33,6 +33,23 @@ module ApplicationHelper
     end
   end
 
+  def upcoming_events(limit)
+    upcoming_events = Event.upcoming.approved.limit(limit)
+    list_of_upcoming_events = []
+
+    upcoming_events.each do |event|
+      event_info = content_tag(:span) do
+        "#{l(event.showtimes.first.start_time, :format => :long2)} - #{link_to event.name, event}".html_safe
+      end
+
+      list_of_upcoming_events << content_tag(:div, :style => 'display: none') do
+        event_info.html_safe
+      end
+    end
+
+    list_of_upcoming_events.join.html_safe
+  end
+
   def link_to_locales
     locales = {
       :fi => 'Suomeksi',

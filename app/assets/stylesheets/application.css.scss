@@ -178,6 +178,7 @@ header h1 a {
 #search-box {
  		float: right;
     width: 223px;
+    margin-top: -4px;
 }
 #toggl_live_mode, #live {
   display: inline;
@@ -193,15 +194,23 @@ header h1 a {
 .recent_events {
 	color: #000;
 	float: left;
+	margin-left: 130px;
+	width: 430px;
 }
 .recent_events span{
   display: block;
-  margin-left: 150px;
+  font-size: 11px;
+  color: #777;
 }
+
+.recent_events span a {
+  font-size: 12px;
+}
+
 .add_event {
     display: block;
     float: right;
-    margin: 5px 40px 0 0;
+    margin: 0 40px 0 0;
     position: relative;
 }
 .add_event a {
@@ -232,7 +241,6 @@ header h1 a {
 #search-box img {
   border: medium none;
   margin-left: -25px;
-  margin-top: 4px;
 }
 .submit {
   background: url(/assets/search.png) 0 0 no-repeat;
@@ -349,7 +357,6 @@ header h1 a {
   height: 23px;
   margin: 7px 10px 0 0;
   text-align: right;
-  width: 550px;
 	font-size: $user_nav_font-size;
 }
 
