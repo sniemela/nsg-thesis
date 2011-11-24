@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "themes/happen";
 
-.event_content .event-image { float: left; width: 200px; }
-.event_content .event-info { float: right; width: 460px; }
+.event_content .event-image { float: left; }
+.event_content .event-info { float: right; }
 
 .event_list_entry { padding: 10px 10px 10px 0; }
 .event_list_entry.even { 
