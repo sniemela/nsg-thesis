@@ -85,3 +85,6 @@ en:
     comment_updated: Comment updated
     comment_deleted: Comment deleted
     gallery_created: Gallery created
+    client_required: Client is required to complete this action
+    ad_created: Ad has been created and waiting for confirmation
+    ad_confirmed: Ad was successfully confirmed

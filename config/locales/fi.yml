@@ -107,6 +107,9 @@ fi:
     comment_updated: Kommentti päivitetty
     comment_deleted: Kommentti poistettu
     gallery_created: Galleria luotu
+    client_required: Toiminta vaatii asiakkuuden
+    ad_created: Mainos on luotu ja välitetty ylläpitäjälle
+    ad_confirmed: Mainos hyväksytty
 
   date:
       formats:

@@ -26,7 +26,7 @@ class AdsController < ApplicationController
   def confirm
     @ad = Ad.find(params[:id])
     @ad.confirm!
-    redirect_to unconfirmed_ads_path, :notice => 'Ad was successfully confirmed'
+    redirect_to unconfirmed_ads_path, :notice => I18n.t('notice.ad_confirmed')
   end
 
   def create
@@ -38,7 +38,7 @@ class AdsController < ApplicationController
       @ad.client_id = current_user.client_id
 
       if @ad.save
-        redirect_to ads_path, :notice => 'Ad has been created and waiting for confirmation'
+        redirect_to ads_path, :notice => I18n.t('notice.ad_created')
       else
         render :new
       end
@@ -50,7 +50,7 @@ class AdsController < ApplicationController
   private
     def client_required
       if current_user.client_id.nil?
-        redirect_to root_path, :alert => 'Client is required to complete this action'
+        redirect_to root_path, :alert => I18n.t('notice.client_required')
         false
       end
     end
