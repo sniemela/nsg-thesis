@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "themes/happen";
 
+.event_content .event-image { float: left; width: 200px; }
+.event_content .event-info { float: right; width: 460px; }
+
 .event_list_entry { padding: 10px 10px 10px 0; }
 .event_list_entry.even { 
 	background-color: #f8f8f8;
@@ -73,7 +76,6 @@
   padding:10px 10px 8px 10px;
   *padding-top:3px;
   *margin-top:-15px;
-  clear:left;
 }
 #event_filter_nav ul {
   list-style-type: none;
