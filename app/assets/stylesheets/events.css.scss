@@ -27,7 +27,20 @@
 .event_list_entry.odd .event_info {
   margin: 10px 0;
 }
-.event_image { width: 100px; height: 100px; margin-left: 10px; float: left; }
+.event_image { position: relative; width: 100px; height: 100px; margin-left: 10px; float: left; }
+.event_image a {
+  background: url("/assets/angular_glow.png") repeat scroll 0 0 transparent; 
+  float: left;
+  height: 100px;
+  margin-bottom: -100px;
+  margin-left: 0;
+  position: relative;
+  width: 100px;
+  z-index: 200; 
+}
+.event_image a:hover {
+  background: none;
+}
 .event_info { float: right; margin-left: 12px; width: 598px }
 .event_info h1 { margin-top: 0; margin-bottom: 2px }
 .event_info p {margin:0; padding:10px 10px 0 0;}
