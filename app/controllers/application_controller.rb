@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	add_breadcrumb I18n.t('title.home'), :root_path
   def admin_required
     unless current_user && current_user.admin?
-      redirect_to root_path, :alert => 'Unauthorized access'
+      redirect_to root_path, :alert => I18n.t('notice.unauthorized_access')
       false
     end
   end
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   def login_required
     unless current_user
-      redirect_to root_path, :alert => 'You must log in to complete this action'
+      redirect_to root_path, :alert => I18n.t('notice.sign_in_required')
       false
     end
   end

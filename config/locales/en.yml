@@ -78,7 +78,7 @@ en:
   notice:
     event_added: Event sent to admin
     event_published: Event published
-    event_updated: Event Updated
+    event_updated: Event updated
     event_deleted: Event deleted
     event_approved: Event approved
     comment_added: Thank you for your comment
@@ -88,3 +88,9 @@ en:
     client_required: Client is required to complete this action
     ad_created: Ad has been created and waiting for confirmation
     ad_confirmed: Ad was successfully confirmed
+    sign_in_required: You must sign in to complete this action
+    unauthorized_access: Unauthorized access
+    category_created: Category created
+    category_updated: Category updated
+    signed_in: Signed in successfully
+    signed_out: Signed out successfully
