@@ -38,12 +38,15 @@ module ApplicationHelper
     list_of_upcoming_events = []
 
     upcoming_events.each do |event|
-      event_info = content_tag(:span) do
-        "#{l(event.showtimes.first.start_time, :format => :long2)} - #{link_to event.name, event}".html_safe
+      event_info = content_tag(:p, :class => 'header-event-info') do
+        [
+          content_tag('span', link_to(event.name, event)),
+          content_tag('span', l(event.showtimes.first.start_time, :format => :long2), :class => 'event-showtime')
+        ].join.html_safe
       end
 
-      list_of_upcoming_events << content_tag(:div, :style => 'display: none') do
-        event_info.html_safe
+      list_of_upcoming_events << content_tag(:div, :style => 'display: none', :class => 'clearfix') do
+        [event_info, link_to(tag('img', :src => event.picture.url(:thumb),), event, :class => 'header-event-image')].join.html_safe
       end
     end
 

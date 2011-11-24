@@ -6,6 +6,10 @@
 .event_content .event-image { float: left; }
 .event_content .event-info { float: right; }
 
+.header-event-info { float: right; margin: 0; padding: 0; padding-left: 5px; width: 350px; }
+.header-event-image { float: left; width: 40px; height: 40px; }
+.header-event-info .event-showtime { font-size: 9px; padding-top: 5px; }
+
 .event_list_entry { padding: 10px 10px 10px 0; }
 .event_list_entry.even { 
 	background-color: #f8f8f8;

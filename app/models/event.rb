@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_picture, :if => :cropping?
 
-  has_attached_file :picture, :styles => { :thumb => "50x50#", :small => "100x100#", :medium => "200x200#", :info => "200x200>", :crop => "300x300>", :large => "800x800>" }, :processors => [:cropper]
+  has_attached_file :picture, :styles => { :thumb => "40x40#", :small => "100x100#", :medium => "200x200#", :info => "200x200>", :crop => "300x300>", :large => "800x800>" }, :processors => [:cropper]
 
   before_save :set_active_datetimes, :set_address_and_city
   
