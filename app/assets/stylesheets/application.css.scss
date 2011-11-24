@@ -413,26 +413,15 @@ header h1 a {
   -moz-border-radius: 0 6px 6px 6px;
   border-radius: 0 6px 6px 6px;
 }
-.categories_field {
-  width: 25%;
-  text-align: right;
-}
 .categories {
-	margin-bottom: 20px;
-}
-.categories, .categories p {
 	float:left;
 	width: 100%;
+  margin:10px 0 0 10px;
 }
-.categories input {
-	width:20px !important;
-	height:20px !important;
-}
-.categories p label {
-	padding-left: 0 !important;
-}
-.categories label, .categories input {
-	padding-left: 100px;
+.cat_label, .cat_input {
+  float:left;
+  width:16%;
+  margin: 0px;
 }
 #categories li {
   list-style: none;

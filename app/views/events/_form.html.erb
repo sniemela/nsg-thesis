@@ -11,11 +11,19 @@
 		  <%= f.text_area :description %>
 		</p>
 
-    <%= f.label :categories %><br /> 
-    <p class="categories_field">       
-      <% Category.all.each do |category| %>
-        <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %><br />
+    <%= f.label :categories %><br />     
+      <div class="categories">
+        <% Category.all.each do |category| %>
+      <p class="cat_label"> 
+        <%= label_tag category.name %> 
+      </p>
+      <p class="cat_input">        
+        <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %><br />
+      </p>
+     <p class="clearfix"></p>
       <% end %>
+       
+      </div>
     </p>
     <p>
       <%= f.fields_for :showtimes do |builder| %>
