@@ -178,6 +178,7 @@ header h1 a {
 #search-box {
  		float: right;
     width: 223px;
+    margin-top: -4px;
 }
 #toggl_live_mode, #live {
   display: inline;
@@ -193,15 +194,23 @@ header h1 a {
 .recent_events {
 	color: #000;
 	float: left;
+	margin-left: 130px;
+	width: 430px;
 }
 .recent_events span{
   display: block;
-  margin-left: 150px;
+  font-size: 11px;
+  color: #777;
 }
+
+.recent_events span a {
+  font-size: 12px;
+}
+
 .add_event {
     display: block;
     float: right;
-    margin: 5px 40px 0 0;
+    margin: 0 40px 0 0;
     position: relative;
 }
 .add_event a {
@@ -232,7 +241,6 @@ header h1 a {
 #search-box img {
   border: medium none;
   margin-left: -25px;
-  margin-top: 4px;
 }
 .submit {
   background: url(/assets/search.png) 0 0 no-repeat;
@@ -293,11 +301,6 @@ header h1 a {
 		height: 25px;
 		width: 160px;
 	}
-	#new_event input {
-		width: 160px;
-		height: 25px;
-		position: relative;
-	}
 	#event_submit input {
 	width: 170px;
 	margin-right: 20px;
@@ -349,7 +352,6 @@ header h1 a {
   height: 23px;
   margin: 7px 10px 0 0;
   text-align: right;
-  width: 550px;
 	font-size: $user_nav_font-size;
 }
 
@@ -413,26 +415,16 @@ header h1 a {
   -moz-border-radius: 0 6px 6px 6px;
   border-radius: 0 6px 6px 6px;
 }
-.categories_field {
-  width: 25%;
-  text-align: right;
-}
 .categories {
-	margin-bottom: 20px;
+  list-style-type: none;
+  margin-top: 10px;
 }
-.categories, .categories p {
-	float:left;
-	width: 100%;
-}
-.categories input {
-	width:20px !important;
-	height:20px !important;
-}
-.categories p label {
-	padding-left: 0 !important;
-}
-.categories label, .categories input {
-	padding-left: 100px;
+.categories li { margin-bottom: 5px; }
+.categories li label { margin-left: 5px; }
+.cat_label, .cat_input {
+  float:left;
+  width:16%;
+  margin: 0px;
 }
 #categories li {
   list-style: none;

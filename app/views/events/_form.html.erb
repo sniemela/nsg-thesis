@@ -11,12 +11,15 @@
 		  <%= f.text_area :description %>
 		</p>
 
-    <%= f.label :categories %><br /> 
-    <p class="categories_field">       
-      <% Category.all.each do |category| %>
-        <%= label_tag category.name %> <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category) %><br />
-      <% end %>
-    </p>
+    <%= f.label :categories %><br />     
+      <ul class="categories">
+        <% Category.all.each do |category| %>
+        <li>
+          <%= check_box_tag 'event[category_ids][]', category.id, @event.categories.include?(category), :id => "category-#{category.id}" %>
+          <%= label_tag "category-#{category.id}", category.name %>
+        </li>
+        <% end %>
+      </ul>
     <p>
       <%= f.fields_for :showtimes do |builder| %>
         <%= render 'showtime_fields', :f => builder %>
@@ -32,7 +35,7 @@
     </p>
     <p>
       <%= f.label :country %><br />
-      <%= f.text_field :country %>
+      <%= f.country_select :country, ['Finland'] %>
     </p>
     
     <p>

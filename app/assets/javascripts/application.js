@@ -8,6 +8,7 @@
 //= require jquery-ui-1.8.16.custom.min
 //= require jquery_ujs
 //= require fancybox
+//= require jquery.cycle.all
 //= require jquery-ui-timepicker-addon
 //= require jquery.idTabs.min
 //= require jquery.Jcrop.min
@@ -49,5 +50,12 @@ $(document).ready(function() {
 
   $("a#inline").fancybox({
     hideOnContentClick: true,
+  });
+
+  $('.recent_events').cycle({
+    fx: 'scrollLeft',
+    speed: 500,
+    timeout: 5000,
+    pause: 1,
   });
 });
