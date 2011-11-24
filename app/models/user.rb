@@ -24,4 +24,9 @@ class User < ActiveRecord::Base
     return true if client && client.events.exists?(event)
     return false
   end
+  
+  def has_comment?(comment)
+    return true if comments.exists?(comment)
+    return false
+  end
 end

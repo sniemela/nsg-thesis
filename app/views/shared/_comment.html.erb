@@ -4,7 +4,7 @@
   <% else %>
     <p class="comment-commenter"><%= t 'title.anonymous' %>
   <% end %>
-  <% if is_admin? %>
+  <% if is_admin? || (current_user && current_user.has_comment?(comment)) %>
     <span style="float:right;padding-right:20px;"><%= link_to (image_tag 'edit.png'), edit_event_comment_path(@commentable, comment) %></span>
     <span style="float:right;padding-left:15px;"><%= link_to (image_tag 'delete.gif'), [@commentable, comment], :confirm => I18n.t('help.delete_confirm_comment'), :method => :delete %></span>
   <% end %></p>

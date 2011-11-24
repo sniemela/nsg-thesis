@@ -1,12 +1,10 @@
-<div id="comment-form">
-  <div class="fix-styling">
-    <%= form_for [@commentable, @comment] do |f| %>
-      <%= f.error_messages %>
-      
-      <p>
-        <%= f.text_area :body, :rows => 5 %>
-      </p>
-      <p><%= f.submit %></p>
-    <% end %>
-  </div>
+<div class="fix-styling">
+  <%= form_for [@commentable, @comment] do |f| %>
+    <%= f.error_messages %>
+    
+    <p>
+      <%= f.text_area :body, :rows => 5 %>
+    </p>
+    <p><%= f.submit %></p>
+  <% end %>
 </div>
