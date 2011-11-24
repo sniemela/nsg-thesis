@@ -23,6 +23,10 @@ en:
     new_client: New client
     my_ads: My ads
     new_ad: New ad
+    
+  misc:
+    remove: Remove
+    add_showtime: Add showtime
   
   help:
     select_sign_in_account: Select one of these accounts to sign in

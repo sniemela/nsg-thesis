@@ -24,7 +24,7 @@
       <%= f.fields_for :showtimes do |builder| %>
         <%= render 'showtime_fields', :f => builder %>
       <% end %>
-      <span class="add_showtime"><%= link_to_add_fields "Add showtime", f, :showtimes %></span>
+      <span class="add_showtime"><%= link_to_add_fields I18n.t("misc.add_showtime"), f, :showtimes %></span>
     </p>
     <p>
       <%= f.label :picture %><br />

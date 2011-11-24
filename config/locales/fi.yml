@@ -52,6 +52,8 @@ fi:
     approve: Hyväksy
     cancel: Peruuta
     select_days: Valitse päivät
+    remove: Poista
+    add_showtime: Lisää esitysaika
 
   title:
     search_results: Hakutulokset sanalle
