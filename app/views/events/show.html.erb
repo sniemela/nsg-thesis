@@ -1,7 +1,7 @@
 <%= render :partial => 'shared/event_tab_nav', :locals => { :event => @event } %>
 
   <div class="event_content clearfix">
-     <div class="event-info" style="width: <%= event_info_width(@event, :style => :info, :info_width => 460, :image_width => 200) %>px;">
+     <div class="event-info" style="width: <%= event_info_width(@event, :style => :info, :info_width => 460, :image_width => 200) %>px;margin-bottom: 20px;">
       <p class="event-description">
         <%= @event.description %>
       </p>
@@ -27,11 +27,7 @@
 
       <p class="event-category_list">
         <%= category_list(@event.categories) %>
-      </p>
-      
-      <ul class="event_additional_info">
-        <%= render :partial => 'shared/socialmedia_buttons', :locals => { :event => @event } %>
-      </ul>
+      </p>    
     </div>
 
     <% if @event.has_picture? %>
@@ -39,4 +35,9 @@
           <%= link_to image_tag(@event.picture(:info)), @event.picture.url(:large), :class => 'image' %>
       </p>
     <% end %> 
+    
+    <ul class="event_additional_info" style="float:left; margin-left:-10px">
+      <%= render :partial => 'shared/socialmedia_buttons', :locals => { :event => @event } %>
+    </ul>
+    
   </div>
