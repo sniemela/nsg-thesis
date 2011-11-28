@@ -4,7 +4,11 @@ module ApplicationHelper
   def is_admin?
     current_user && current_user.admin?
   end
-  
+
+  def title(page_title)
+    content_for(:title, page_title + ' - Happen')
+  end
+
   def link_to_remove_fields(name, f)
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
   end
