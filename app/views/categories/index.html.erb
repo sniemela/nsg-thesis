@@ -1,3 +1,5 @@
+<% title t('title.categories') %>
+
 <h1><%= t 'title.categories' %></h1>
 <% if is_admin? %>
   <p class="add_category"><%= link_to t("title.add_category"), new_category_path %></p>
