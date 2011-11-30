@@ -15,6 +15,8 @@ module EventsHelper
   end
 
   def event_info_width(event, options)
+    return 660 unless event.has_picture?
+
     dimensions = event.picture_geometry(options[:style])
     options[:info_width].to_i + (options[:image_width].to_i - dimensions.width.to_i)
   end
