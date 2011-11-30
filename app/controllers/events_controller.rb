@@ -81,11 +81,11 @@ class EventsController < ApplicationController
 
     if @event.save
       if @event.submitter.client_id.nil?
-        UserMailer.event_sent_to_admin(@event, @event.submitter).deliver
+        #UserMailer.event_sent_to_admin(@event, @event.submitter).deliver
       else
         @event.approve!
-        UserMailer.event_published(@event, @event.submitter).deliver
-        UserMailer.notice_admin(@event, @event.submitter).deliver
+        #UserMailer.event_published(@event, @event.submitter).deliver
+        #UserMailer.notice_admin(@event, @event.submitter).deliver
       end
 
       message = @event.approved? ? I18n.t('notice.event_published') : I18n.t('notice.event_added')
