@@ -70,7 +70,7 @@ clients = Client.create!(clients_info, :without_protection => true)
 events = [{
   :name => 'Hangover Part II',
   :description => "Two years after the bachelor party in Las Vegas, Phil, Stu, Alan, and Doug jet to Thailand for Stu's wedding. Stu's plan for a subdued pre-wedding brunch, however, goes seriously awry.",
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 2.weeks,
   :address => 'Hovioikeudenpuistikko 16, Vaasa',
   :city => 'Vaasa',
@@ -83,7 +83,7 @@ events = [{
 {
   :name => 'The Rise of The Planet Of The Apes',
   :description => "During experiments to find a cure for Alzheimer's disease, a genetically-enhanced chimpanzee uses its greater intelligence to lead other apes to freedom.",
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 2.weeks,
   :address => 'Hovioikeudenpuistikko 16, Vaasa',
   :city => 'Vaasa',
@@ -96,7 +96,7 @@ events = [{
 {
   :name => 'Motörhead',
   :description => "Motörhead Suomessa! Varaa lippusi heti! Lipun hinta 50 euroa.",
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 2.weeks,
   :address => 'Tallberginkatu 1 C 15, Helsinki',
   :city => 'Helsinki',
@@ -110,7 +110,7 @@ events = [{
 {
   :name => 'Educa Helsinki',
   :description => "Educa has earned its place as Finland's largest and most important annual training event for professionals in the education field. Educa is a forum where professionals actively look for new products and services and information to support their purchasing decisions.",
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 8.weeks,
   :address => 'Messuaukio 1, Helsinki',
   :city => 'Helsinki',
@@ -124,7 +124,7 @@ events = [{
 {
   :name => 'Provinssirock',
   :description => 'Ihmisten Juhla, Provinssirock, tuo Suomen kesään niin kansainväliset kuin kotimaisetkin kärkinimet, musiikkimaailman uudempia tuttavuuksia ja sykäyttävän tunnelman. Festivaalia on järjestetty jo vuodesta 1979 kulttuurihistoriallisella Törnävänsaaren puistoalueella.',
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 2.weeks,
   :address => 'Vaasantie 11, Seinäjoki',
   :city => 'Seinäjoki',
@@ -138,7 +138,7 @@ events = [{
 {
   :name => 'Helsinki Motor Show',
   :description => 'The most awaited and biggest event displaying the best of automobile sector is all set for November. Luxury cars, vehicles, motorcycles, scooters, mopeds and all the other vehicles will be a part of this trade event. Suppliers, manufactures, sellers and others associated with the automobile industry will be seen under one roof at Helsinki Motor Show.',
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 2.weeks,
   :address => 'Messuaukio 1, Helsinki',
   :city => 'Helsinki',
@@ -152,7 +152,7 @@ events = [{
 {
   :name => 'HIFK - TPS',
   :description => 'SM-liiga ottelu HIFK - TPS Helsingin jäähallissa',
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 2.days + 3.hours,
   :address => 'Vaasantie 11, Seinäjoki',
   :city => 'Seinäjoki',
@@ -167,7 +167,7 @@ events = [{
   :name => "Club Silk - Valentine's Day Party Premiere at Helsinki Club (Sokos Hotel Helsinki)",
   :description => "Payment required - 8 euros - free entrance with The Queen of Hearts ticket
 Pure Party Pleasure. Biggest Club Hits, Dance, RnB. Party so smooth it's got to be Silk... The Queen of Hearts official after party Club Silk will take over Helsinki Club right after the Queen has been crowned!",
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 3.weeks,
   :address => 'Yliopistonkatu 8, Helsinki',
   :city => 'Helsinki',
@@ -181,7 +181,7 @@ Pure Party Pleasure. Biggest Club Hits, Dance, RnB. Party so smooth it's got to 
 {
   :name => "Viiniexpo 2012",
   :description => "Trade Days for Wines and Spirits, Wine Lover's Day Official Website ",
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 3.weeks,
   :address => 'Messuaukio 1, Helsinki',
   :city => 'Helsinki',
@@ -195,7 +195,7 @@ Pure Party Pleasure. Biggest Club Hits, Dance, RnB. Party so smooth it's got to 
 {
   :name => "Vesa-Matti Loiri - Sydämeeni joulun teen",
   :description => "Veskun joulukonsertti Verkatehtaalla",
-  :active_time_start => Time.zone.now,
+  :active_time_start => Time.zone.now + 5.minutes,
   :active_time_end => Time.zone.now + 3.weeks,
   :address => 'Hämeenlinna',
   :city => 'Hämeenlinna',
