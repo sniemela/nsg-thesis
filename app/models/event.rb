@@ -37,6 +37,7 @@ class Event < ActiveRecord::Base
   scope :between, lambda { |from, to| where('created_at between ? and ?', from, to) }
   scope :approved, where(:approved => true)
   scope :unapproved, where(:approved => false)
+  scope :active, where('active_time_start <= ? and active_time_end >= ?', Time.zone.now + 10.minutes, Time.zone.now)
 
   define_index do
     indexes :name
@@ -102,6 +103,14 @@ class Event < ActiveRecord::Base
     save!
   end
 
+  def small_picture_url
+    picture.url(:small)
+  end
+
+  def as_json(options = {})
+    super(options).merge(:picture => small_picture_url)
+  end
+
   def to_param
     "#{id}-#{name.downcase.gsub(/[^[:alnum:]]/,'-')}".gsub(/-{2,}/,'-')
   end
@@ -119,17 +128,21 @@ class Event < ActiveRecord::Base
     @geometry[style] ||= Paperclip::Geometry.from_file(picture.path(style))
   end
 
+  def to_json_with_showtimes
+    to_json(:include => :showtimes)
+  end
+
   private
     def notify_updated
-      NodejsNotifier.notify('/event_updated', to_json)
+      NodejsNotifier.notify('/event_updated', to_json_with_showtimes) unless self.times_watched_changed?
     end
 
     def notify_created
-      NodejsNotifier.notify('/event_added', to_json)
+      NodejsNotifier.notify('/event_added', to_json_with_showtimes)
     end
   
     def notify_removed
-      NodejsNotifier.notify('/event_removed', to_json)
+      NodejsNotifier.notify('/event_removed', to_json_with_showtimes)
     end
 
     def reprocess_picture

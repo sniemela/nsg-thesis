@@ -6,6 +6,8 @@
   <h1><%= t 'title.latest_events' %></h1>
 </header>
 
+<div class="event-list">
 <%- for event in @events -%>
 <%= render event %>
 <%- end -%>
+</div>

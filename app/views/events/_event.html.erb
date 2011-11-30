@@ -4,7 +4,7 @@
   <div class="event_image">
   <a href="#"></a>
     <% if event.has_picture? %>
-    <%= image_tag event.picture(:small) %>
+    <%= image_tag event.picture(:small), :id => "event-image-#{event.id}" %>
   <% end %>
   </div>
   <div class="event_info">

@@ -22,7 +22,7 @@
         <tr>
           <td><%= l showtime.start_time, :format => :long2 %></td>
           <td style="width: 20px; text-align: center">-</td>
-          <td><%= l showtime.end_time, :format => :long2 %></td>
+          <td><%= l(showtime.end_time, :format => :long2) if showtime.end_time %></td>
         </tr>
         <% end %>
       </table>

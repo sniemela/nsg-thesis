@@ -81,7 +81,48 @@ eventFeed.on 'remove', (event) ->
 
 
 addEventToList = (event) ->
-  console.log 'added'
+  console.log 'jee'
+
+  activeStartTime = new Date(event.active_time_start)
+  activeEndTime = new Date(event.active_time_end)
+  tenMinutes = 60 * 10
+
+  eventListDiv = $('.event-list')
+  eventContainer = $('.event_list_entry:first').clone(true)
+  eventContainer.hide()
+
+  prevEventId = eventContainer.attr('id')
+  prevEventId = prevEventId.split('-')[1]
+  eventContainer.attr('id', 'event-' + event.id)
+  
+  contentElements =
+    'name': null
+    'description': null
+    'image': null
+  
+  elementNamesToChange = ['name', 'description', 'image']
+
+  for name in elementNamesToChange
+    findQuery = '#event-' + name + '-' + prevEventId
+    element = eventContainer.find(findQuery)
+    
+    if element
+      element.attr('id', 'event-' + name + '-' + event.id)
+      contentElements[name] = element
+  
+  if eventContainer.hasClass('even')
+    eventContainer.removeClass('even')
+    eventContainer.addClass('odd')
+  else
+    eventContainer.removeClass('odd')
+    eventContainer.addClass('even')
+  
+  contentElements['name'].html(event.name)
+  contentElements['description'].html(event.description)
+  contentElements['image'].attr('src', event.picture)
+
+  eventListDiv.prepend(eventContainer)
+  eventContainer.fadeIn()
 
 
 updateEventDom = (event) ->
@@ -90,6 +131,10 @@ updateEventDom = (event) ->
   if eventDiv
     updateEvent(event.id, 'name', event.name)
     updateEvent(event.id, 'description', event.description)
+    img = $('#event-image-' + event.id)
+    img.hide()
+    img.attr('src', event.picture)
+    img.fadeIn()
 
 
 updateEvent = (id, element, content) ->
